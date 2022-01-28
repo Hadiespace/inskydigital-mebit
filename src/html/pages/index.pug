@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block const
+	- const indexPage = true;
+
+block meta
+	title
+	meta(name="description", content="")
+block content
+	include ../components/preview
+
+block prepend page-bottom
