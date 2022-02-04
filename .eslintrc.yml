@@ -12,6 +12,8 @@ parser: '@babel/eslint-parser'
 globals:
   ymaps: readonly
   app: readonly
+  global: readonly
+  process: readonly
 
 rules:
   indent: ["error", "tab"]

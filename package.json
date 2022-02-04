@@ -59,6 +59,8 @@
 		"webpack-stream": "7.0.0"
 	},
 	"dependencies": {
-		"swiper": "7.4.1"
+		"focus-visible": "5.2.0",
+		"swiper": "7.4.1",
+		"what-input": "5.2.10"
 	}
 }

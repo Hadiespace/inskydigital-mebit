@@ -1,0 +1,21 @@
+@mixin font($family, $style, $weight, $url) {
+	@font-face {
+		src:
+			url("../fonts/#{$url}.woff2") format("woff2"),
+			url("../fonts/#{$url}.woff") format("woff");
+		font-family: $family;
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+	}
+}
+
+@include font("Manrope", normal, 200, "Manrope-200");
+@include font("Manrope", normal, 300, "Manrope-300");
+@include font("Manrope", normal, 500, "Manrope-500");
+@include font("Manrope", normal, 600, "Manrope-600");
+@include font("Manrope", normal, 700, "Manrope-700");
+@include font("Manrope", normal, 800, "Manrope-800");
+@include font("OldStandardTT", normal, 800, "OldStandardTT-400");
+@include font("OldStandardTT", normal, 800, "OldStandardTT-700");
+@include font("ProstoOne", normal, 400, "ProstoOne-400");

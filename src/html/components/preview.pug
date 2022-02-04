@@ -1,2 +1,35 @@
+-
+	const previewSlides = [
+		{ title: 'Модульный диван Clift', href: index, tags: ['Скидка 20%', 'Фабрика Cierre'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+		{ title: 'Модульный диван Craft', href: index, tags: ['Скидка 30%', 'Фабрика Moah'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+		{ title: 'Модульный диван Clift', href: index, tags: ['Скидка 40%', 'Фабрика Cierre'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+		{ title: 'Модульный диван Craft', href: index, tags: ['Скидка 50%', 'Фабрика Moah'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+		{ title: 'Модульный диван Clift', href: index, tags: ['Скидка 60%', 'Фабрика Cierre'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+		{ title: 'Модульный диван Craft', href: index, tags: ['Скидка 70%', 'Фабрика Moah'], image: { src: 'images/preview-slide-image.jpg', alt: 'Описание' } },
+	];
+
 section.preview
-	div.preview__container.container
+		h2.visually-hidden Превью
+		div.preview__swiper
+			div.preview__swiper-container.swiper
+				ul.preview__swiper-wrapper.swiper-wrapper
+					each slide in previewSlides
+						li.preview-slide.swiper-slide
+							div.preview-slide__container.container
+								h3.preview-slide__title!= slide.title
+								div.preview-slide__tags
+									each tag in slide.tags
+										span!= tag
+								a.preview-slide__get-sale(href=slide.href) Забери свою скидку —
+							div.preview-slide__image
+									img(src=slide.image.src, alt=slide.image.alt)
+			div.preview__swiper-navigation
+				button.preview__swiper-button.preview__swiper-button--prev(type="button")
+					span.visually-hidden Предыдущий слайд
+					svg(width="7", height="14", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#preview-prev")
+				div.preview__swiper-dots
+				button.preview__swiper-button.preview__swiper-button--next(type="button")
+					span.visually-hidden Следующий слайд
+					svg(width="7", height="14", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#preview-next")

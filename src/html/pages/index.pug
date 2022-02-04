@@ -1,12 +1,14 @@
 extends ../layout.pug
 
 block const
-	- const indexPage = true;
+	- const currentPage = index;
 
 block meta
-	title
-	meta(name="description", content="")
+	title Мебель Италии
+	meta(name="description", content="Главная страница")
+	meta(name="keywords", content="Мебель, Италия")
 block content
+	h1.visually-hidden Главная страница компании Мебель Италии
 	include ../components/preview
 
 block prepend page-bottom

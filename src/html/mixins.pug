@@ -1,0 +1,14 @@
+//- SOCIAL
+mixin social(iconName, link, iconWidth, iconHeight, iconBefore, iconAfter)
+	a.social&attributes(attributes)(style="--before: " + iconBefore + "; " + "--after: " + iconAfter)(href=link)
+		span.visually-hidden!= iconName
+		svg(width=iconWidth, height=iconHeight, aria-hidden="true")
+			use(xlink:href="images/sprite.svg#" + iconName)
+
+//- USER LINK
+mixin userLink(title, link, iconName, iconWidth, iconHeight, count)
+	a.user-link&attributes(attributes)(href=link)
+		span.visually-hidden!= title
+		svg(width=iconWidth, height=iconHeight, aria-hidden="true")
+			use(xlink:href="images/sprite.svg#" + iconName)
+		span!= count

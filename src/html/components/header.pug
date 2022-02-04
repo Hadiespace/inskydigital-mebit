@@ -1,2 +1,232 @@
+-
+	const mainNavigationPages = [
+		{ text: "Дизайнерам и архитекторам", href: collaboration },
+		{ text: "Фабрики", href: factories },
+		{ text: "О компании", href: about },
+		{ text: "Доставка и оплата", href: shippingAndPayment },
+		{ text: "Контакты", href: about },
+	];
+
+	const panelItems = [
+		{ text: 'Распродажа', href: index, image: { src: 'images/icon-sale.svg', alt: '' } },
+		{ text: 'Спальни', href: index, image: { src: 'images/icon-bedroom.svg', alt: '' } },
+		{ text: 'Детская мебель', href: index, image: { src: 'images/icon-children.svg', alt: '' } },
+		{ text: 'Стенки', href: index, image: { src: 'images/icon-wall.svg', alt: '' } },
+		{ text: 'Кухни', href: index, image: { src: 'images/icon-kitchen.svg', alt: '' } },
+		{ text: 'Мягкая мебель', href: index, image: { src: 'images/icon-furniture.svg', alt: '' } },
+		{ text: 'Гостиные', href: index, image: { src: 'images/icon-lounge.svg', alt: '' } },
+		{ text: 'Кабинеты, прихожие', href: index, image: { src: 'images/icon-cabinet.svg', alt: '' } },
+		{ text: 'Столы и стулья', href: index, image: { src: 'images/icon-table.svg', alt: '' } },
+		{ text: 'Предметы интерьера', href: index, image: { src: 'images/icon-interior.svg', alt: '' } },
+	];
+
+	const mockSection = [
+		{ text: 'Диваны', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Кресла', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Зеркала', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Кровати', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Пуфики', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Столы', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+		{ text: 'Тумбы', href: index, image: { src: 'images/navigation-catalog-image.jpg', alt: 'Описание'} },
+	];
+
+	const searchCards = [
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+		{ title: 'Кровать Platinum', href: index, article: 'Артикул: 23498549', factory: 'De Majo', model: 'Charisma', cost: 'от 120 000 ₽', image: [{ src: 'images/', alt: 'Описание' }, { src: 'images/', alt: 'Описание' }] },
+	];
+
 header.header
-	div.header__container.container
+	div.header__container
+		// Навигация по страницам
+		nav.header__page-navigation.page-navigation
+			// Логотип
+			a.page-navigation__logo.logo(href=currentPage !== index ? index : null)
+				img(src="images/logo.svg", alt="Логотип компании Мебель Италии")
+			// Список страниц
+			ul.page-navigation__list(id="page-navigation")
+				li.page-navigation__item
+					// Открыть/закрыть каталог
+					a.page-navigation__link.page-navigation__link--catalog(class=catalog === currentPage ? "page-navigation__link--current" : '', href=catalog)
+						svg(width="14", height="14", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#catalog-open")
+						span Каталог мебели
+				each page in mainNavigationPages
+					li.page-navigation__item
+						a.page-navigation__link(class=page.href === currentPage ? "page-navigation__link--current" : '', href=page.href)!= page.text
+			// Контакты
+			div.page-navigation__contacts
+				div.page-navigation__messengers
+					+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+					+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
+				a.page-navigation__phone(href=phoneLink)!= phone
+			// Навигация пользователя
+			div.page-navigation__user-links
+				+userLink("Перейти в закладки", bookmarks, "bookmark", 15, 15, "4")
+				+userLink("Перейти в избранное", favorites, "favorite", 17, 15, "8")
+				+userLink("Перейти в корзину", cart, "cart", 17, 15, "9 в корзине").user-link--cart
+				button.page-navigation__menu-open(type="button", aria-expanded="false", aria-controls="page-navigation")
+					span.visually-hidden Открыть навигацию по страницам
+					span
+					span
+					span
+		// Навигация по товарам
+		div.header__product-navigation.product-navigation
+			// Поиск
+			form.product-navigation__form(action="")
+				input.product-navigation__input(type="text", id="navigation-search", name="search", placeholder="Поиск")
+				label.visually-hidden(for="navigation-search") Поле поиска по сайту
+				button.product-navigation__submit(type="submit")
+					span.visually-hidden Искать на сайте
+					svg(width="26", height="26", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#loop")
+			// Каталог продукции
+			div.product-navigation__catalog-wrapper
+				ul.product-navigation__catalog-list
+					each item in panelItems
+						li.product-navigation__catalog-item.panel-item
+							span.panel-item__image
+								img(src=item.image.src, alt=item.image.alt)
+							a.panel-item__link(href=item.href)
+								span.panel-item__text!= item.text
+							button.panel-item__button(type="button", aria-expanded="false", aria-controls="navigation-catalog")
+								span.visually-hidden Открыть раздел
+								svg(width="7", height="10", aria-hidden="true")
+									use(xlink:href="images/sprite.svg#navigation-arrow")
+							div.panel-item__catalog-navigation.navigation-catalog(id="navigation-catalog")
+								ul.navigation-catalog__list
+									each mock in mockSection
+										li.navigation-catalog__item
+											h3.navigation-catalog__title: a(href=mock.href)!= mock.text
+											div.navigation-catalog__image
+												img(src=mock.image.src, alt=mock.image.alt)
+			// Дополнительные ссылки
+			ul.product-navigation__page-list
+				li.product-navigation__page-item.panel-item
+					span.panel-item__image
+						img(src="images/icon-design.svg", alt="")
+					button.panel-item__link
+						span.panel-item__text Дизайн интерьера
+				li.product-navigation__page-item.panel-item
+					span.panel-item__image
+						img(src="images/icon-factory.svg", alt="")
+					a.panel-item__link(href=factories)
+						span.panel-item__text Фабрики
+				li.product-navigation__page-item.panel-item
+					span.panel-item__image
+						img(src="images/icon-catalog.svg", alt="")
+					a.panel-item__link(href=catalog)
+						span.panel-item__text Каталог
+		//- // Результаты поиска
+		//- div.navigation-search(id="")
+			div.navigation-search__search-wrapper
+				span Поиск по сайту
+				button.navigation-search__close(type="button")
+					span.visually-hidden Закрыть результат поиска
+					svg(width="5", height="5", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#")
+			// Категория товаров
+			section.navigation-search__section
+				h2.navigation-search__title Разделы
+					// Подкатегория товаров
+					div.navigation-search__subsection.search-subsection
+						div.search-subsection__top-wrapper
+							h3.search-subsection__title Спальни
+							a.search-subsection__link(href=index) Смотреть все
+						// Слайдер
+						div.search-subsection__slider
+							div.search-subsection__swiper.swiper
+								ul.search-subsection__wrapper.swiper-wrapper
+									each card in searchCards
+										// Товар
+										li.card.swiper-slide
+											// Стандартное состояние
+											div.card__default.card-default
+												h4.card-default__title: a(href=card.href)!= card.title
+												span.card-default__article!= card.article
+												span.card-default__cost!= card.cost
+												div.card-default__image
+													img(src=card.image[0].src, alt=card.image[0].alt)
+											// Активное состояние
+											div.card__preview.card-preview
+												a.card-preview__title(href=card.href)!= card.title
+												span.card-preview__article!= card.article
+												div.card-preview__swiper.swiper
+													ul.card-preview__swiper-wrapper.swiper-wrapper
+														each image in card.image
+															li.card-preview__swiper-slide.swiper-slide
+																img(src=image.src, alt=image.alt)
+													div
+												div.card-preview__cost-wrapper
+													span.card-preview__cost-value!= card.cost
+													div.card-preview__cost-stock
+														svg(width="5", height="5", aria-hidden="true")
+															use(xlink:href="images/sprite.svg#")
+														span В наличии
+													button.card-preview__send-request(type="button") Оставить заявку
+													div.card-preview__choice-wrapper
+														div.card-preview__
+															button.card-preview__(type="button", aria-expanded="false", aria-controls="") 160 × 200
+															ul.card-preview__
+																li.card-preview__
+																	button.card-preview__(type="button") 160 × 200
+																li.card-preview__
+																	button.card-preview__(type="button") 180 × 200
+																li.card-preview__
+																	button.card-preview__(type="button") 190 × 200
+														button.card-preview__add-to-cart(type="button") Добавить в корзину —
+													button.card-preview__quick-view(type="button")
+														svg(width="5", height="5", aria-hidden="true")
+															use(xlink:href="images/sprite.svg#")
+														span Быстрый просмотр
+											// Теги товара
+											div.card__tags
+												span New
+												span Sale
+
+
+							div
+								button(type="button")
+									span.visually-hidden Предыдущий слайд
+									svg(width="5", height="5", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#")
+								button(type="button")
+									span.visually-hidden Следующий слайд
+									svg(width="5", height="5", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#")
+										div
+			a(href=index) Все результаты поиска
+		// Мобильная навигация
+		div.header__mobile-navigation.mobile-navigation
+			ul.mobile-navigation__list
+				li.mobile-navigation__item
+					a.mobile-navigation__link(href=index)
+						svg(width="17", height="15", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#home")
+						span Главная
+				li.mobile-navigation__item
+					button.mobile-navigation__link(aria-expanded="false", aria-controls="")
+						svg(width="15", height="15", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#catalog-open")
+						span Каталог
+				li.mobile-navigation__item
+					a.mobile-navigation__link(href=cart)
+						svg(width="17", height="15", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#cart")
+						span Корзина
+				li.mobile-navigation__item
+					a.mobile-navigation__link(href=bookmarks)
+						svg(width="15", height="15", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#bookmark")
+						span Закладки
+				li.mobile-navigation__item
+					a.mobile-navigation__link(href=favorites)
+						svg(width="17", height="15", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#favorite")
+						span Нравится
+		// Мобильный каталог
+		//- div.header__mobile-catalog.mobile-catalog

@@ -1,0 +1,45 @@
+// USER LINK
+.user-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: 1px solid rgb(255 255 255 / 20%);
+	padding: 8px;
+	height: 100%;
+	min-width: 80px;
+
+	transition: border-color .3s, background-color .3s;
+
+	svg {
+		margin-right: 6px;
+		fill: none;
+		stroke: #fff;
+		stroke-width: 1px;
+		transition: stroke .3s;
+	}
+
+	span {
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 16px;
+		color: #fff;
+		transition: color .3s;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: #fff;
+
+		svg {
+			stroke: #131313;
+		}
+
+		span {
+			color: #131313;
+		}
+	}
+
+	&--cart {
+		min-width: 166px;
+	}
+}

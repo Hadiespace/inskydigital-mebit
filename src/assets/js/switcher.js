@@ -2,7 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	const currentPage = (window.location.pathname).replace('/', '');
 	// Страницы и ссылки на них
 	const pagesList = {
-		'1.Главная': 'index.html',
+		'01.Главная': 'index.html',
+		'02.Каталог': 'catalog.html',
+		'03.Раздел каталог': 'section.html',
+		'04.Подраздел каталога': 'subsection.html',
+		'05.Карточка товара (простая)': 'product-simple.html',
+		'06.Карточка товара (набор)': 'product-set.html',
+		'07.Фабрики': 'factories.html',
+		'08.Сотрудничество': 'collaboration.html',
+		'09.О компании': 'about.html',
+		'10.Доставка и оплата': 'shipping-and-payment.html',
+		'11.Закладки': 'bookmarks.html',
+		'12.Избранное': 'favorites.html',
+		'13.Корзина': 'cart.html',
+		'14.Политика': 'policy.html',
+		'15.404': '404.html',
 	};
 
 	const link = '' +
@@ -29,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		'height: auto;' +
 		'}' +
 		'.pages {' +
+		'position: absolute;' +
 		'direction: ltr;' +
-		'font-family: "Arila", sans-serif;' +
+		'font-family: "Arial", sans-serif;' +
 		'font-size: 16px;' +
 		'line-height: 1;' +
 		'}' +
