@@ -16,7 +16,7 @@
 
 	.mobile-navigation__list {
 		display: grid;
-		grid-auto-flow: column;
+		grid-template-columns: repeat(5, 1fr);
 		list-style: none;
 		margin: 0;
 		padding: 0;

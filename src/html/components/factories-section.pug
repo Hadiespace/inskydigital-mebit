@@ -1,0 +1,36 @@
+-
+	const factoriesSectionBrands = [
+		{ href: index, image: { src: 'images/factories-section01.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section02.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section03.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section04.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section05.png', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section06.png', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section07.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section08.svg', alt: 'Логотип' } },
+		{ href: index, image: { src: 'images/factories-section09.png', alt: 'Логотип' } },
+	];
+
+section.factories-section
+	div.factories-section__container.container
+		div.factories-section__info-wrapper
+			h2.factories-section__title Лучшие фабрики <br> <span>Италии</span> в наличии и под заказ
+			div.factories-section__content
+				p.
+					Мы работаем более чем с 800 фабриками-поставщиками
+					итальянской мебели. Самые популярные модели всегда
+					имеются в наличии на нашем складе в Москве.
+				p.
+					Спальни, мебель для гостиной, элитная мебель,
+					итальянская мягкая мебель, детские комнаты из Италии,
+					итальянские стенки и гостиные, мебель для кухни
+			div.factories-section__wrapper
+				span.factories-section__count 800+
+				p.factories-section__description Мы работаем более чем с 800 фабриками-поставщиками итальянской мебели
+		div.factories-section__brands
+			ul.factories-section__list
+				each brand in factoriesSectionBrands
+					li.factories-section__item
+						a.factories-section__link(href=brand.href)
+							img(src=brand.image.src, alt=brand.image.alt)
+			a.factories-section__more(href=factories) Смотреть все фабрики —

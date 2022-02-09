@@ -2,10 +2,14 @@ import 'focus-visible/dist/focus-visible.min.js';
 import { testSupportWebp } from './modules/webp.js';
 import { resizeCatalogList } from './modules/product-navigation.js';
 import { generateSwiper } from './modules/swiper.js';
+import { scrollHeader } from './modules/header.js';
+import { clickCatalogHomeTag } from './modules/home-catalog.js';
 
 testSupportWebp();
+scrollHeader();
 resizeCatalogList();
 generateSwiper();
+clickCatalogHomeTag();
 
 const kek = (evt) => {
 	const navigationWrapper = document.querySelector('.product-navigation__catalog-wrapper');

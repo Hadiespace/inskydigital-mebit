@@ -1,0 +1,39 @@
+-
+	const previewBrands = [
+			{ href: index, image: { src: 'images/preview-article-logo01.svg', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo02.png', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo03.svg', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo04.png', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo05.svg', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo06.svg', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo07.png', alt: 'Логотип бренда' } },
+			{ href: index, image: { src: 'images/preview-article-logo08.svg', alt: 'Логотип бренда' } },
+	]
+
+section.preview-article
+	div.preview-article__container.container
+		div.preview-article__info-wrapper
+			h2.preview-article__info-title Салон-магазин итальянской мебели
+			div.preview-article__info-content
+				p Наш салон итальянской мебели предлагает мебель из Италии со склада в Москве и на заказ.
+				p.
+					Мы также обеспечиваем минимальные сроки выполнения заказов.
+					Наши менеджеры помогут Вам подобрать оптимальный вариант обстановки Вашего дома,
+					помогут обустроить правильно спальню, кухню, гостиную или другую комнату.
+				p.
+					Вся мебель Италии, купленная в нашем салоне обеспечивается профессиональной доставкой
+					и сборкой, а также гарантийным обслуживанием.
+			ul.preview-article__info-list
+				each brand in previewBrands
+					li.preview-article__info-item
+						a.preview-article__info-link(href=brand.href)
+							img(src=brand.image.src, alt=brand.image.alt)
+		div.preview-article__card-wrapper
+			h3.preview-article__card-title Спальня Round серебристая береза
+			p.preview-article__card-description Мебель фабрики Camelgroup в нашем каталоге
+			a.preview-article__card-link(href=index) Смотреть коллекцию —
+			div.preview-article__card-big-image
+				img(src="images/preview-article-big.jpg", alt="Спальня round серебристая береза")
+			div.preview-article__card-small-image
+				img(src="images/preview-article-small.jpg", alt="Спальня round серебристая береза")
+			a.preview-article__card-hidden(href=index, tabindex="-1", aria-hidden="true")

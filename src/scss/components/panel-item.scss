@@ -1,5 +1,113 @@
 // PANEL ITEM
-.panel-item {}
-.panel-item__link {}
-.panel-item__button {}
-.panel-item__mock {}
+.panel-item {
+	display: grid;
+	align-items: center;
+	grid-auto-flow: column;
+	grid-template-columns: max-content 1fr max-content;
+	height: 66px;
+	min-width: 80px;
+
+	@media (max-width: 1399px) {
+		height: 44px;
+	}
+}
+
+.panel-item__link {
+	display: grid;
+	align-items: center;
+	grid-column-gap: 8px;
+	grid-template-columns: max-content max-content;
+	border: none;
+	padding: 0;
+	height: 100%;
+	color: #fff;
+	background-color: transparent;
+	pointer-events: visible;
+}
+
+.panel-item__image {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 100%;
+	pointer-events: none;
+
+	@media (max-width: 1399px) {
+		transform: scale(80%);
+	}
+}
+
+.panel-item__text {
+	overflow: hidden;
+	width: 0;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 30px;
+	white-space: nowrap;
+	transition: width .3s;
+	transition-delay: 500ms;
+	pointer-events: none;
+
+	@media (max-width: 1599px) {
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	@media (max-width: 1399px) {
+		font-size: 14px;
+		line-height: 22px;
+	}
+}
+
+.panel-item__catalog-navigation {}
+
+.panel-item__button {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: 0;
+	padding-right: 6px;
+	width: 46px;
+	height: 100%;
+	min-height: 40px;
+	background-color: transparent;
+	opacity: 0;
+	transition: opacity .3s;
+	pointer-events: visible;
+
+	svg {
+		fill: none;
+		stroke: #fff;
+		stroke-width: 2px;
+	}
+}
+
+.panel-item:hover,
+.panel-item:focus-within {
+	.panel-item__text {
+		transition: 0s;
+	}
+
+	.panel-item__button {
+		opacity: 1;
+		transition: 0s;
+	}
+
+	.navigation-catalog {
+		overflow: visible;
+		padding-left: var(--padding);
+		max-width: calc(var(--padding) + 680px);
+		opacity: 1;
+		transition: opacity .3s;
+		transition-delay: .3s;
+	}
+
+	.navigation-catalog__list {
+		padding: 80px 75px;
+		transition: 0s;
+	}
+}

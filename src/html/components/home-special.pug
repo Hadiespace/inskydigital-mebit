@@ -1,0 +1,35 @@
+-
+	const homeSpecialItems = [
+		{ title: 'Мебель для гостиной от фабрики Biba Salotti со скидкой до 35%', tags: ['Акция'], href: index, image: { src: 'images/home-special01.jpg', alt: 'Описание' }},
+		{ title: 'Выгода до 12% на предзаказ кухни от фабрики Astra Cucine', href: index, tags: ['Акция'], image: { src: 'images/home-special02.jpg', alt: 'Описание' }},
+		{ title: 'Мебель для гостиной от фабрики Biba Salotti со скидкой до 35%', tags: ['Акция'], href: index, image: { src: 'images/home-special01.jpg', alt: 'Описание' }},
+		{ title: 'Выгода до 12% на предзаказ кухни от фабрики Astra Cucine', href: index, tags: ['Акция'], image: { src: 'images/home-special02.jpg', alt: 'Описание' }},
+		{ title: 'Мебель для гостиной от фабрики Biba Salotti со скидкой до 35%', tags: ['Акция'], href: index, image: { src: 'images/home-special01.jpg', alt: 'Описание' }},
+		{ title: 'Выгода до 12% на предзаказ кухни от фабрики Astra Cucine', href: index, tags: ['Акция'], image: { src: 'images/home-special02.jpg', alt: 'Описание' }},
+	];
+
+section.home-special
+	div.home-special__container.container
+		h2.home-special__title Специальные предложения
+		div.home-special__buttons
+			button.home-special__swiper-button.home-special__swiper-button--prev(type="button")
+				span.visually-hidden Предыдущий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-prev")
+			button.home-special__swiper-button.home-special__swiper-button--next(type="button")
+				span.visually-hidden Следующий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-next")
+		div.home-special__swiper.swiper
+			ul.home-special__swiper-wrapper.swiper-wrapper
+				each item in homeSpecialItems
+					li.home-special__swiper-slide.swiper-slide
+						h3.home-special__swiper-title!= item.title
+						div.home-special__swiper-container
+							div.home-special__swiper-image
+								img(src=item.image.src, alt=item.image.alt)
+							div.home-special__swiper-tags
+								each tag in item.tags
+									span!= tag
+						a.home-special__swiper-link(href=item.href) перейти к покупкам —
+		div.home-special__swiper-dots

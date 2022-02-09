@@ -1,0 +1,22 @@
+-
+	const homeCatalogItems = [
+		{ title: 'Гостиная Lema', href: index, tags: ['Фабрика Lema', 'Представлено в салоне'], image: { src: 'images/home-catalog01.jpg', alt: 'Описание' }},
+		{ title: 'Кухня Firenze', href: index, tags: ['Фабрика F.M.Bottega d\'Arte', 'Представлено в салоне'], image: { src: 'images/home-catalog02.jpg', alt: 'Описание' }},
+		{ title: 'Cпальня Silvano Grifoni', href: index, tags: ['Фабрика  Silvano Grifoni', 'Представлено в салоне'], image: { src: 'images/home-catalog03.jpg', alt: 'Описание' }},
+		{ title: 'Спальня Maia', href: index, tags: ['Фабрика Camelgroup', 'Представлено в салоне'], image: { src: 'images/home-catalog04.jpg', alt: 'Описание' }},
+	];
+
+section.home-catalog
+	div.home-catalog__container.container
+		h2.visually-hidden Товары
+		ul.home-catalog__list
+			each item in homeCatalogItems
+				li.home-catalog__item
+					h3.home-catalog__title
+						a.home-catalog__link(href=item.href)!= item.title
+							span →
+					div.home-catalog__image
+						img(src=item.image.src, alt=item.image.alt)
+					div.home-catalog__tags
+						each tag in item.tags
+							span!= tag
