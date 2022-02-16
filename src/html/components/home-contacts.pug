@@ -1,0 +1,54 @@
+section.home-contacts
+	div.home-contacts__container.container
+		h2.home-contacts__title Контакты
+		div.home-contacts__top-wrapper
+			dl.home-contacts__list
+				div.home-contacts__item
+					dt Адрес
+					dd Москва, Профсоюзная ул., д. 57, метро&nbsp;Калужская
+				div.home-contacts__item
+					dt Время работы
+					dd Пн-Сб 11:00 – 20:00, Вс 11:00 – 18:00
+				div.home-contacts__item
+					dt Индекс
+					dd 117420
+				div.home-contacts__item
+					dt e-mail
+					dd: a(href=emailLink)!= email
+				div.home-contacts__item
+					dt Телефон
+					dd
+						a(href=phoneLink)!= phone
+						div.home-contacts__socials
+							+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+							+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
+		div.home-contacts__middle-wrapper
+			div.home-contacts__form-wrapper
+				form.home-contacts__form.form
+					fieldset.home-contacts__fieldset
+						legend.home-contacts__legend Оставьте заявку <br> и мы свяжемся с вами
+						div.home-contacts__wrapper.form__wrapper
+							input.home-contacts__input.form__input(type="text", id="", name="name", placeholder="Введите имя или организацию")
+							label.visually-hidden(for="") Ваше имя или название организации
+							span.home-contacts__error.form__error
+						div.home-contacts__wrapper.home-contacts__wrapper--left.form__wrapper
+							input.home-contacts__input.form__input(type="tel", id="", name="phone", placeholder="Телефон")
+							label.visually-hidden(for="") Ваш номер телефона
+							span.home-contacts__error.form__error
+						div.home-contacts__wrapper.home-contacts__wrapper--right.form__wrapper
+							input.home-contacts__input.form__input(type="email", id="", name="email", placeholder="Email")
+							label.visually-hidden(for="") Ваш email
+							span.home-contacts__error.form__error
+						div.home-contacts__wrapper.form__wrapper
+							textarea.home-contacts__input.home-contacts__input--textarea.form__input(id="", name="comment", placeholder="Комментарий")
+							label.visually-hidden(for="") Оставьте комментарий
+							span.home-contacts__error.form__error
+						button.home-contacts__submit(type="submit") Оставить заявку —
+						div.home-contacts__consent
+							input.home-contacts__checkbox.visually-hidden(type="checkbox", id="home-contact-check", name="consent", checked)
+							label.home-contacts__label.form__label(for="home-contact-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
+								a(href=policy) политикой конфиденциальности
+							span.home-contacts__error.form__error
+			div.home-contacts__map
+				img(src="images/home-map.png", alt="Карта")
+				div(id="map", data-lat="55.661862", data-lng="37.546561")

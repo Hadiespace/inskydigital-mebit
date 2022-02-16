@@ -48,16 +48,22 @@ header.header
 			a.page-navigation__logo.logo(href=currentPage !== index ? index : null)
 				img(src="images/logo.svg", alt="Логотип компании Мебель Италии")
 			// Список страниц
-			ul.page-navigation__list(id="page-navigation")
-				li.page-navigation__item
-					// Открыть/закрыть каталог
-					a.page-navigation__link.page-navigation__link--catalog(class=catalog === currentPage ? "page-navigation__link--current" : '', href=catalog)
-						svg(width="14", height="14", aria-hidden="true")
-							use(xlink:href="images/sprite.svg#catalog-open")
-						span Каталог мебели
-				each page in mainNavigationPages
+			div.page-navigation__list-wrapper
+				ul.page-navigation__list(id="page-navigation")
 					li.page-navigation__item
-						a.page-navigation__link(class=page.href === currentPage ? "page-navigation__link--current" : '', href=page.href)!= page.text
+						// Открыть/закрыть каталог
+						a.page-navigation__link.page-navigation__link--catalog(class=catalog === currentPage ? "page-navigation__link--current" : '', href=catalog)
+							svg(width="14", height="14", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#catalog-open")
+							span Каталог мебели
+					each page in mainNavigationPages
+						li.page-navigation__item
+							a.page-navigation__link(class=page.href === currentPage ? "page-navigation__link--current" : '', href=page.href)!= page.text
+				div.page-navigation__contacts
+					a.page-navigation__phone(href=phoneLink)!= phone
+					div.page-navigation__messengers
+						+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+						+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
 			// Контакты
 			div.page-navigation__contacts
 				div.page-navigation__messengers
@@ -204,12 +210,14 @@ header.header
 		div.header__mobile-navigation.mobile-navigation
 			ul.mobile-navigation__list
 				li.mobile-navigation__item
+					// Класс для отображения текущей страницы
+					// mobile-navigation__link--current
 					a.mobile-navigation__link(href=index)
 						svg(width="17", height="15", aria-hidden="true")
 							use(xlink:href="images/sprite.svg#home")
 						span Главная
 				li.mobile-navigation__item
-					button.mobile-navigation__link(aria-expanded="false", aria-controls="")
+					button.mobile-navigation__link.mobile-navigation__link--catalog(aria-expanded="false", aria-controls="mobile-catalog")
 						svg(width="15", height="15", aria-hidden="true")
 							use(xlink:href="images/sprite.svg#catalog-open")
 						span Каталог
@@ -229,4 +237,30 @@ header.header
 							use(xlink:href="images/sprite.svg#favorite")
 						span Нравится
 		// Мобильный каталог
-		//- div.header__mobile-catalog.mobile-catalog
+		div.header__mobile-catalog.mobile-catalog(id="mobile-catalog")
+			h2.mobile-catalog__title Каталог
+			// Поиск
+			form.mobile-catalog__search(action="")
+				input.mobile-catalog__input(type="text", id="navigation-search", name="search", placeholder="Поиск")
+				label.visually-hidden(for="navigation-search") Поле поиска по сайту
+				button.mobile-catalog__submit(type="submit")
+					span.visually-hidden Искать на сайте
+					svg(width="14", height="14", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#loop")
+			// Категории
+			ul.mobile-catalog__list
+				each item in panelItems
+					li.mobile-catalog__item
+						a.mobile-catalog__link(href=item.href)
+							span.mobile-catalog__image
+								img(src=item.image.src, alt=item.image.alt)
+							span.mobile-catalog__text!= item.text
+						button.mobile-catalog__button(type="button", aria-expanded="false", aria-controls="mobile-catalog")
+							span.visually-hidden Открыть раздел
+							svg(width="10", height="6", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#navigation-arrow-top")
+						div.mobile-catalog__navigation(id="mobile-catalog")
+							ul.mobile-catalog__sub-list
+								each mock in mockSection
+									li.mobile-catalog__sub-item
+										a.mobile-catalog__sub-link(href=mock.href)!= mock.text

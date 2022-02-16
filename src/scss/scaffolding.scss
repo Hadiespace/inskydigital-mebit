@@ -20,8 +20,11 @@
 }
 
 .page {
-	// scroll-padding-top: 128px;
-	min-height: 2000px;
+	scroll-padding-top: 80px;
+
+	@media (max-width: 479px) {
+		scroll-padding-top: 40px;
+	}
 }
 
 body {
@@ -31,7 +34,7 @@ body {
 		max-content;
 	overflow-anchor: none;
 	min-width: 320px;
-	min-height: 100vh;
+	min-height: calc(var(--vh) * 100);
 	font-family: $manrope;
 	font-weight: $font-weight;
 	font-style: $font-style;
@@ -88,7 +91,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	-webkit-text-fill-color: #fff !important;
+	-webkit-text-fill-color: #131313 !important;
 	transition: background-color 5000s ease-in-out 0s;
 }
 

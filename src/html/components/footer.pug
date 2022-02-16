@@ -1,2 +1,37 @@
+-
+	const footerNavigationItems = [
+		{ text: 'Каталог мебели', href: catalog },
+		{ text: 'Дизайнерам и архитекторам', href: collaboration },
+		{ text: 'Фабрики', href: factories },
+		{ text: 'О компании', href: about },
+		{ text: 'Доставка и оплата', href: shippingAndPayment },
+		{ text: 'Контакты', href: about },
+	];
+
 footer.footer
 	div.footer__container.container
+		div.footer__contacts
+			div.footer__phone-socials
+				a.footer__phone(href=phoneLink)!= phone
+				div.footer__messengers
+					+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+					+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
+			a.footer__email(href=emailLink)!= email
+		ul.footer__list
+			each item in footerNavigationItems
+				li.footer__item
+					a.footer__link(href=item.href)!= item.text
+		div.footer__socials
+			+social("facebook", facebook, 15, 15, "#fff", "#3B5998").social--color
+			+social("instagram", instagram, 15, 15, "#fff", "linear-gradient(180deg, #6E50CE 0%, #C43B55 30.11%, #DF6B3E 58.71%, #F2CF77 100%)").social--color
+			+social("vkontakte", vkontakte, 15, 15, "#fff", "#4D7198").social--color
+		a.footer__return(href="#main")
+			span Наверх
+			svg(width="16", height="10", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#return-arrow")
+		div.footer__copyright-wrapper
+			span © 2021 Mebelgroup.com
+			span Все права защищены
+			a(href=policy) Политика конфиденциальности
+			p Создание сайта —
+				a(href=insky)  Insky.digital

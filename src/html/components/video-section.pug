@@ -1,0 +1,14 @@
+section.video-section
+	div.video-section__container.container
+		div.video-section__content.video
+			div.video-section__wrapper.video__before
+				h2.video-section__title Как мы привезем вашу мебель
+				button.video-section__button(type="button", aria-label="Запустить видео")
+					span
+					svg(width="30", height="36", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#play")
+			div.video-section__image.video__before
+				img(src="images/video-preview.jpg", alt="Обложка видео")
+			div.video-section__player.video__player
+				iframe(Width="560", height="315", src="https://www.youtube.com/embed/BpXz_xhW2b4", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+			p.video-section__mobile.video__mobile(aria-hidden="true") Как мы привезем вашу мебель

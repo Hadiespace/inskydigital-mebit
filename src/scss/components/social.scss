@@ -21,12 +21,12 @@
 	}
 
 	&::before {
-		background-color: var(--before);
+		background: var(--before);
 		opacity: 1;
 	}
 
 	&::after {
-		background-color: var(--after);
+		background: var(--after);
 		opacity: 0;
 	}
 
@@ -44,6 +44,20 @@
 
 		&::after {
 			opacity: 1;
+		}
+	}
+
+	&--color {
+		svg {
+			fill: #131313;
+			transition: fill .3s;
+		}
+
+		&:hover,
+		&:focus {
+			svg {
+				fill: #fff;
+			}
 		}
 	}
 }

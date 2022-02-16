@@ -1,0 +1,159 @@
+// MOBILE CATALOG
+.mobile-catalog {
+	@media (min-width: 1024px) {
+		display: none;
+	}
+
+	@media (max-width: 1023px) {
+		position: fixed;
+		left: 0;
+		top: 0;
+		display: grid;
+		overflow: auto;
+		padding: 34px 30px 30px;
+		width: 100%;
+		height: calc((var(--vh) * 100) - 60px);
+		background-color: #131313;
+		opacity: 0;
+		pointer-events: none;
+
+		&--visible {
+			opacity: 1;
+			pointer-events: visible;
+		}
+	}
+
+	@media (max-width: 767px) {
+		padding: 34px 20px 30px;
+	}
+
+	@media (max-width: 479px) {
+		padding: 34px 10px 30px;
+	}
+}
+
+.mobile-catalog__title {
+	margin: 0 0 27px;
+	font-family: $old-standard;
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 37px;
+	text-align: center;
+}
+
+.mobile-catalog__search {
+	position: relative;
+	display: grid;
+	margin: 0 0 40px;
+	width: 100%;
+}
+
+.mobile-catalog__input {
+	display: flex;
+	border: none;
+	border-bottom: 1px solid rgb(255 255 255 / 20%);
+	padding: 11px 36px 11px 0;
+	width: 100%;
+	color: #fff;
+	background-color: transparent;
+
+	&::placeholder {
+		color: rgb(255 255 255 / 40%);
+	}
+}
+
+.mobile-catalog__submit {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: 0;
+	width: 28px;
+	height: 100%;
+	background-color: transparent;
+
+	svg {
+		fill: transparent;
+		stroke: #b8b8b8;
+		stroke-width: 2px;
+	}
+}
+
+.mobile-catalog__list {
+	display: grid;
+	grid-row-gap: 26px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.mobile-catalog__item {
+	display: grid;
+	grid-column-gap: 12px;
+	grid-template-columns: 1fr 28px;
+}
+
+.mobile-catalog__image {
+	width: 26px;
+	height: 26px;
+}
+
+.mobile-catalog__link {
+	display: grid;
+	align-items: center;
+	grid-column-gap: 20px;
+	grid-template-columns: 26px 1fr;
+}
+.mobile-catalog__text {}
+
+.mobile-catalog__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	border: none;
+	padding: 0;
+	width: 28px;
+	height: 100%;
+	background-color: transparent;
+
+	svg {
+		fill: none;
+		stroke: #fff;
+		stroke-width: 2px;
+		transform: rotate(180deg);
+		transition: transform .3s;
+	}
+
+	&[aria-expanded="true"] {
+		svg {
+			transform: rotate(0);
+		}
+	}
+}
+.mobile-catalog__navigation {}
+
+.mobile-catalog__sub-list {
+	display: grid;
+	list-style: none;
+	overflow: hidden;
+	margin: 0;
+	padding: 12px 0 0 46px;
+	height: 0;
+}
+.mobile-catalog__sub-item {}
+
+.mobile-catalog__sub-link {
+	display: flex;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 30px;
+	color: rgb(255 255 255 / 60%);
+}
+
+.mobile-catalog__sub-list--visible {
+	height: auto;
+}

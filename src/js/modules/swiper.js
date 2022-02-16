@@ -15,7 +15,7 @@ const createPreviewSwiper = () => {
 			slidesPerView: 1,
 			loop: true,
 			speed: 300,
-			allowTouchMove: false,
+			allowTouchMove: true,
 			navigation: {
 				nextEl: next,
 				prevEl: prev,
@@ -24,6 +24,11 @@ const createPreviewSwiper = () => {
 				el: dots,
 				type: 'bullets',
 				clickable: true,
+			},
+			breakpoints: {
+				1024: {
+					allowTouchMove: false,
+				},
 			},
 		});
 	}

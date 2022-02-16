@@ -1,12 +1,28 @@
 // FACTORIES SECTION
 .factories-section {
+	overflow: hidden;
 	padding: 160px 0 130px;
+
+	@media (max-width: 1399px) {
+		padding: 100px 0;
+	}
+
+	@media (max-width: 1023px) {
+		padding: 80px 0;
+	}
+
+	@media (max-width: 767px) {
+		padding: 60px 0;
+	}
 }
 
 .factories-section__container {
 	display: grid;
-	grid-column-gap: 40px;
-	grid-template-columns: 1fr 1fr;
+
+	@media (min-width: 1024px) {
+		grid-column-gap: 40px;
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
 .factories-section__info-wrapper {
@@ -30,6 +46,37 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		transform: translate(-50%, -50%);
+	}
+
+	@media (max-width: 1599px) {
+		padding-top: 100px;
+
+		&::before {
+			width: 573px;
+			height: 747px;
+		}
+	}
+
+	@media (max-width: 1399px) {
+		padding-left: 30px;
+	}
+
+	@media (max-width: 1279px) {
+		padding-top: 0;
+		padding-left: 0;
+
+		&::before {
+			margin-left: 40px;
+		}
+	}
+
+	@media (max-width: 1023px) {
+		justify-items: center;
+		order: 1;
+
+		&::before {
+			display: none;
+		}
 	}
 }
 
@@ -61,13 +108,30 @@
 	}
 
 	@media (max-width: 1599px) {
+		margin: 0 0 40px;
 		font-size: 60px;
-		line-height: 90px;
+		line-height: 80px;
+
+		span {
+			position: relative;
+			display: inline-block;
+			padding-left: 65px;
+
+			&::before {
+				width: 61px;
+				height: 45px;
+			}
+		}
 	}
 
 	@media (max-width: 1399px) {
+		margin: 0 0 32px;
 		font-size: 48px;
-		line-height: 80px;
+		line-height: 60px;
+	}
+
+	@media (max-width: 1279px) {
+		margin-bottom: 20px;
 	}
 
 	@media (max-width: 1023px) {
@@ -81,10 +145,19 @@
 	}
 
 	@media (max-width: 479px) {
-		margin: 0 0 40px;
+		margin: 0 0 20px;
 		font-size: 30px;
 		line-height: 37px;
 		text-align: center;
+
+		span {
+			padding-left: 45px;
+
+			&::before {
+				width: 41px;
+				height: 30px;
+			}
+		}
 	}
 }
 
@@ -101,6 +174,30 @@
 		line-height: 30px;
 		color: rgb(255 255 255 / 50%);
 	}
+
+	@media (max-width: 1599px) {
+		grid-row-gap: 20px;
+
+		p {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	@media (max-width: 1279px) {
+		p {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 28px;
+
+		p {
+			text-align: center;
+		}
+	}
 }
 
 .factories-section__wrapper {
@@ -110,6 +207,20 @@
 	grid-column-gap: 40px;
 	grid-template-columns: max-content 1fr;
 	margin-bottom: -10px;
+
+	@media (max-width: 1599px) {
+		grid-column-gap: 30px;
+	}
+
+	@media (max-width: 1279px) {
+		grid-column-gap: 20px;
+	}
+
+	@media (max-width: 1023px) {
+		grid-template-columns: 1fr;
+		margin: 0 0 40px;
+		text-align: center;
+	}
 }
 
 .factories-section__count {
@@ -117,6 +228,22 @@
 	font-size: 80px;
 	line-height: 109px;
 	letter-spacing: .01em;
+
+	@media (max-width: 1399px) {
+		font-size: 70px;
+		line-height: 90px;
+	}
+
+	@media (max-width: 1279px) {
+		font-size: 60px;
+		line-height: 80px;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 8px;
+		font-size: 50px;
+		line-height: 68px;
+	}
 }
 
 .factories-section__description {
@@ -125,6 +252,16 @@
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 30px;
+
+	@media (max-width: 1399px) {
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	@media (max-width: 1279px) {
+		font-size: 14px;
+		line-height: 20px;
+	}
 }
 
 .factories-section__brands {
@@ -137,6 +274,14 @@
 	list-style: none;
 	margin: 0 0 60px;
 	padding: 0;
+
+	@media (max-width: 1599px) {
+		margin: 0 0 40px;
+	}
+
+	@media (max-width: 1279px) {
+		margin: 0 0 20px;
+	}
 }
 
 .factories-section__item {
@@ -153,6 +298,7 @@
 	display: grid;
 	align-items: center;
 	justify-content: center;
+	padding: 12px;
 	width: 100%;
 	height: 100%;
 }
