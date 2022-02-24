@@ -1,0 +1,49 @@
+section.about-contacts
+	div.about-contacts__container.container
+		h2.about-contacts__title Контакты
+		div.about-contacts__top-wrapper
+			dl.about-contacts__list
+				div.about-contacts__item
+					dt Адрес
+					dd Москва, Профсоюзная ул., д. 57, метро&nbsp;Калужская
+				div.about-contacts__item
+					dt Время работы
+					dd Пн-Сб 11:00 – 20:00, Вс 11:00 – 18:00
+				div.about-contacts__item
+					dt Индекс
+					dd 117420
+				div.about-contacts__item
+					dt e-mail
+					dd: a(href=emailLink)!= email
+				div.about-contacts__item
+					dt Телефон
+					dd
+						a(href=phoneLink)!= phone
+						div.about-contacts__socials
+							+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+							+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
+		div.about-contacts__middle-wrapper
+			div.about-contacts__map
+				img(src="images/home-map.png", alt="Карта")
+				div(id="map", data-lat="55.661862", data-lng="37.546561")
+		div.about-contacts__bottom-wrapper
+			dl.about-contacts__list2
+				div.about-contacts__item
+					dt Юридический адрес
+					dd 117420, город Москва, Профсоюзная <br> улица, дом 57, помещение хI комната 1
+				div.about-contacts__item
+					dt Полное наименование
+					dd Общество с ограниченной ответственностью «Мебельный легион»
+				div.about-contacts__item
+					dt ИНН/КПП
+					dd 7728609640/772801001
+				div.about-contacts__item
+					dt ОГРН
+					dd 1077746290808
+				div.about-contacts__item
+					dt Социальные сети
+					dd
+						div.about-contacts__socials
+							+social("facebook", facebook, 15, 15, "#fff", "#3B5998").social--color
+							+social("instagram", instagram, 15, 15, "#fff", "linear-gradient(180deg, #6E50CE 0%, #C43B55 30.11%, #DF6B3E 58.71%, #F2CF77 100%)").social--color
+							+social("vkontakte", vkontakte, 15, 15, "#fff", "#4D7198").social--color

@@ -1,0 +1,28 @@
+section.collaboration-contacts
+	div.collaboration-contacts__container.container
+		h2.collaboration-contacts__title Контакты
+		div.collaboration-contacts__top-wrapper
+			dl.collaboration-contacts__list
+				div.collaboration-contacts__item
+					dt Адрес
+					dd Москва, Профсоюзная ул., д. 57, метро&nbsp;Калужская
+				div.collaboration-contacts__item
+					dt Время работы
+					dd Пн-Сб 11:00 – 20:00, Вс 11:00 – 18:00
+				div.collaboration-contacts__item
+					dt Индекс
+					dd 117420
+				div.collaboration-contacts__item
+					dt e-mail
+					dd: a(href=emailLink)!= email
+				div.collaboration-contacts__item
+					dt Телефон
+					dd
+						a(href=phoneLink)!= phone
+						div.collaboration-contacts__socials
+							+social("telegram", telegram, 15, 15, "rgb(255 255 255 / 20%)", "#37AEE2")
+							+social("whatsapp", whatsapp, 15, 15, "rgb(255 255 255 / 20%)", "#00E676")
+		div.collaboration-contacts__middle-wrapper
+			div.collaboration-contacts__map
+				img(src="images/home-map.png", alt="Карта")
+				div(id="map", data-lat="55.661862", data-lng="37.546561")

@@ -1,0 +1,155 @@
+// POLICY
+.policy {
+	padding: 0 0 140px;
+
+	@media (max-width: 1399px) {
+		padding: 0 0 100px;
+	}
+
+	@media (max-width: 1023px) {
+		padding: 0 0 80px;
+	}
+
+	@media (max-width: 767px) {
+		padding: 0 0 60px;
+	}
+}
+
+.policy__container {
+	display: grid;
+}
+
+.policy__title {
+	margin: 0 0 90px;
+	font-family: $old-standard;
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 99px;
+
+	@media (max-width: 1599px) {
+		font-size: 60px;
+		line-height: 90px;
+	}
+
+	@media (max-width: 1399px) {
+		margin: 0 0 60px;
+		font-size: 48px;
+		line-height: 60px;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 40px;
+		text-align: center;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 40px;
+		line-height: 54px;
+	}
+
+	@media (max-width: 479px) {
+		margin: 0 0 27px;
+		font-size: 30px;
+		line-height: 37px;
+		text-align: center;
+	}
+}
+
+.policy__content {
+	display: grid;
+
+	ol {
+		counter-reset: li;
+		display: grid;
+		grid-row-gap: 90px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		ol {
+			grid-row-gap: 30px;
+
+			> li {
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 30px;
+				color: rgb(255 255 255 / 70%);
+
+				&::before {
+					counter-increment: li;
+					content: counters(li, ".") ". ";
+				}
+			}
+		}
+	}
+
+	h2 {
+		margin: 0 0 36px;
+		font-weight: 500;
+		font-size: 30px;
+		line-height: 40px;
+
+		&::before {
+			counter-increment: li;
+			content: counters(li, ".") ". ";
+		}
+	}
+
+	p {
+		margin: 0 0 30px;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		color: rgb(255 255 255 / 70%);
+	}
+
+	@media (max-width: 1399px) {
+		h2 {
+			margin: 0 0 20px;
+		}
+
+		p {
+			margin: 0 0 20px;
+			font-size: 16px;
+			line-height: 24px;
+		}
+
+		ol {
+			grid-row-gap: 32px;
+
+			ol {
+				grid-row-gap: 20px;
+
+				> li {
+					font-size: 16px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1023px) {
+		text-align: center;
+	}
+
+	@media (max-width: 767px) {
+		h2 {
+			font-size: 18px;
+			line-height: 30px;
+		}
+
+		p {
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		ol {
+			ol {
+				> li {
+					font-size: 14px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+}

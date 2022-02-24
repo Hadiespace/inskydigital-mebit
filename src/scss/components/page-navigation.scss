@@ -74,9 +74,8 @@
 
 	@media (min-width: 1024px) {
 		right: 0;
-		border-bottom: 1px solid rgb(255 255 255 / 20%);
 		border-left: 1px solid rgb(255 255 255 / 20%);
-		padding: 40px 20px;
+		padding: 32px 20px;
 
 		.page-navigation__contacts {
 			display: none;
@@ -188,6 +187,14 @@
 
 		svg {
 			display: none;
+		}
+	}
+
+	@media (max-width: 1023px) {
+		&--current {
+			&::before {
+				display: none;
+			}
 		}
 	}
 }

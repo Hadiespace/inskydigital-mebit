@@ -8,5 +8,11 @@ block meta
 	meta(name="description", content="")
 	meta(name="keywords", content="")
 block content
+	div.crumbs.container
+		a.crumbs__link(href=index) Главная <span>→</span>
+		span.crumbs__current Доставка и оплата
+	include ../components/shipping-and-payment
+	include ../components/advantages-ship-pay
+	include ../components/video-section
 
 block prepend page-bottom

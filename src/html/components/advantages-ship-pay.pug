@@ -1,0 +1,18 @@
+-
+	const shipPayAdvantages = [
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+	];
+
+section.advantages-ship-pay
+	div.advantages-ship-pay__container.container
+		h2.advantages-ship-pay__title Преимущества работы с нами
+		ul.advantages-ship-pay__list.advantages
+			each advantage in shipPayAdvantages
+				li.advantages-ship-pay__item.advantages__item
+					h3.advantages__title!= advantage.title
+					div.advantages__icon(aria-hidden="true")
+						img(src="images/advantages.svg", alt="Иконка")

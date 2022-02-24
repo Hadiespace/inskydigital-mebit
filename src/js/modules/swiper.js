@@ -1,7 +1,9 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 const preview = document.querySelector('.preview');
 const homeNew = document.querySelector('.home-new');
 const homeSpecial = document.querySelector('.home-special');
+const about = document.querySelector('.about');
+const aboutPhotos = document.querySelector('.about-photos');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -126,8 +128,78 @@ const createHomeSpecialSwiper = () => {
 	}
 };
 
+const createAboutSwiper = () => {
+	if (about) {
+		const aboutSwiper = about.querySelector('.about .swiper');
+		const next = about.querySelector('.about__swiper-button--next');
+		const prev = about.querySelector('.about__swiper-button--prev');
+		const dots = about.querySelector('.about__swiper-dots');
+
+		new Swiper(aboutSwiper, {
+			modules: [Navigation, Pagination],
+			slidesPerView: 1,
+			autoplay: {
+				delay: 5000,
+			},
+			loop: true,
+			speed: 300,
+			allowTouchMove: true,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+			breakpoints: {
+				1024: {
+					allowTouchMove: false,
+				},
+			},
+		});
+	}
+};
+
+const createAboutPhotosSwiper = () => {
+	if (aboutPhotos) {
+		const aboutPhotosSwiper = aboutPhotos.querySelector('.about-photos .swiper');
+		const next = aboutPhotos.querySelector('.about-photos__swiper-button--next');
+		const prev = aboutPhotos.querySelector('.about-photos__swiper-button--prev');
+		const dots = aboutPhotos.querySelector('.about-photos__swiper-dots');
+
+		new Swiper(aboutPhotosSwiper, {
+			modules: [Navigation, Pagination, Autoplay],
+			autoplay: {
+				delay: 5000,
+			},
+			autoHeight: true,
+			slidesPerView: 1,
+			loop: true,
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				1280: {
+					allowTouchMove: false,
+				},
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
 	createHomeSpecialSwiper();
+	createAboutSwiper();
+	createAboutPhotosSwiper();
 };

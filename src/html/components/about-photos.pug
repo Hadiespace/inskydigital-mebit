@@ -1,0 +1,27 @@
+-
+	const aboutPhotsItems = [
+		{ src: 'images/about-photo.jpg', alt: 'Описание'},
+		{ src: 'images/about-photo.jpg', alt: 'Описание'},
+		{ src: 'images/about-photo.jpg', alt: 'Описание'},
+		{ src: 'images/about-photo.jpg', alt: 'Описание'},
+		{ src: 'images/about-photo.jpg', alt: 'Описание'},
+	];
+
+section.about-photos
+	div.about-photos__container.container
+		h2.about-photos__title Фотографии нашего салона
+		div.about-photos__buttons
+			button.about-photos__swiper-button.about-photos__swiper-button--prev(type="button")
+				span.visually-hidden Предыдущий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-prev")
+			button.about-photos__swiper-button.about-photos__swiper-button--next(type="button")
+				span.visually-hidden Следующий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-next")
+		div.about-photos__swiper.swiper
+			ul.about-photos__swiper-wrapper.swiper-wrapper
+				each image in aboutPhotsItems
+					li.about-photos__swiper-slide.swiper-slide
+						img(src=image.src, alt=image.alt)
+		div.about-photos__swiper-dots

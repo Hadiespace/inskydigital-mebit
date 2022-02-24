@@ -1,0 +1,27 @@
+-
+	const collaborationAdvantages = [
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+		{title: 'Название преимущества'},
+	];
+
+section.collaboration
+	div.collaboration__container.container
+		div.collaboration__top-wrapper(style="background-image: url(\"../images/collaboration-bg.jpg\");")
+			h1.collaboration__title Дизайнерам и архитекторам
+		div.collaboration__content
+			h2 Сonsectetur adipiscing
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+			p Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+		div.collaboration__advantage-wrapper
+			ul.collaboration__list.advantages
+				each advantage in collaborationAdvantages
+					li.collaboration__item.advantages__item
+						h3.advantages__title!= advantage.title
+						div.advantages__icon(aria-hidden="true")
+							img(src="images/advantages.svg", alt="Иконка")
+			div.collaboration__request Оставить заявку —

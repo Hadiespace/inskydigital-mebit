@@ -1,0 +1,25 @@
+form.about-form__form.form
+	fieldset.about-form__fieldset
+		legend.about-form__legend Заполни заявку на сайте и мы свяжемся с вами
+		div.about-form__wrapper.form__wrapper.about-form__wrapper--name
+			input.about-form__input.form__input(type="text", id="", name="name", placeholder="Введите имя или организацию")
+			label.visually-hidden(for="") Ваше имя или название организации
+			span.about-form__error.form__error
+		div.about-form__wrapper.about-form__wrapper--phone.form__wrapper
+			input.about-form__input.form__input(type="tel", id="", name="phone", placeholder="Телефон")
+			label.visually-hidden(for="") Ваш номер телефона
+			span.about-form__error.form__error
+		div.about-form__wrapper.about-form__wrapper--email.form__wrapper
+			input.about-form__input.form__input(type="email", id="", name="email", placeholder="Email")
+			label.visually-hidden(for="") Ваш email
+			span.about-form__error.form__error
+		div.about-form__wrapper.form__wrapper.about-form__wrapper--comment
+			textarea.about-form__input.about-form__input--textarea.form__input(id="", name="comment", placeholder="Комментарий")
+			label.visually-hidden(for="") Оставьте комментарий
+			span.about-form__error.form__error
+		div.about-form__consent
+			input.about-form__checkbox.visually-hidden(type="checkbox", id="about-form-check", name="consent", checked)
+			label.about-form__label.form__label(for="about-form-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
+				a(href=policy) политикой конфиденциальности
+			span.about-form__error.form__error
+		button.about-form__submit(type="submit") Оставить заявку —

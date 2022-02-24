@@ -1,0 +1,48 @@
+// CRUMBS
+.crumbs {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 140px;
+	padding-bottom: 68px;
+
+	@media (max-width: 1023px) {
+		justify-content: center;
+		padding: 140px 0 24px;
+	}
+
+	@media (max-width: 479px) {
+		padding: 76px 0 16px;
+	}
+}
+
+.crumbs__link {
+	display: grid;
+	grid-column-gap: 10px;
+	grid-template-columns: max-content max-content;
+	margin-right: 10px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgb(255 255 255 / 50%);
+
+	@media (max-width: 767px) {
+		grid-column-gap: 5px;
+		margin-right: 5px;
+		font-size: 10px;
+		line-height: 12px;
+	}
+}
+
+.crumbs__current {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgb(255 255 255 / 30%);
+
+	@media (max-width: 767px) {
+		font-size: 10px;
+		line-height: 12px;
+	}
+}
