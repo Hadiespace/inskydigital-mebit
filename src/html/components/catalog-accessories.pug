@@ -1,0 +1,18 @@
+-
+	const catalogAccessoriesItems = [
+		{title: 'Вазы', href: index, image: {src: 'images/catalog-accessories01.jpg', alt: 'Изображение'}},
+		{title: 'Картины', href: index, image: {src: 'images/catalog-accessories02.jpg', alt: 'Изображение'}},
+		{title: 'Зеркала', href: index, image: {src: 'images/catalog-accessories03.jpg', alt: 'Изображение'}},
+		{title: 'Камины', href: index, image: {src: 'images/catalog-accessories04.jpg', alt: 'Изображение'}},
+		{title: 'Часы', href: index, image: {src: 'images/catalog-accessories05.jpg', alt: 'Изображение'}},
+	];
+
+section.catalog-light
+	div.catalog-light__container.container
+		h2.catalog-light__title Аксессуары
+		ul.catalog-light__list
+			each item in catalogAccessoriesItems
+				li.catalog-light__item
+					h3.catalog-light__item-title: a(href=item.href)!= item.title
+					div.catalog-light__item-image
+						img(src=item.image.src, alt=item.image.alt)

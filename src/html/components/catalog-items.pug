@@ -1,0 +1,31 @@
+-
+	const catalogItemsItems = [
+		{title: 'Базы для раковин', href: index, image: {src: 'images/catalog-item01.jpg', alt: 'Изображение'}},
+		{title: 'Банкетки', href: index, image: {src: 'images/catalog-item02.jpg', alt: 'Изображение'}},
+		{title: 'Бары', href: index, image: {src: 'images/catalog-item03.jpg', alt: 'Изображение'}},
+		{title: 'Библиотеки', href: index, image: {src: 'images/catalog-item04.jpg', alt: 'Изображение'}},
+		{title: 'Витрины', href: index, image: {src: 'images/catalog-item05.jpg', alt: 'Изображение'}},
+		{title: 'Гардеробные', href: index, image: {src: 'images/catalog-item06.jpg', alt: 'Изображение'}},
+		{title: 'Двери', href: index, image: {src: 'images/catalog-item07.jpg', alt: 'Изображение'}},
+		{title: 'Детские гарнитуры', href: index, image: {src: 'images/catalog-item08.jpg', alt: 'Изображение'}},
+		{title: 'Диваны', href: index, image: {src: 'images/catalog-item09.jpg', alt: 'Изображение'}},
+		{title: 'Комоды', href: index, image: {src: 'images/catalog-item10.jpg', alt: 'Изображение'}},
+		{title: 'Консоли', href: index, image: {src: 'images/catalog-item11.jpg', alt: 'Изображение'}},
+		{title: 'Кресла', href: index, image: {src: 'images/catalog-item12.jpg', alt: 'Изображение'}},
+		{title: 'Кресла офисные', href: index, image: {src: 'images/catalog-item13.jpg', alt: 'Изображение'}},
+		{title: 'Кровати', href: index, image: {src: 'images/catalog-item14.jpg', alt: 'Изображение'}},
+		{title: 'Кухни', href: index, image: {src: 'images/catalog-item15.jpg', alt: 'Изображение'}},
+		{title: 'Прихожие', href: index, image: {src: 'images/catalog-item16.jpg', alt: 'Изображение'}},
+		{title: 'Пуфики', href: index, image: {src: 'images/catalog-item17.jpg', alt: 'Изображение'}},
+		{title: 'Спальни', href: index, image: {src: 'images/catalog-item18.jpg', alt: 'Изображение'}},
+	];
+
+section.catalog-items
+	div.catalog-items__container.container
+		h2.catalog-items__title Предметы
+		ul.catalog-items__list
+			each item in catalogItemsItems
+				li.catalog-items__item
+					h3.catalog-items__item-title: a(href=item.href)!= item.title
+					div.catalog-items__item-image
+						img(src=item.image.src, alt=item.image.alt)

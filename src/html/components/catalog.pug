@@ -1,0 +1,34 @@
+-
+	const catalogLinks = [
+		{text: 'Мебель со склада', href: index},
+		{text: 'Экспозиция', href: index},
+		{text: 'Распродажа', href: index},
+		{text: 'Мебель на заказ', href: index},
+		{text: 'Фабрики и каталоги', href: factories},
+	];
+
+	const catalogItems = [
+		{title: 'Спальни', href: index, image: {src: 'images/catalog01.jpg', alt: 'Превью мебели'}},
+		{title: 'Детская мебель', href: index, image: {src: 'images/catalog02.jpg', alt: 'Превью мебели'}},
+		{title: 'Стенки', href: index, image: {src: 'images/catalog03.jpg', alt: 'Превью мебели'}},
+		{title: 'Кухни', href: index, image: {src: 'images/catalog04.jpg', alt: 'Превью мебели'}},
+		{title: 'Мягкая мебель', href: index, image: {src: 'images/catalog05.jpg', alt: 'Превью мебели'}},
+		{title: 'Гостиные', href: index, image: {src: 'images/catalog06.jpg', alt: 'Превью мебели'}},
+		{title: 'Кабинеты, прихожие', href: index, image: {src: 'images/catalog07.jpg', alt: 'Превью мебели'}},
+		{title: 'Столы и стулья', href: index, image: {src: 'images/catalog08.jpg', alt: 'Превью мебели'}},
+		{title: 'Предметы интерьера', href: index, image: {src: 'images/catalog09.jpg', alt: 'Превью мебели'}},
+	];
+
+section.catalog
+	div.catalog__container.container
+		h1.catalog__title Каталог мебели
+		ul.catalog__top-list
+			each link in catalogLinks
+				li.catalog__top-item
+					a.catalog__top-link(href=link.href)!= link.text
+		ul.catalog__bottom-list
+			each item in catalogItems
+				li.catalog__bottom-item
+					h2.catalog__bottom-title: a(href=item.href)!= item.title
+					div.catalog__bottom-image
+						img(src=item.image.src, alt=item.image.alt)

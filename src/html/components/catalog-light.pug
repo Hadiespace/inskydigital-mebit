@@ -1,0 +1,17 @@
+-
+	const catalogLightItems = [
+		{title: 'Бра', href: index, image: {src: 'images/catalog-light01.jpg', alt: 'Изображение'}},
+		{title: 'Люстры', href: index, image: {src: 'images/catalog-light02.jpg', alt: 'Изображение'}},
+		{title: 'Лампы', href: index, image: {src: 'images/catalog-light03.jpg', alt: 'Изображение'}},
+		{title: 'Торшеры', href: index, image: {src: 'images/catalog-light04.jpg', alt: 'Изображение'}},
+	];
+
+section.catalog-light
+	div.catalog-light__container.container
+		h2.catalog-light__title Свет
+		ul.catalog-light__list
+			each item in catalogLightItems
+				li.catalog-light__item
+					h3.catalog-light__item-title: a(href=item.href)!= item.title
+					div.catalog-light__item-image
+						img(src=item.image.src, alt=item.image.alt)

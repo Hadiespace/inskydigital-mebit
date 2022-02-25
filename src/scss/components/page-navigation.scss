@@ -149,7 +149,7 @@
 		content: "";
 		position: absolute;
 		left: 0;
-		bottom: -2px;
+		bottom: -33.5px;
 		width: 100%;
 		height: 2px;
 		background-color: #fff;
@@ -177,6 +177,14 @@
 		}
 	}
 
+	@media (max-width: 1919px) {
+		&--current {
+			&::before {
+				display: none;
+			}
+		}
+	}
+
 	@media (max-width: 1023px) {
 		font-family: $old-standard;
 		font-weight: 400;
@@ -187,14 +195,6 @@
 
 		svg {
 			display: none;
-		}
-	}
-
-	@media (max-width: 1023px) {
-		&--current {
-			&::before {
-				display: none;
-			}
 		}
 	}
 }

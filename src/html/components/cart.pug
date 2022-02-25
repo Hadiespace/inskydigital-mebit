@@ -1,0 +1,52 @@
+-
+	const cartItems = [
+		{title: 'Кровать Platinum', article: '23498549', factory: 'De Majo', model: 'Alchemy', style: 'Арт-деко', material: 'МДФ, кожа', color: ['images/cart-color01.svg', 'images/cart-color02.svg', 'images/cart-color03.svg'], cost: '120 000 ₽', status: 'В наличии', image: {src: 'images/cart-01.jpg', alt: 'Изображение'}},
+		{title: 'Спальня Alchemy New Silver Long Name', article: '23498549', factory: 'De Majo', model: 'Alchemy', style: 'Арт-деко', material: 'МДФ, кожа', color: ['images/cart-color01.svg', 'images/cart-color02.svg', 'images/cart-color03.svg'], cost: '120 000 ₽', status: 'Под заказ', image: {src: 'images/cart-02.jpg', alt: 'Изображение'}},
+		{title: 'Кровать Platinum', article: '23498549', factory: 'De Majo', model: 'Alchemy', style: 'Арт-деко', material: 'МДФ, кожа', color: ['images/cart-color01.svg', 'images/cart-color02.svg', 'images/cart-color03.svg'], cost: '120 000 ₽', status: 'В наличии', image: {src: 'images/cart-03.jpg', alt: 'Изображение'}},
+	];
+
+section.cart
+	div.cart__container.container
+		h1.cart__title Корзина
+		div.cart__wrapper
+			ul.cart__list
+				each item in cartItems
+					li.cart__item.item-cart
+						div.item-cart__wrapper
+							h2.item-cart__title: a(href=index)!= item.title
+							div.item-cart__top-wrapper
+								p.item-cart__article Артикул: #{item.article}
+								button.item-cart__remove(type="button")
+									span Удалить из корзины
+									svg(width="12", height="12", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#cart-item-close")
+							div.item-cart__element
+								span.item-cart__type Фабрика
+								span.item-cart__value: a(href=index)!= item.factory
+							div.item-cart__element.item-cart__element--model
+								span.item-cart__type Модель
+								span.item-cart__value: a(href=index)!= item.model
+							div.item-cart__element
+								span.item-cart__type Стиль
+								span.item-cart__value!= item.style
+							div.item-cart__element
+								span.item-cart__type Материал
+								span.item-cart__value!= item.material
+							div.item-cart__element
+								span.item-cart__type Цвет
+								div.item-cart__colors
+									each color, index in item.color
+										button(class=index === 0 ? 'item-cart__color item-cart__color--current' : 'item-cart__color', type="button")
+											img(src=color, alt="Цвет")
+							div.item-cart__bottom-wrapper
+								span.item-cart__cost!= item.cost
+								span.item-cart__status!= item.status
+								//- Степпер
+								div.item-cart__stepper
+						div.item-cart__image
+							a(href=index)
+								img(src=item.image.src, alt=item.image.alt)
+			div.cart__application.application-cart
+				p.application-cart__text Оформите заявку <br> на выбранную мебель <br> и с вами свяжется наш менеджер
+				a.application-cart__link(href=cart) Продолжить оформление —
+		include cart-empty

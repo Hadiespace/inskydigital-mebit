@@ -1,0 +1,66 @@
+-
+	const factoriesBrands = [
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+		{text: 'A&M Ghezzani', href: index},
+		{text: 'AGAVE', href: index},
+		{text: 'ALF GROUP', href: index},
+		{text: 'ALPE S.r.l.', href: index},
+		{text: 'Angelo Cappellini', href: index},
+		{text: 'AR Arredamenti', href: index},
+		{text: 'Arredo classic', href: index},
+		{text: 'Arte di Murano', href: index},
+		{text: 'ASTRA cucine', href: index},
+	];
+
+section.factories-brands
+	div.factories-brands__container.container
+		h2.factories-brands__title Фабрики
+		ul.factories-brands__list
+			each brand in factoriesBrands
+				li.factories-brands__item
+					a.factories-brands__link(href=brand.href)!= brand.text
+		a.factories-brands__more(href=factories) Смотреть все фабрики —
