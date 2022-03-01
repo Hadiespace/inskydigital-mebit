@@ -12,3 +12,14 @@ mixin userLink(title, link, iconName, iconWidth, iconHeight, count)
 		svg(width=iconWidth, height=iconHeight, aria-hidden="true")
 			use(xlink:href="images/sprite.svg#" + iconName)
 		span!= count
+
+//- STEPPER
+mixin stepper()
+	div.stepper&attributes(attributes)
+		label.stepper__field
+			input.stepper__input(type="text", value="1", maxlength="3")
+		div.stepper__buttons
+			button.stepper__button.stepper__button--minus(type="button", aria-label="Увеличить количество")
+				svg(width="14", height="14"): use(xlink:href="images/sprite.svg#icon-minus")
+			button.stepper__button.stepper__button--plus(type="button", aria-label="Уменьшить количество")
+				svg(width="14", height="14"): use(xlink:href="images/sprite.svg#icon-plus")

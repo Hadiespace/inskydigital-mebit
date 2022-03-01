@@ -4,6 +4,8 @@ const homeNew = document.querySelector('.home-new');
 const homeSpecial = document.querySelector('.home-special');
 const about = document.querySelector('.about');
 const aboutPhotos = document.querySelector('.about-photos');
+const cards = document.querySelectorAll('.card');
+const favoritesWatched = document.querySelector('.favorites-watched');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -114,7 +116,7 @@ const createHomeSpecialSwiper = () => {
 					slidesPerView: 2,
 				},
 				1280: {
-					slidesPerView: 2,
+					slidesPerView: 4,
 					allowTouchMove: false,
 					spaceBetween: 40,
 				},
@@ -196,10 +198,80 @@ const createAboutPhotosSwiper = () => {
 	}
 };
 
+const createCardsSwiper = () => {
+	if (cards) {
+		cards.forEach((card) => {
+			const cardSwiper = card.querySelector('.card .swiper');
+			const dots = card.querySelector('.active-card__swiper-dots');
+
+			new Swiper(cardSwiper, {
+				modules: [Navigation, Pagination],
+				autoHeight: true,
+				slidesPerView: 1,
+				loop: true,
+				speed: 300,
+				pagination: {
+					el: dots,
+					type: 'bullets',
+					clickable: true,
+				},
+			});
+		});
+	}
+};
+
+const createFavoritesWatchedSwiper = () => {
+	if (favoritesWatched) {
+		const favoritesWatchedSwiper = favoritesWatched.querySelector('.favorites-watched .swiper');
+		const next = favoritesWatched.querySelector('.favorites-watched__swiper-button--next');
+		const prev = favoritesWatched.querySelector('.favorites-watched__swiper-button--prev');
+		const dots = favoritesWatched.querySelector('.favorites-watched__swiper-dots');
+
+		new Swiper(favoritesWatchedSwiper, {
+			modules: [Navigation, Pagination],
+			loop: true,
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 10,
+				},
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+				1340: {
+					slidesPerView: 4,
+					allowTouchMove: false,
+				},
+				1600: {
+					slidesPerView: 4,
+					spaceBetween: 40,
+				},
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
 	createHomeSpecialSwiper();
 	createAboutSwiper();
 	createAboutPhotosSwiper();
+	createCardsSwiper();
+	createFavoritesWatchedSwiper();
 };

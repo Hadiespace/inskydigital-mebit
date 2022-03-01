@@ -31,6 +31,7 @@
 
 .page-navigation__logo {
 	align-self: center;
+	justify-self: start;
 	margin: 0 68px;
 
 	@media (max-width: 1919px) {
@@ -67,6 +68,7 @@
 		pointer-events: none;
 
 		&--visible {
+			border-bottom: 1px solid rgb(255 255 255 / 20%);
 			opacity: 1;
 			pointer-events: visible;
 		}
@@ -85,6 +87,7 @@
 	@media (max-width: 1023px) {
 		z-index: 2;
 		overflow: auto;
+		border: none;
 		padding: 54px 20px 30px;
 		width: 100%;
 		height: calc((var(--vh) * 100) - 140px);
@@ -178,6 +181,13 @@
 	}
 
 	@media (max-width: 1919px) {
+		&:hover,
+		&:focus {
+			&::before {
+				display: none;
+			}
+		}
+
 		&--current {
 			&::before {
 				display: none;

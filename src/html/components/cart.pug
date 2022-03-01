@@ -20,6 +20,9 @@ section.cart
 									span Удалить из корзины
 									svg(width="12", height="12", aria-hidden="true")
 										use(xlink:href="images/sprite.svg#cart-item-close")
+							div.item-cart__element.item-cart__element--mobile
+								span.item-cart__type Артикул
+								span.item-cart__value: a(href=index)!= item.article
 							div.item-cart__element
 								span.item-cart__type Фабрика
 								span.item-cart__value: a(href=index)!= item.factory
@@ -41,8 +44,7 @@ section.cart
 							div.item-cart__bottom-wrapper
 								span.item-cart__cost!= item.cost
 								span.item-cart__status!= item.status
-								//- Степпер
-								div.item-cart__stepper
+								+stepper.item-cart__stepper
 						div.item-cart__image
 							a(href=index)
 								img(src=item.image.src, alt=item.image.alt)

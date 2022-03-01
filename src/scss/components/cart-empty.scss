@@ -30,6 +30,31 @@
 	font-size: 60px;
 	line-height: 60px;
 	text-align: center;
+
+	@media (max-width: 1599px) {
+		margin: 0 0 32px;
+		font-size: 48px;
+		line-height: 48px;
+	}
+
+	@media (max-width: 1399px) {
+		margin: 0 0 24px;
+		font-size: 40px;
+		line-height: 40px;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 20px;
+		max-width: 400px;
+		font-size: 32px;
+		line-height: 32px;
+	}
+
+	@media (max-width: 767px) {
+		max-width: 400px;
+		font-size: 25px;
+		line-height: 30px;
+	}
 }
 
 .cart-empty__description {
@@ -39,6 +64,20 @@
 	font-size: 20px;
 	line-height: 30px;
 	text-align: center;
+
+	@media (max-width: 1599px) {
+		margin: 0 0 50px;
+		max-width: 460px;
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 40px;
+		max-width: 400px;
+		font-size: 14px;
+		line-height: 20px;
+	}
 }
 
 .cart-empty__link {

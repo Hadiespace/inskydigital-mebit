@@ -1,0 +1,117 @@
+-
+	const favoritesLinks = [
+		{text: 'Вся мебель'},
+		{text: 'Спальни'},
+		{text: 'Детская мебель'},
+		{text: 'Стенки'},
+		{text: 'Гостиные'},
+		{text: 'Столы и стулья'},
+	];
+
+	const favoritesItems = [
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
+	];
+
+section.favorites
+	div.favorites__container.favorites__top-wrapper.container
+		h1.favorites__title Избранные товары
+		ul.favorites__top-list
+			each link in favoritesLinks
+				li.favorites__top-item
+					button.favorites__top-link(tpe="button")!= link.text
+			li.favorites__top-item
+				button.favorites__top-button.favorites__top-button--active(type="button", id="ru") ₽
+					span.visually-hidden Показать цены в рублях
+				button.favorites__top-button(type="button", id="eu") €
+					span.visually-hidden Показать цены в евро
+	div.favorites__filters-wrapper
+		div.favorites__container.container
+			form.favorites__form
+				fieldset.favorites__fieldset
+					legend.favorites__legend Наличие мебели
+					div.favorites__filter-list
+						div.favorites__filter
+							input.visually-hidden(type="checkbox", id="favorite-1")
+							label.favorites__filter-label(for="favorite-1") В наличии на экспозиции
+						div.favorites__filter
+							input.visually-hidden(type="checkbox", id="favorite-2")
+							label.favorites__filter-label(for="favorite-2") В наличии на складе
+						div.favorites__filter
+							input.visually-hidden(type="checkbox", id="favorite-3")
+							label.favorites__filter-label(for="favorite-3") Под заказ
+	div.favorites__list-wrapper
+		div.favorites__container.container
+			ul.favorites__list
+				each item in favoritesItems
+					// Товар: набор
+					li.favorites__item.card.card--set
+						div.card__tags-wrapper
+							div.card__tags
+								if item.tags
+									each tag in item.tags
+										span!= tag
+						// Стоковое состояние
+						div.card__stock.stock-card
+							h2.stock-card__title!= item.title
+							span.stock-card__cost.stock-card__cost от #{item.costRu}
+							div.stock-card__image
+								img(src=item.image.src, alt=item.image.alt)
+						// Активное состояние
+						div.card__active.active-card
+							a.active-card__link(href=item.href)
+								span.visually-hidden Перейти на страницу с товаром
+							div.card__all-wrapper
+								div.card__tags
+									if item.tags
+										each tag in item.tags
+											span!= tag
+								button.card__favorite.card__favorite--active(type="button")
+									span.visually-hidden Добавить в избранное
+									svg(width="16", height="14", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#favorite")
+							div.active-card__swiper-wrapper
+								div.active-card__swiper.swiper
+									ul.active-card__swiper-list.swiper-wrapper
+										li.active-card__swiper-item.swiper-slide
+											img(src=item.image.src, alt=item.image.alt)
+										li.active-card__swiper-item.swiper-slide
+											img(src=item.image.src, alt=item.image.alt)
+								div.active-card__swiper-dots
+							div.active-card__content-wrapper
+								p.active-card__title!= item.title
+								p.active-card__element
+									span Фабрика:
+									a(href=index)!= item.factory
+								p.active-card__element
+									span Коллекция:
+									a(href=index)!= item.collection
+								div.active-card__wrapper
+									p.active-card__cost Цена от #{item.costRu}
+									p.active-card__status В наличии
+								a.active-card__button Оставить заявку —
+								a.active-card__preview-open Быстрый просмотр
+			div.favorites__pagination-wrapper
+				a.favorites__button(href=favorites) ← <span>Предыдущая страница</span>
+				div.favorites__pages
+					a.favorites__page(href=favorites) 1
+					a.favorites__page.favorites__page--current 2
+					a.favorites__page(href=favorites) 3
+					a.favorites__page(href=favorites) 4
+					a.favorites__page(href=favorites) ...
+					a.favorites__page(href=favorites) 10
+				a.favorites__button(href=favorites) <span>Следующая страница</span> →
