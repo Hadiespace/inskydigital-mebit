@@ -1,0 +1,65 @@
+-
+	const bookmarksLinks = [
+		{text: 'Вся мебель'},
+		{text: 'Спальни'},
+		{text: 'Детская мебель'},
+		{text: 'Стенки'},
+		{text: 'Гостиные'},
+		{text: 'Столы и стулья'},
+	];
+
+	const bookmarksFactories = [
+		'Francesco Pasi',
+		'Gallo',
+		'Gamma arredamenti',
+		'Gicinque Cucine',
+		'Giorgio Collection',
+		'Francesco Pasi',
+		'Gallo',
+		'Gamma arredamenti',
+		'Gicinque Cucine',
+	];
+
+	const bookmarksModels = [
+		'Francesco Pasi',
+		'Gallo',
+		'Gamma arredamenti',
+		'Gicinque Cucine',
+		'Giorgio Collection',
+		'Francesco Pasi',
+		'Gallo',
+		'Gamma arredamenti',
+		'Gicinque Cucine',
+	];
+
+section.bookmarks
+	div.bookmarks__top-wrapper.container
+		div.bookmarks__top-content
+			h1.bookmarks__top-title Мои закладки
+			button.bookmarks__top-button(type="button", aria-expanded="false")
+				svg(width="18", height="15", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#filters-open")
+				span Скрыть фильтр
+		ul.bookmarks__top-list
+			each link in bookmarksLinks
+				li.bookmarks__top-item
+					button.bookmarks__top-link(type="button")!= link.text
+	div.bookmarks__middle-wrapper
+		div.bookmarks__middle-container.container
+			div.bookmarks__filter
+				p.bookmarks__filter-title Фабрика
+				+choiceCheck('Все фабрики', 'factory', bookmarksFactories)
+			div.bookmarks__filter
+				p.bookmarks__filter-title Модель
+				+choiceCheck('Все модели', 'model', bookmarksFactories)
+	div.bookmarks__bottom-wrapper
+		section.bookmarks__factories
+			div.bookmarks__factories-container.container
+				h2.bookmarks__factories-title Фабрика Mobilpiu
+				+factoriesList.bookmarks__factories-list
+				+pagination.bookmarks__factories-pagination
+		section.bookmarks__factories
+			div.bookmarks__factories-container.container
+				h2.bookmarks__factories-title Фабрика Fasolin
+				+factoriesList.bookmarks__factories-list
++simpleCard('Недавно просмотренные').bookmarks__watched

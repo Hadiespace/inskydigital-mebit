@@ -1,5 +1,5 @@
 // HOME NEW
-.favorites-watched {
+.simple-card {
 	padding: 140px 0;
 
 	@media (max-width: 1399px) {
@@ -15,7 +15,7 @@
 	}
 }
 
-.favorites-watched__container {
+.simple-card__container {
 	display: grid;
 	align-items: center;
 	grid-column-gap: 30px;
@@ -26,7 +26,7 @@
 	}
 }
 
-.favorites-watched__title {
+.simple-card__title {
 	margin: 0;
 	font-family: $old-standard;
 	font-weight: 700;
@@ -61,7 +61,7 @@
 	}
 }
 
-.favorites-watched__buttons {
+.simple-card__buttons {
 	@media (min-width: 1024px) {
 		display: grid;
 		grid-column-gap: 30px;
@@ -73,7 +73,7 @@
 	}
 }
 
-.favorites-watched__swiper-button {
+.simple-card__swiper-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -90,7 +90,7 @@
 	}
 }
 
-.favorites-watched__swiper {
+.simple-card__swiper {
 	align-items: start;
 	grid-column: 1/-1;
 	overflow: hidden;
@@ -100,7 +100,7 @@
 	}
 }
 
-.favorites-watched__swiper-wrapper {
+.simple-card__swiper-wrapper {
 	position: relative;
 	display: flex;
 	align-items: start;
@@ -109,13 +109,13 @@
 	padding: 0;
 }
 
-.favorites-watched__swiper-slide {
+.simple-card__swiper-slide {
 	position: relative;
 	display: grid;
 	flex-shrink: 0;
 }
 
-.favorites-watched__swiper-dots {
+.simple-card__swiper-dots {
 	@media (max-width: 1023px) {
 		display: grid;
 		align-self: center;

@@ -8,5 +8,9 @@ block meta
 	meta(name="description", content="")
 	meta(name="keywords", content="")
 block content
+	div.crumbs.container
+		a.crumbs__link(href=index) Главная <span>→</span>
+		span.crumbs__current Мои закладки
+	include ../components/bookmarks
 
 block prepend page-bottom

@@ -1,0 +1,121 @@
+// CHOICE CHECK
+.choice-check {
+	position: relative;
+	display: grid;
+	min-width: 250px;
+}
+
+.choice-check__button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #363636;
+	padding: 5px 20px;
+	min-height: 65px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgb(255 255 255 / 50%);
+	background-color: transparent;
+	transition: border .3s, color .3s;
+
+	svg {
+		fill: none;
+		stroke: rgb(255 255 255 / 50%);
+	}
+}
+
+.choice-check__list {
+	position: absolute;
+	left: 0;
+	top: 65px;
+	display: none;
+	grid-row-gap: 10px;
+	margin: 0;
+	border: 1px solid #363636;
+	border-top: none;
+	padding: 24px 16px 16px;
+	width: 100%;
+	background-color: #131313;
+	transition: border-color .3s;
+}
+
+.choice-check__item {
+	display: grid;
+}
+
+.choice-check__factory {
+	position: relative;
+	display: grid;
+	align-items: center;
+	padding-left: 48px;
+	min-height: 28px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgb(255 255 255 / 50%);
+	transition: color .3s;
+	cursor: pointer;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 50%;
+		border: 1px solid #363636;
+		border-radius: 4px;
+		width: 28px;
+		height: 28px;
+		transform: translateY(-50%);
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 7px;
+		top: 50%;
+		width: 14px;
+		height: 10px;
+		background-image: url("../images/favorites-check.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		opacity: 0;
+		transform: translateY(-50%);
+		transition: opacity .3s;
+	}
+
+	@media (max-width: 1599px) {
+		font-size: 14px;
+		line-height: 16px;
+	}
+
+	@media (max-width: 1399px) {
+		font-size: 12px;
+		line-height: 14px;
+	}
+
+	@media (max-width: 1023px) {
+		font-size: 10px;
+		line-height: 12px;
+	}
+}
+
+.choice-check__item input:checked ~ .choice-check__factory {
+	color: #fff;
+
+	&::after {
+		opacity: 1;
+	}
+}
+
+.choice-check--active {
+	.choice-check__button {
+		border: 1px solid #fff;
+		color: #fff;
+	}
+
+	.choice-check__list {
+		display: grid;
+		border-color: #fff;
+	}
+}

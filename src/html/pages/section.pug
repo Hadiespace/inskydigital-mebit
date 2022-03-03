@@ -8,5 +8,12 @@ block meta
 	meta(name="description", content="")
 	meta(name="keywords", content="")
 block content
+	div.crumbs.container
+		a.crumbs__link(href=index) Главная <span>→</span>
+		a.crumbs__link(href=index) Каталог <span>→</span>
+		span.crumbs__current Спальни
+	include ../components/section
+	include ../components/section-catalog
+	include ../components/factories-brand
 
 block prepend page-bottom

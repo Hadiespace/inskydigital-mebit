@@ -23,3 +23,97 @@ mixin stepper()
 				svg(width="14", height="14"): use(xlink:href="images/sprite.svg#icon-minus")
 			button.stepper__button.stepper__button--plus(type="button", aria-label="Уменьшить количество")
 				svg(width="14", height="14"): use(xlink:href="images/sprite.svg#icon-plus")
+
+//- SIMPLE CARD
+-
+	const simpleCardItems = [
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Кресло Alchemy', href: index, type: 'Кресло', article: '23498549', tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+	];
+
+mixin simpleCard(title)
+	section.simple-card&attributes(attributes)
+		div.simple-card__container.container
+			h2.simple-card__title!= title
+			div.simple-card__buttons
+				button.simple-card__swiper-button.simple-card__swiper-button--prev(type="button")
+					span.visually-hidden Предыдущий слайд
+					svg(width="10", height="16", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#preview-prev")
+				button.simple-card__swiper-button.simple-card__swiper-button--next(type="button")
+					span.visually-hidden Следующий слайд
+					svg(width="10", height="16", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#preview-next")
+			div.simple-card__swiper.swiper
+				ul.simple-card__swiper-wrapper.swiper-wrapper
+					each item in simpleCardItems
+						li.simple-card__swiper-slide.swiper-slide.card.card--slider
+							div.card__tags-wrapper
+								div.card__tags
+									if item.tags
+										each tag in item.tags
+											span!= tag
+							// Стоковое состояние
+							div.card__stock.stock-card
+								span.stock-card__article Артикул #{item.article}
+								h2.stock-card__title: a(href=favorites)!= item.title
+								span.stock-card__type!= item.type
+								div.stock-card__image.stock-card__image--simple
+									img(src=item.image.src, alt=item.image.alt)
+			div.simple-card__swiper-dots
+
+//- FACTORIES LIST
+-
+	const factoriesListItems = [
+		{title: 'Aida', factory: 'Mobilpiu', image: {src: 'images/factories-list01.jpg', alt: 'Фабрика'}},
+		{title: 'Emozioni', factory: 'Maestri Artigiani', image: {src: 'images/factories-list02.jpg', alt: 'Фабрика'}},
+		{title: 'The sofa collection', factory: 'Ditre Italia', image: {src: 'images/factories-list03.jpg', alt: 'Фабрика'}},
+		{title: 'Elite collection', factory: 'Cubo Rosso', image: {src: 'images/factories-list04.jpg', alt: 'Фабрика'}},
+		{title: 'Tresor', factory: 'Fasolin', image: {src: 'images/factories-list05.jpg', alt: 'Фабрика'}},
+		{title: 'Slash', factory: 'Bamax', image: {src: 'images/factories-list06.jpg', alt: 'Фабрика'}},
+		{title: 'Flor', factory: 'Fasolin', image: {src: 'images/factories-list07.jpg', alt: 'Фабрика'}},
+		{title: 'The relax collection', factory: 'Ditre Italia', image: {src: 'images/factories-list08.jpg', alt: 'Фабрика'}},
+	];
+
+mixin factoriesList()
+	ul.factories-list&attributes(attributes)
+		each item in factoriesListItems
+			li.factories-list__item
+				h3.factories-list__title!= item.title
+				span.factories-list__factory Фабрика: <span>#{item.factory}</span>
+				div.factories-list__image
+					img(src=item.image.src, alt=item.image.alt)
+				button.factories-list__button.factories-list__button--active(type="button")
+					span.visually-hidden Добавить в избранное
+					svg(width="15", height="15", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#bookmark")
+
+//- PAGINATION
+mixin pagination()
+	div.pagination&attributes(attributes)
+		a.pagination__button(href=favorites) ← <span>Предыдущая страница</span>
+		div.pagination__pages
+			a.pagination__page(href=favorites) 1
+			a.pagination__page.pagination__page--current 2
+			a.pagination__page(href=favorites) 3
+			a.pagination__page(href=favorites) 4
+			a.pagination__page(href=favorites) ...
+			a.pagination__page(href=favorites) 10
+		a.pagination__button(href=favorites) <span>Следующая страница</span> →
+
+//- CHOICE CHECK
+mixin choiceCheck(title, name, array)
+	form.choice-check
+		button.choice-check__button(type="button", aria-expanded="false")
+			span!= title
+			svg(width="10", height="22", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#choice-arrows")
+		div.choice-check__list
+			each check, index in array
+				div.choice-check__item
+					input.visually-hidden(type="checkbox", id=name + index, name="factory")
+					label.choice-check__factory(for=name + index)!= check

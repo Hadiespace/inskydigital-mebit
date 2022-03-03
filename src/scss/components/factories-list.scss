@@ -1,0 +1,134 @@
+// FACTORIES LIST
+.factories-list {
+	display: grid;
+	grid-column-gap: 40px;
+	grid-row-gap: 50px;
+	grid-template-columns: repeat(4, 1fr);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@media (max-width: 1599px) {
+		grid-column-gap: 30px;
+		grid-row-gap: 50px;
+	}
+
+	@media (max-width: 1339px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (max-width: 767px) {
+		grid-column-gap: 20px;
+		grid-row-gap: 40px;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 479px) {
+		grid-column-gap: 10px;
+		grid-row-gap: 30px;
+		grid-template-columns: 1fr;
+	}
+}
+
+.factories-list__item {
+	position: relative;
+	display: grid;
+	cursor: pointer;
+}
+
+.factories-list__title {
+	margin: 0 0 10px;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
+
+	@media (max-width: 1599px) {
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 6px;
+		font-size: 14px;
+		line-height: 20px;
+		text-align: center;
+	}
+}
+
+.factories-list__factory {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgb(255 255 255 / 50%);
+
+	span {
+		transition: color .3s;
+	}
+
+	@media (max-width: 1599px) {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	@media (max-width: 1023px) {
+		font-size: 10px;
+		line-height: 12px;
+		text-align: center;
+	}
+}
+
+.factories-list__image {
+	position: relative;
+	order: -1;
+	overflow: hidden;
+	margin: 0 0 20px;
+	padding-bottom: 130.633%;
+	width: 100%;
+	height: 0;
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@media (max-width: 1023px) {
+		margin: 0 0 10px;
+	}
+}
+
+.factories-list__button {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-radius: 50%;
+	padding: 0;
+	width: 34px;
+	height: 34px;
+	background-color: #fff;
+
+	svg {
+		fill: none;
+		stroke: #131313;
+		stroke-width: 2px;
+		transition: fill .3s;
+	}
+
+	&--active {
+		svg {
+			fill: #131313;
+		}
+	}
+}
+
+.factories-list__item:hover,
+.factories-list__item:focus-within {
+	.factories-list__factory span {
+		color: #fff;
+	}
+}

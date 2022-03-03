@@ -1,14 +1,16 @@
 -
-	const favoritesLinks = [
+	const sectionLinks = [
 		{text: 'Вся мебель'},
-		{text: 'Спальни'},
-		{text: 'Детская мебель'},
-		{text: 'Стенки'},
-		{text: 'Гостиные'},
-		{text: 'Столы и стулья'},
+		{text: 'Кровати'},
+		{text: 'Тумбы'},
+		{text: 'Гардеробные'},
+		{text: 'Пуфы'},
+		{text: 'Зеркала'},
+		{text: 'Освещение'},
+		{text: 'Интерьер'},
 	];
 
-	const favoritesItems = [
+	const sectionItems = [
 		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
@@ -27,39 +29,29 @@
 		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 	];
 
-section.favorites
-	div.favorites__container.favorites__top-wrapper.container
-		h1.favorites__title Избранные товары
-		ul.favorites__top-list
-			each link in favoritesLinks
-				li.favorites__top-item
-					button.favorites__top-link(tpe="button")!= link.text
-			li.favorites__top-item
+section.section
+	div.section__top-wrapper.container
+		div.section__top-content
+			h1.section__top-title Спальни
+			button.section__top-button(type="button", aria-expanded="false")
+				svg(width="18", height="15", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#filters-open")
+				span Скрыть фильтр
+		ul.section__top-list
+			each link in sectionLinks
+				li.section__top-item
+					button.section__top-link(type="button")!= link.text
+			li.section__top-item
 				button.favorites__top-button.favorites__top-button--active(type="button", id="ru") ₽
 					span.visually-hidden Показать цены в рублях
 				button.favorites__top-button(type="button", id="eu") €
 					span.visually-hidden Показать цены в евро
-	div.favorites__filters-wrapper
-		div.favorites__container.container
-			form.favorites__form
-				fieldset.favorites__fieldset
-					legend.favorites__legend Наличие мебели
-					div.favorites__filter-list
-						div.favorites__filter
-							input.visually-hidden(type="checkbox", id="favorite-1")
-							label.favorites__filter-label(for="favorite-1") В наличии на экспозиции
-						div.favorites__filter
-							input.visually-hidden(type="checkbox", id="favorite-2")
-							label.favorites__filter-label(for="favorite-2") В наличии на складе
-						div.favorites__filter
-							input.visually-hidden(type="checkbox", id="favorite-3")
-							label.favorites__filter-label(for="favorite-3") Под заказ
-	div.favorites__list-wrapper
-		div.favorites__container.container
-			ul.favorites__list
-				each item in favoritesItems
+	div.section__list-wrapper
+		div.section__container.container
+			ul.section__list
+				each item in sectionItems
 					// Товар: набор
-					li.favorites__item.card.card--set
+					li.section__item.card.card--set
 						div.card__tags-wrapper
 							div.card__tags
 								if item.tags
@@ -107,4 +99,3 @@ section.favorites
 								a.active-card__preview-open Быстрый просмотр
 			+pagination.favorites__pagination-wrapper
 				a.pagination__button(href=favorites) <span>Следующая страница</span> →
-+simpleCard('Недавно просмотренные').favorites__watched
