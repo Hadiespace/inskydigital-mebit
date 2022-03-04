@@ -1,5 +1,5 @@
 -
-	const sectionLinks = [
+	const subSectionLinks = [
 		{text: 'Вся мебель'},
 		{text: 'Кровати'},
 		{text: 'Тумбы'},
@@ -10,7 +10,7 @@
 		{text: 'Интерьер'},
 	];
 
-	const sectionItems = [
+	const subSectionItems = [
 		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
@@ -29,7 +29,7 @@
 		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-set.jpg', alt: 'Набор'}},
 	];
 
-	const sectionChoiceItems = [
+	const subSectionChoiceItems = [
 		'Francesco Pasi',
 		'Gallo',
 		'Gamma arredamenti',
@@ -41,18 +41,23 @@
 		'Gicinque Cucine',
 	];
 
-	const sectionMaterialItems = [
+	const subSectionMaterialItems = [
 		'Дуб',
 		'Медь',
 	];
 
-	const sectionStatusItems = [
+	const subSectionColorItems = [
+		'Серый',
+		'Бежевый',
+	];
+
+	const subSectionStatusItems = [
 		'Под заказ',
 		'В наличии на экспозиции',
 		'В наличии на складе',
 	];
 
-	const sectionStyleItems = [
+	const subSectionStyleItems = [
 		'Борокко',
 		'Рококо',
 		'Ампир',
@@ -61,13 +66,13 @@
 section.section
 	div.section__top-wrapper.container
 		div.section__top-content
-			h1.section__top-title Спальни
+			h1.section__top-title Кровати
 			button.section__top-button(type="button", aria-expanded="false")
 				svg(width="18", height="15", aria-hidden="true")
 					use(xlink:href="images/sprite.svg#filters-open")
 				span Скрыть фильтр
 		ul.section__top-list
-			each link in sectionLinks
+			each link in subSectionLinks
 				li.section__top-item
 					button.section__top-link(type="button")!= link.text
 			li.section__top-item
@@ -91,24 +96,64 @@ section.section
 							label.visually-hidden(for="range11") Максимальная цена
 				+choicePopup
 			div.section__top-filter
+				form.section__top-form.range.range--default
+					p.range__title Ширина, см
+					div.range__slider
+					div.range__values
+						p.range__value.range__value--min
+							input.range__input(type="text", id="range10", min="0", value="120")
+							label.visually-hidden(for="range10") Минимальный размер
+						p.range__value.range__value--max
+							input.range__input(type="text", id="range11", max="260", value="400")
+							label.visually-hidden(for="range11") Максимальный размер
+				+choicePopup
+			div.section__top-filter
+				form.section__top-form.range.range--default
+					p.range__title Высота, см
+					div.range__slider
+					div.range__values
+						p.range__value.range__value--min
+							input.range__input(type="text", id="range30", min="0", value="40")
+							label.visually-hidden(for="range30") Минимальный размер
+						p.range__value.range__value--max
+							input.range__input(type="text", id="range31", max="180", value="98")
+							label.visually-hidden(for="range31") Максимальный размер
+				+choicePopup
+			div.section__top-filter
+				form.section__top-form.range.range--default
+					p.range__title Глубина, см
+					div.range__slider
+					div.range__values
+						p.range__value.range__value--min
+							input.range__input(type="text", id="range40", min="0", value="50")
+							label.visually-hidden(for="range40") Минимальный размер
+						p.range__value.range__value--max
+							input.range__input(type="text", id="range41", max="200", value="120")
+							label.visually-hidden(for="range41") Максимальный размер
+				+choicePopup
+			div.section__top-filter
 				p.section__top-filter-title Фабрика
-				+choiceCheck('Все фабрики', 'factory', sectionChoiceItems)
+				+choiceCheck('Все фабрики', 'factory', subSectionChoiceItems)
 				+choicePopup
 			div.section__top-filter
 				p.section__top-filter-title Модель
-				+choiceCheck('Все модели', 'model', sectionChoiceItems)
+				+choiceCheck('Все модели', 'model', subSectionChoiceItems)
+				+choicePopup
+			div.section__top-filter
+				p.section__top-filter-title Цвет
+				+choiceCheck('Все цвета', 'color', subSectionColorItems)
 				+choicePopup
 			div.section__top-filter
 				p.section__top-filter-title Материал
-				+choiceCheck('Все материалы', 'material', sectionMaterialItems)
+				+choiceCheck('Все материалы', 'material', subSectionMaterialItems)
 				+choicePopup.choice-popup--active
 			div.section__top-filter
-				p.section__top-filter-title Наличие
-				+choiceCheck('Все товары', 'status', sectionStatusItems)
+				p.section__top-filter-title Стиль
+				+choiceCheck('Все стили', 'status', subSectionStyleItems)
 				+choicePopup
 			div.section__top-filter
-				p.section__top-filter-title Стиль
-				+choiceCheck('Все стили', 'status', sectionStyleItems)
+				p.section__top-filter-title Наличие
+				+choiceCheck('Все товары', 'status', subSectionStatusItems)
 				+choicePopup
 		ul.section__top-result.container
 			li.section__top-result-item
@@ -138,7 +183,7 @@ section.section
 	div.section__list-wrapper
 		div.section__container.container
 			ul.section__list
-				each item in sectionItems
+				each item in subSectionItems
 					// Товар: набор
 					li.section__item.card.card--set
 						div.card__tags-wrapper

@@ -472,7 +472,6 @@
 	background-color: #fff;
 	transition: color .3s, background-color .3s, border-color .3s;
 	cursor: pointer;
-	pointer-events: visible;
 
 	&:hover,
 	&:focus {
@@ -499,7 +498,6 @@
 	line-height: 20px;
 	color: rgb(19 19 19 / 80%);
 	cursor: pointer;
-	pointer-events: visible;
 
 	&::before {
 		content: "";
@@ -537,6 +535,11 @@
 
 	.card__favorite {
 		opacity: 1;
+		pointer-events: visible;
+	}
+
+	.active-card__button,
+	.active-card__preview-open {
 		pointer-events: visible;
 	}
 }

@@ -117,3 +117,13 @@ mixin choiceCheck(title, name, array)
 				div.choice-check__item
 					input.visually-hidden(type="checkbox", id=name + index, name="factory")
 					label.choice-check__factory(for=name + index)!= check
+
+//- CHOICE POPUP
+mixin choicePopup()
+	div.choice-popup&attributes(attributes)
+		p.choice-popup__text Выбрано 320 товаров
+		button.choice-popup__button(type="button") Показать —
+		button.choice-popup__close(type="button")
+			span.visually-hidden Закрыть
+			svg(width="10", height="10", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#close")

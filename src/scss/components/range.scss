@@ -1,0 +1,43 @@
+// RANGE
+.range {}
+
+.range__title {
+	margin: 0 0 34px;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.range__slider {
+	margin: 0 0 27px;
+}
+
+.range__val {
+	display: none;
+}
+
+.range__values {
+	display: grid;
+	justify-content: space-between;
+	grid-template-columns: 1fr 1fr;
+}
+
+.range__value {
+	display: grid;
+	margin: 0;
+}
+
+.range__input {
+	border: none;
+	padding: 0;
+	width: 100%;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	background: transparent;
+}
+
+.range__value:last-child .range__input {
+	text-align: right;
+}

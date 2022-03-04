@@ -23,6 +23,12 @@
 		fill: none;
 		stroke: rgb(255 255 255 / 50%);
 	}
+
+	&:hover,
+	&:focus {
+		border: 1px solid #fff;
+		color: #fff;
+	}
 }
 
 .choice-check__list {

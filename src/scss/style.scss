@@ -3,6 +3,7 @@
 @import "variables";
 @import "mixins";
 @import "scaffolding";
+@import "nouislider.scss";
 @import "components/visually-hidden";
 @import "components/container";
 @import "components/header";
@@ -56,3 +57,7 @@
 @import "components/bookmarks";
 @import "components/choice-check";
 @import "components/section";
+@import "components/section-catalog";
+@import "components/no-ui";
+@import "components/range";
+@import "components/choice-popup";

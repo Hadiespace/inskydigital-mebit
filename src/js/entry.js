@@ -13,6 +13,7 @@ import { getAnother } from './modules/another.js';
 import { getShipPay } from './modules/ship-pay.js';
 import { toggleLetters } from './modules/factories.js';
 import { createStepper } from './modules/stepper.js';
+import { createRange } from './modules/range.js';
 
 testSupportWebp();
 changeMenuHeight();
@@ -27,3 +28,4 @@ getAnother();
 getShipPay();
 toggleLetters();
 createStepper();
+createRange();
