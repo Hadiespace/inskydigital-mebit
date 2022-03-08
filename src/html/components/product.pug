@@ -1,0 +1,38 @@
+section.product
+	div.product__container.container
+		div.product__content-wrapper
+			h1.product__title Кровать Alchemy New Silver
+			p.product__article Артикул: 23498549
+			div.product__element
+				span.product__type Фабрика
+				span.product__value
+					a(href=index) De Majo
+			div.product__element
+				span.product__type Модель
+				span.product__value
+					a(href=index) Alchemy
+			div.product__element
+				span.product__type Стиль
+				span.product__value Арт-деко
+			div.product__element
+				span.product__type Материал
+				span.product__value МДФ, кожа
+			div.product__element
+				span.product__type Цвет
+				div.product__colors
+					button.product__color.product__color--current(type="button")
+						img(src="images/card-color01.svg", alt="Серый")
+					button.product__color(type="button")
+						img(src="images/card-color02.svg", alt="Голубой")
+					button.product__color(type="button")
+						img(src="images/card-color03.svg", alt="Черный")
+					div Серый
+			button.product__val.val(type="button")
+				span ₽
+				span €
+			div.product__center-wrapper
+				span.product__cost Цена 120 000 ₽
+				span.product__status Под заказ
+			div.product__bottom-wrapper
+				+choiceRadio
+		div

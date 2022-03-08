@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
 const preview = document.querySelector('.preview');
 const homeNew = document.querySelector('.home-new');
 const homeSpecial = document.querySelector('.home-special');
@@ -6,6 +6,7 @@ const about = document.querySelector('.about');
 const aboutPhotos = document.querySelector('.about-photos');
 const cards = document.querySelectorAll('.card');
 const simpleCard = document.querySelectorAll('.simple-card');
+const products = document.querySelectorAll('.product');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -99,24 +100,22 @@ const createHomeSpecialSwiper = () => {
 			modules: [Navigation, Pagination],
 			loop: true,
 			speed: 300,
+			slidesPerView: 1,
+			spaceBetween: 20,
 			navigation: {
 				nextEl: next,
 				prevEl: prev,
 			},
 			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 20,
-				},
-				480: {
+				767: {
 					slidesPerView: 2,
-					spaceBetween: 30,
 				},
 				1024: {
 					slidesPerView: 2,
+					spaceBetween: 30,
 				},
 				1280: {
-					slidesPerView: 4,
+					slidesPerView: 2,
 					allowTouchMove: false,
 					spaceBetween: 40,
 				},
@@ -268,6 +267,56 @@ const createSimpleCardSwiper = () => {
 	}
 };
 
+const createProductSwiper = () => {
+	if (products) {
+		products.forEach((product) => {
+			const productSwiper = product.querySelector('.product__swiper-top-container .swiper');
+			const productSwiper2 = product.querySelector('.product__swiper-container .swiper');
+			const next = product.querySelector('.product__swiper-button--next');
+			const prev = product.querySelector('.product__swiper-button--prev');
+			const dots = product.querySelector('.product__swiper-dots');
+
+			const swiper = new Swiper(productSwiper2, {
+				loop: true,
+				speed: 300,
+				spaceBetween: 20,
+				watchSlidesProgress: true,
+				breakpoints: {
+					1023: {
+						slidesPerView: 3,
+					},
+					1340: {
+						slidesPerView: 4,
+						allowTouchMove: false,
+					},
+					1600: {
+						slidesPerView: 4,
+					},
+				},
+			});
+
+			new Swiper(productSwiper, {
+				modules: [Navigation, Pagination, Thumbs],
+				loop: true,
+				spaceBetween: 20,
+				speed: 300,
+				navigation: {
+					nextEl: next,
+					prevEl: prev,
+				},
+				pagination: {
+					el: dots,
+					type: 'bullets',
+					clickable: true,
+				},
+				thumbs: {
+					swiper: swiper,
+				},
+			});
+		});
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
@@ -276,4 +325,5 @@ export const generateSwiper = () => {
 	createAboutPhotosSwiper();
 	createCardsSwiper();
 	createSimpleCardSwiper();
+	createProductSwiper();
 };

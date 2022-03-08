@@ -1,0 +1,93 @@
+-
+	const productSimpleRadioItems = [
+		'160 × 200',
+		'180 × 220',
+		'200 × 240',
+	];
+
+	const productSimpleImages = [
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+	]
+
+section.product
+	div.product__container.container
+		div.product__content-wrapper
+			h1.product__title Кровать Alchemy New Silver
+			p.product__article Артикул: 23498549
+			div.product__elements
+				div.product__element
+					span.product__type Фабрика
+					span.product__value
+						a(href=index) De Majo
+				div.product__element.product__element--model
+					span.product__type Модель
+					span.product__value
+						a(href=index) Alchemy
+				div.product__element
+					span.product__type Стиль
+					span.product__value Арт-деко
+				div.product__element
+					span.product__type Материал
+					span.product__value МДФ, кожа
+				div.product__element
+					span.product__type Цвет
+					div.product__colors
+						button.product__color.product__color--current(type="button")
+							img(src="images/cart-color01.svg", alt="Серый")
+							span Серый
+						button.product__color(type="button")
+							img(src="images/cart-color02.svg", alt="Голубой")
+							span Голубой
+						button.product__color(type="button")
+							img(src="images/cart-color03.svg", alt="Черный")
+							span Черный
+			button.product__val.val(type="button")
+				span ₽
+				span €
+			p.product__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
+			div.product__center-wrapper
+				span.product__cost Цена 120 000 ₽
+				span.product__status Под заказ
+			div.product__bottom-wrapper
+				+choiceRadio('160 × 200', 'size', productSimpleRadioItems).product__choice
+				button.product__add-to-cart(type="button") Добавить в корзину —
+		div.product__swiper-wrap
+			h1.product__swiper-title Спальня Alchemy New Silver
+			div.product__swiper-top-container
+				div.product__navigation
+					div.product__tags
+						span New
+						span Sale
+					button.product__favorite(type="button")
+						span.visually-hidden Добавить в избранное
+						svg(width="16", height="14", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#favorite")
+					div.product__loop Увеличить
+				div.product__swiper-top-overflow.swiper
+					ul.product__swiper-top-wrapper.swiper-wrapper
+						each image in productSimpleImages
+							li.product__swiper-top-slide.swiper-slide
+								img(src=image, alt="Фото")
+			div.product__swiper-container
+				div.product__swiper-overflow.swiper
+					ul.product__swiper-wrapper.swiper-wrapper
+						each image in productSimpleImages
+							li.product__swiper-slide.swiper-slide
+								img(src=image, alt="Фото")
+				div.product__swiper-buttons
+					button.product__swiper-button.product__swiper-button--prev(type="button")
+						span.visually-hidden Предыдущий слайд
+						svg(width="5", height="5", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#")
+					button.product__swiper-button.product__swiper-button--next(type="button")
+						span.visually-hidden Следующий слайд
+						svg(width="5", height="5", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#")
+			div.product__swiper-dots

@@ -1,0 +1,80 @@
+-
+	const productSettRadioItems = [
+		'160 × 200',
+		'180 × 220',
+		'200 × 240',
+	];
+
+	const productSettImages = [
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+	]
+
+section.product
+	div.product__container.container
+		div.product__content-wrapper
+			h1.product__title Спальня Alchemy New Silver
+			a.product__download(href=index, download) Скачать каталог
+			div.product__elements
+				div.product__element
+					span.product__type Фабрика
+					span.product__value
+						a(href=index) De Majo
+				div.product__element.product__element--model
+					span.product__type Модель
+					span.product__value
+						a(href=index) Alchemy
+				div.product__element
+					span.product__type Стиль
+					span.product__value Арт-деко
+				div.product__element
+					span.product__type Материал
+					span.product__value МДФ, кожа
+			button.product__val.val(type="button")
+				span ₽
+				span €
+			div.product__center-wrapper
+				span.product__cost Цена от 320 000 ₽
+				span.product__status В наличии на складе
+			div.product__buttons-wrapper
+				a.product__add-to-cart(href="#sett") Собрать заказ ↓
+				button.product__get-offer(type="button") Оставить заявку — —
+		div.product__swiper-wrap
+			h1.product__swiper-title Спальня Alchemy New Silver
+			div.product__swiper-top-container
+				div.product__navigation
+					div.product__tags
+						span New
+						span Sale
+					button.product__favorite(type="button")
+						span.visually-hidden Добавить в избранное
+						svg(width="16", height="14", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#favorite")
+					div.product__loop Увеличить
+				div.product__swiper-top-overflow.swiper
+					ul.product__swiper-top-wrapper.swiper-wrapper
+						each image in productSettImages
+							li.product__swiper-top-slide.swiper-slide
+								img(src=image, alt="Фото")
+			div.product__swiper-container
+				div.product__swiper-overflow.swiper
+					ul.product__swiper-wrapper.swiper-wrapper
+						each image in productSettImages
+							li.product__swiper-slide.swiper-slide
+								img(src=image, alt="Фото")
+				div.product__swiper-buttons
+					button.product__swiper-button.product__swiper-button--prev(type="button")
+						span.visually-hidden Предыдущий слайд
+						svg(width="5", height="5", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#")
+					button.product__swiper-button.product__swiper-button--next(type="button")
+						span.visually-hidden Следующий слайд
+						svg(width="5", height="5", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#")
+			div.product__swiper-dots

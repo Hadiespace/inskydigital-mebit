@@ -63,6 +63,12 @@
 		'Ампир',
 	];
 
+	const subSectionRadioItems = [
+		'160 × 200',
+		'180 × 220',
+		'200 × 240',
+	];
+
 section.section
 	div.section__top-wrapper.container
 		div.section__top-content
@@ -155,7 +161,7 @@ section.section
 				p.section__top-filter-title Наличие
 				+choiceCheck('Все товары', 'status', subSectionStatusItems)
 				+choicePopup
-		ul.section__top-result.container
+	ul.section__top-result.container
 			li.section__top-result-item
 				span Цена: от 50000₽ до 70000₽
 				button(type="button")
@@ -185,7 +191,7 @@ section.section
 			ul.section__list
 				each item in subSectionItems
 					// Товар: набор
-					li.section__item.card.card--set
+					li.section__item.card.card--simple
 						div.card__tags-wrapper
 							div.card__tags
 								if item.tags
@@ -193,6 +199,7 @@ section.section
 										span!= tag
 						// Стоковое состояние
 						div.card__stock.stock-card
+							p.stock-card__article Артикул: 23498549
 							h2.stock-card__title!= item.title
 							span.stock-card__cost.stock-card__cost от #{item.costRu}
 							div.stock-card__image
@@ -219,16 +226,20 @@ section.section
 											img(src=item.image.src, alt=item.image.alt)
 								div.active-card__swiper-dots
 							div.active-card__content-wrapper
+								p.active-card__article Артикул: 23498549
 								p.active-card__title!= item.title
 								p.active-card__element
 									span Фабрика:
 									a(href=index)!= item.factory
 								p.active-card__element
-									span Коллекция:
+									span Модель:
 									a(href=index)!= item.collection
+								p.active-card__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
 								div.active-card__wrapper
 									p.active-card__cost Цена от #{item.costRu}
 									p.active-card__status В наличии
-								a.active-card__button Оставить заявку —
+								div.active-card__choice-wrapper
+									+choiceRadio('160 × 200', 'size', subSectionRadioItems)
+									button.active-card__button(type="button") Добавить в корзину —
 								a.active-card__preview-open Быстрый просмотр
 			+pagination.section__pagination

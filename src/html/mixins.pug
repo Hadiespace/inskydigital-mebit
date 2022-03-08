@@ -118,6 +118,19 @@ mixin choiceCheck(title, name, array)
 					input.visually-hidden(type="checkbox", id=name + index, name="factory")
 					label.choice-check__factory(for=name + index)!= check
 
+//- CHOICE RADIO
+mixin choiceRadio(title, name, array)
+	form.choice-radio&attributes(attributes)
+		button.choice-radio__button(type="button", aria-expanded="false")
+			span!= title
+			svg(width="10", height="22", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#choice-arrows")
+		div.choice-radio__list
+			each radio, index in array
+				div.choice-radio__item
+					input.visually-hidden(type="radio", id=name + index, name="size")
+					label.choice-radio__factory(for=name + index)!= radio
+
 //- CHOICE POPUP
 mixin choicePopup()
 	div.choice-popup&attributes(attributes)
@@ -127,3 +140,91 @@ mixin choicePopup()
 			span.visually-hidden Закрыть
 			svg(width="10", height="10", aria-hidden="true")
 				use(xlink:href="images/sprite.svg#close")
+
+-
+	const simpleItems = [
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New', 'Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['New'], costRu: '424 000 ₽', costEu: '4240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, costRu: '224 000 ₽', costEu: '2240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+		{title: 'Спальня Charisma', href: index, tags: ['Sale'], costRu: '324 000 ₽', costEu: '3240 €', factory: 'De Majo', collection: 'Charisma', status: 'В наличии', material: 'МДФ, кожа', style: 'Арт-Деко', file: index, image: {src: 'images/card-simple.jpg', alt: 'Набор'}},
+	];
+
+	const simpleRadioItems = [
+		'160 × 200',
+		'180 × 220',
+		'200 × 240',
+	];
+
+mixin productList(title)
+	section.product-list(id="sett")
+		div.product-list__container.container
+			h2.product-list__title!= title
+			div.section__list-wrapper
+				div.section__container
+					ul.section__list
+						each item in simpleItems
+							// Товар: набор
+							li.section__item.card.card--simple
+								div.card__tags-wrapper
+									div.card__tags
+										if item.tags
+											each tag in item.tags
+												span!= tag
+								// Стоковое состояние
+								div.card__stock.stock-card
+									p.stock-card__article Артикул: 23498549
+									h2.stock-card__title!= item.title
+									span.stock-card__cost.stock-card__cost от #{item.costRu}
+									div.stock-card__image
+										img(src=item.image.src, alt=item.image.alt)
+								// Активное состояние
+								div.card__active.active-card
+									a.active-card__link(href=item.href)
+										span.visually-hidden Перейти на страницу с товаром
+									div.card__all-wrapper
+										div.card__tags
+											if item.tags
+												each tag in item.tags
+													span!= tag
+										button.card__favorite.card__favorite--active(type="button")
+											span.visually-hidden Добавить в избранное
+											svg(width="16", height="14", aria-hidden="true")
+												use(xlink:href="images/sprite.svg#favorite")
+									div.active-card__swiper-wrapper
+										div.active-card__swiper.swiper
+											ul.active-card__swiper-list.swiper-wrapper
+												li.active-card__swiper-item.swiper-slide
+													img(src=item.image.src, alt=item.image.alt)
+												li.active-card__swiper-item.swiper-slide
+													img(src=item.image.src, alt=item.image.alt)
+										div.active-card__swiper-dots
+									div.active-card__content-wrapper
+										p.active-card__article Артикул: 23498549
+										p.active-card__title!= item.title
+										p.active-card__element
+											span Фабрика:
+											a(href=index)!= item.factory
+										p.active-card__element
+											span Модель:
+											a(href=index)!= item.collection
+										p.active-card__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
+										div.active-card__wrapper
+											p.active-card__cost Цена от #{item.costRu}
+											p.active-card__status В наличии
+										div.active-card__choice-wrapper
+											+choiceRadio('160 × 200', 'size', simpleRadioItems)
+											button.active-card__button(type="button") Добавить в корзину —
+										a.active-card__preview-open Быстрый просмотр
+					+pagination.section__pagination
