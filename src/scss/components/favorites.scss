@@ -160,42 +160,22 @@
 }
 
 .favorites__top-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 6px;
-	border: none;
-	border-radius: 30px;
-	padding: 0;
-	width: 28px;
-	height: 28px;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 20px;
-	color: #fff;
-	background-color: transparent;
-
-	&:first-child {
-		margin-right: 0;
-	}
-
-	&--active {
-		color: #131313;
-		background-color: #fff;
-	}
-
 	@media (max-width: 1599px) {
-		width: 24px;
-		height: 24px;
-		font-size: 14px;
-		line-height: 20px;
+		.cost__value {
+			width: 24px;
+			height: 24px;
+			font-size: 14px;
+			line-height: 20px;
+		}
 	}
 
 	@media (max-width: 767px) {
-		width: 16px;
-		height: 16px;
-		font-size: 10px;
-		line-height: 12px;
+		.cost__value {
+			width: 16px;
+			height: 16px;
+			font-size: 10px;
+			line-height: 12px;
+		}
 	}
 }
 

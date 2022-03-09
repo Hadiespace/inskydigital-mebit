@@ -82,10 +82,9 @@ section.section
 				li.section__top-item
 					button.section__top-link(type="button")!= link.text
 			li.section__top-item
-				button.favorites__top-button.favorites__top-button--active(type="button", id="ru") ₽
-					span.visually-hidden Показать цены в рублях
-				button.favorites__top-button(type="button", id="eu") €
-					span.visually-hidden Показать цены в евро
+				button.favorites__top-button.cost(type="button")
+					span.cost__value.cost__value--current ₽
+					span.cost__value €
 	div.section__top-filters
 		div.section__top-filter-container.container
 			div.section__top-filter

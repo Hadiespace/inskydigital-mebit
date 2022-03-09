@@ -22,6 +22,9 @@ section.product
 			h1.product__title Кровать Alchemy New Silver
 			p.product__article Артикул: 23498549
 			div.product__elements
+				div.product__element.product__element--article
+					span.product__type Артикул
+					span.product__value 23498549
 				div.product__element
 					span.product__type Фабрика
 					span.product__value
@@ -48,12 +51,15 @@ section.product
 						button.product__color(type="button")
 							img(src="images/cart-color03.svg", alt="Черный")
 							span Черный
-			button.product__val.val(type="button")
-				span ₽
-				span €
+			button.product__val.cost(type="button")
+				span.cost__value.cost__value--current ₽
+				span.cost__value €
 			p.product__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
 			div.product__center-wrapper
-				span.product__cost Цена 120 000 ₽
+				button.product__mobile-val.cost(type="button")
+					span.cost__value.cost__value--current ₽
+					span.cost__value €
+				span.product__cost <span>Цена</span> 120 000 ₽
 				span.product__status Под заказ
 			div.product__bottom-wrapper
 				+choiceRadio('160 × 200', 'size', productSimpleRadioItems).product__choice
@@ -84,10 +90,10 @@ section.product
 				div.product__swiper-buttons
 					button.product__swiper-button.product__swiper-button--prev(type="button")
 						span.visually-hidden Предыдущий слайд
-						svg(width="5", height="5", aria-hidden="true")
-							use(xlink:href="images/sprite.svg#")
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-prev")
 					button.product__swiper-button.product__swiper-button--next(type="button")
 						span.visually-hidden Следующий слайд
-						svg(width="5", height="5", aria-hidden="true")
-							use(xlink:href="images/sprite.svg#")
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-next")
 			div.product__swiper-dots

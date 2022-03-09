@@ -277,10 +277,15 @@ const createProductSwiper = () => {
 			const dots = product.querySelector('.product__swiper-dots');
 
 			const swiper = new Swiper(productSwiper2, {
+				modules: [Navigation],
 				loop: true,
 				speed: 300,
 				spaceBetween: 20,
 				watchSlidesProgress: true,
+				navigation: {
+					nextEl: next,
+					prevEl: prev,
+				},
 				breakpoints: {
 					1023: {
 						slidesPerView: 3,

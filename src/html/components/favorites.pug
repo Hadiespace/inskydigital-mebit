@@ -35,10 +35,9 @@ section.favorites
 				li.favorites__top-item
 					button.favorites__top-link(tpe="button")!= link.text
 			li.favorites__top-item
-				button.favorites__top-button.favorites__top-button--active(type="button", id="ru") ₽
-					span.visually-hidden Показать цены в рублях
-				button.favorites__top-button(type="button", id="eu") €
-					span.visually-hidden Показать цены в евро
+				button.favorites__top-button.cost(type="button")
+					span.cost__value.cost__value--current ₽
+					span.cost__value €
 	div.favorites__filters-wrapper
 		div.favorites__container.container
 			form.favorites__form

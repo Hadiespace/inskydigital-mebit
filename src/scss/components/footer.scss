@@ -252,10 +252,13 @@
 	padding: 0;
 	width: 75px;
 	height: 75px;
-	background-color: transparent;
+	background: transparent;
+	transition: border .3s, background .3s;
 
 	svg {
+		fill: none;
 		stroke: #fff;
+		transition: stroke .3s;
 	}
 
 	span {
@@ -268,6 +271,15 @@
 		text-transform: uppercase;
 		color: rgb(255 255 255 / 50%);
 		transform: translateX(-50%);
+	}
+
+	&:hover,
+	&:focus-within {
+		background-color: #fff;
+
+		svg {
+			stroke: #131313;
+		}
 	}
 
 	@media (max-width: 1399px) {

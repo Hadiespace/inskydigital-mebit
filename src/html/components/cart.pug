@@ -41,6 +41,7 @@ section.cart
 									each color, index in item.color
 										button(class=index === 0 ? 'item-cart__color item-cart__color--current' : 'item-cart__color', type="button")
 											img(src=color, alt="Цвет")
+											span Цвет
 							div.item-cart__bottom-wrapper
 								span.item-cart__cost!= item.cost
 								span.item-cart__status!= item.status

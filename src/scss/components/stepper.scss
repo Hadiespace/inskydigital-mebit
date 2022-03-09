@@ -54,6 +54,11 @@
 		stroke: #fff;
 	}
 
+	&:hover,
+	&:focus {
+		opacity: 1;
+	}
+
 	&--disabled {
 		color: #e0e1e8;
 		opacity: .2;

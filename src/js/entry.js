@@ -14,6 +14,7 @@ import { getShipPay } from './modules/ship-pay.js';
 import { toggleLetters } from './modules/factories.js';
 import { createStepper } from './modules/stepper.js';
 import { createRange } from './modules/range.js';
+import { createCost } from './modules/cost.js';
 
 testSupportWebp();
 changeMenuHeight();
@@ -29,3 +30,4 @@ getShipPay();
 toggleLetters();
 createStepper();
 createRange();
+createCost();

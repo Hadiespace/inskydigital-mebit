@@ -1,0 +1,32 @@
+// COST
+.cost {
+	display: flex;
+	border: none;
+	border-radius: 30px;
+	padding: 6px;
+	background: #363636;
+}
+
+.cost__value {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: #fff;
+	background: transparent;
+	transition: background .3s, color .3s;
+
+	&:first-child {
+		margin-right: 4px;
+	}
+
+	&--current {
+		color: #131313;
+		background: #fff;
+	}
+}

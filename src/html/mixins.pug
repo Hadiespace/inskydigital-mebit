@@ -187,7 +187,7 @@ mixin productList(title)
 									p.stock-card__article Артикул: 23498549
 									h2.stock-card__title!= item.title
 									span.stock-card__cost.stock-card__cost от #{item.costRu}
-									div.stock-card__image
+									div.stock-card__image.stock-card__image--simple
 										img(src=item.image.src, alt=item.image.alt)
 								// Активное состояние
 								div.card__active.active-card
@@ -205,7 +205,7 @@ mixin productList(title)
 									div.active-card__swiper-wrapper
 										div.active-card__swiper.swiper
 											ul.active-card__swiper-list.swiper-wrapper
-												li.active-card__swiper-item.swiper-slide
+												li.active-card__swiper-item.swiper-slide.stock-card__image--simple
 													img(src=item.image.src, alt=item.image.alt)
 												li.active-card__swiper-item.swiper-slide
 													img(src=item.image.src, alt=item.image.alt)

@@ -203,12 +203,23 @@
 	line-height: 20px;
 	color: rgb(255 255 255 / 50%);
 	background: transparent;
+	transition: color .3s;
 
 	svg {
 		margin-left: 10px;
 		fill: none;
 		stroke: #fff;
 		opacity: .5;
+		transition: opacity .3s;
+	}
+
+	&:hover,
+	&:focus {
+		color: #fff;
+
+		svg {
+			opacity: 1;
+		}
 	}
 
 	@media (max-width: 1599px) {
@@ -278,6 +289,17 @@
 			width: 100%;
 			height: 1px;
 			background-color: rgb(255 255 255 / 40%);
+			opacity: 1;
+			transition: opacity .3s;
+		}
+	}
+
+	&:hover,
+	&:focus {
+		a {
+			&::before {
+				opacity: 0;
+			}
 		}
 	}
 
@@ -321,11 +343,48 @@
 		transition: border .3s, width .3s, height .3s;
 	}
 
+	span {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+		transition: opacity .3s;
+		pointer-events: none;
+	}
+
 	img {
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	&:hover {
+		span {
+			left: 50%;
+			top: 40px;
+			z-index: 1;
+			padding: 10px 18px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 20px;
+			color: #131313;
+			background: #fff;
+			opacity: 1;
+			transform: translateX(-50%);
+			pointer-events: visible;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 50%;
+				top: -2px;
+				z-index: -1;
+				width: 21px;
+				height: 21px;
+				background: #fff;
+				transform: translateX(-50%) rotate(45deg);
+			}
+		}
 	}
 
 	&--current {
@@ -554,10 +613,11 @@
 	color: #131313;
 	transition: color .3s, background-color .3s, border-color .3s;
 
-	&:hover {
-		border-color: #131313;
-		color: #fff;
-		background-color: #131313;
+	&:hover,
+	&:focus {
+		border-color: #e5e5e5;
+		color: #131313;
+		background-color: #e5e5e5;
 	}
 
 	@media (max-width: 1399px) {
