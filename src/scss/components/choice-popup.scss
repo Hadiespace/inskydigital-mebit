@@ -59,9 +59,8 @@
 	transition: color .3s, background-color .3s, border-color .3s;
 
 	&:hover {
-		border-color: 131313;
-		color: #fff;
-		background-color: #131313;
+		border-color: #e5e5e5;
+		background-color: #e5e5e5;
 	}
 
 	@media (max-width: 1399px) {

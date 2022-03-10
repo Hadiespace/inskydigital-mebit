@@ -111,6 +111,9 @@
 	width: 34px;
 	height: 34px;
 	background-color: #fff;
+	opacity: 0;
+	transition: opacity .3s;
+	pointer-events: none;
 
 	svg {
 		fill: none;
@@ -120,6 +123,9 @@
 	}
 
 	&--active {
+		opacity: 1;
+		pointer-events: visible;
+
 		svg {
 			fill: #131313;
 		}
@@ -128,6 +134,11 @@
 
 .factories-list__item:hover,
 .factories-list__item:focus-within {
+	.factories-list__button {
+		opacity: 1;
+		pointer-events: visible;
+	}
+
 	.factories-list__factory span {
 		color: #fff;
 	}

@@ -1,2 +1,12 @@
 div.modal
-	div.modal__container
+	//- Удаление из корзины
+	div.cart-modal
+		button.cart-modal__close.modal__close(type="button")
+			span.visually-hidden Закрыть окно
+			svg(width="10", height="10", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#close")
+		div.cart-modal__wrapper
+			p.cart-modal__title Вы уверены, что хотите удалить этот товар из корзины?
+			div.cart-modal__buttons
+				button.cart-modal__button(type="button") Да
+				button.cart-modal__button(type="button") Нет

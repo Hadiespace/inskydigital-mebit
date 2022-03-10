@@ -87,7 +87,7 @@ mixin factoriesList()
 				span.factories-list__factory Фабрика: <span>#{item.factory}</span>
 				div.factories-list__image
 					img(src=item.image.src, alt=item.image.alt)
-				button.factories-list__button.factories-list__button--active(type="button")
+				button.factories-list__button(type="button")
 					span.visually-hidden Добавить в избранное
 					svg(width="15", height="15", aria-hidden="true")
 						use(xlink:href="images/sprite.svg#bookmark")
@@ -101,7 +101,7 @@ mixin pagination()
 			a.pagination__page.pagination__page--current 2
 			a.pagination__page(href=favorites) 3
 			a.pagination__page(href=favorites) 4
-			a.pagination__page(href=favorites) ...
+			a.pagination__page.pagination__page--none ...
 			a.pagination__page(href=favorites) 10
 		a.pagination__button(href=favorites) <span>Следующая страница</span> →
 

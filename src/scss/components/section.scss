@@ -110,6 +110,10 @@
 		svg {
 			stroke: #fff;
 		}
+
+		&:hover {
+			background: #848484;
+		}
 	}
 
 	&[aria-expanded="true"] {
@@ -145,7 +149,15 @@
 .section__top-filters {
 	position: relative;
 	z-index: 4;
-	display: grid;
+	display: none;
+	margin-top: 48px;
+	margin-bottom: 30px;
+	border-top: 1px solid rgb(255 255 255 / 20%);
+	border-bottom: 1px solid rgb(255 255 255 / 20%);
+
+	&--open {
+		display: grid;
+	}
 
 	@media (max-width: 1023px) {
 		display: none;

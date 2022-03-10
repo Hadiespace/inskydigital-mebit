@@ -123,6 +123,18 @@
 	font-size: 16px;
 	line-height: 20px;
 	background: #363636;
+	transition: color .3s, background .3s;
+
+	&:hover,
+	&:focus {
+		color: #131313;
+		background: #fff;
+	}
+
+	&--active {
+		color: #131313;
+		background: #fff;
+	}
 
 	@media (max-width: 1399px) {
 		padding: 8px 16px;

@@ -76,7 +76,7 @@ section.section
 			button.section__top-button(type="button", aria-expanded="false")
 				svg(width="18", height="15", aria-hidden="true")
 					use(xlink:href="images/sprite.svg#filters-open")
-				span Скрыть фильтр
+				span Показать фильтры
 		ul.section__top-list
 			each link in subSectionLinks
 				li.section__top-item
@@ -151,7 +151,7 @@ section.section
 			div.section__top-filter
 				p.section__top-filter-title Материал
 				+choiceCheck('Все материалы', 'material', subSectionMaterialItems)
-				+choicePopup.choice-popup--active
+				+choicePopup
 			div.section__top-filter
 				p.section__top-filter-title Стиль
 				+choiceCheck('Все стили', 'status', subSectionStyleItems)

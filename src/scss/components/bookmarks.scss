@@ -90,6 +90,10 @@
 		svg {
 			stroke: #fff;
 		}
+
+		&:hover {
+			background: #848484;
+		}
 	}
 
 	&[aria-expanded="true"] {
@@ -183,6 +187,12 @@
 	background: transparent;
 	transition: background .3s, color .3s;
 
+	&:hover,
+	&:focus {
+		color: #131313;
+		background: #fff;
+	}
+
 	&--active {
 		color: #131313;
 		background: #fff;
@@ -203,8 +213,11 @@
 
 .bookmarks__middle-wrapper {
 	margin-top: 50px;
-	border-top: 1px solid rgb(255 255 255 / 20%);
 	border-bottom: 1px solid rgb(255 255 255 / 20%);
+
+	&--open {
+		border-top: 1px solid rgb(255 255 255 / 20%);
+	}
 
 	@media (max-width: 1023px) {
 		display: none;
@@ -214,11 +227,15 @@
 .bookmarks__middle-container {
 	position: relative;
 	z-index: 2;
-	display: grid;
+	display: none;
 	grid-column-gap: 40px;
 	grid-template-columns: repeat(6, 250px);
 	padding-top: 30px;
 	padding-bottom: 30px;
+
+	&--open {
+		display: grid;
+	}
 
 	@media (max-width: 1919px) {
 		grid-template-columns: repeat(5, 250px);

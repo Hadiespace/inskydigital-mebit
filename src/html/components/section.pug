@@ -65,7 +65,7 @@ section.section
 			button.section__top-button(type="button", aria-expanded="false")
 				svg(width="18", height="15", aria-hidden="true")
 					use(xlink:href="images/sprite.svg#filters-open")
-				span Скрыть фильтр
+				span Показать фильтры
 		ul.section__top-list
 			each link in sectionLinks
 				li.section__top-item
@@ -100,7 +100,7 @@ section.section
 			div.section__top-filter
 				p.section__top-filter-title Материал
 				+choiceCheck('Все материалы', 'material', sectionMaterialItems)
-				+choicePopup.choice-popup--active
+				+choicePopup
 			div.section__top-filter
 				p.section__top-filter-title Наличие
 				+choiceCheck('Все товары', 'status', sectionStatusItems)
@@ -151,6 +151,10 @@ section.section
 							span.stock-card__cost.stock-card__cost от #{item.costRu}
 							div.stock-card__image
 								img(src=item.image.src, alt=item.image.alt)
+								button.stock-card__favorite(type="button")
+									span.visually-hidden Добавить в избранное
+									svg(width="16", height="14", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#favorite")
 						// Активное состояние
 						div.card__active.active-card
 							a.active-card__link(href=item.href)
@@ -160,7 +164,7 @@ section.section
 									if item.tags
 										each tag in item.tags
 											span!= tag
-								button.card__favorite.card__favorite--active(type="button")
+								button.card__favorite(type="button")
 									span.visually-hidden Добавить в избранное
 									svg(width="16", height="14", aria-hidden="true")
 										use(xlink:href="images/sprite.svg#favorite")

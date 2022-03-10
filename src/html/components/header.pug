@@ -72,9 +72,9 @@ header.header
 				a.page-navigation__phone(href=phoneLink)!= phone
 			// Навигация пользователя
 			div.page-navigation__user-links
-				+userLink("Перейти в закладки", bookmarks, "bookmark", 15, 15, "4")
-				+userLink("Перейти в избранное", favorites, "favorite", 17, 15, "8")
-				+userLink("Перейти в корзину", cart, "cart", 17, 15, "9 в корзине").user-link--cart
+				+userLink("Перейти в закладки", bookmarks, "bookmark", 15, 15, "0")#user-bookmark
+				+userLink("Перейти в избранное", favorites, "favorite", 17, 15, "0")#user-favorite
+				+userLink("Перейти в корзину", cart, "cart", 17, 15, "9 в корзине")#user-cart
 				button.page-navigation__menu-open(type="button", aria-expanded="false", aria-controls="page-navigation")
 					span.visually-hidden Открыть навигацию по страницам
 					span
