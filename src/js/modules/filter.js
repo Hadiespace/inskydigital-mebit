@@ -1,5 +1,6 @@
 const bookmarksTopLink = document.querySelector('.bookmarks__top-button');
 const sectionTopLink = document.querySelector('.section__top-button');
+const popupChoices = document.querySelectorAll('.choice-popup');
 
 const createBookmarksFilters = () => {
 	if (bookmarksTopLink) {
@@ -13,6 +14,10 @@ const createBookmarksFilters = () => {
 			} else {
 				bookmarksTopLink.setAttribute('aria-expanded', 'false');
 				bookmarksTopLink.querySelector('span').textContent = 'Показать фильтры';
+
+				if (popupChoices) {
+					popupChoices.forEach((elem) => elem.classList.remove('choice-popup--active'));
+				}
 			}
 
 			bookmarksMiddleWrapper.classList.toggle('bookmarks__middle-wrapper--open');
@@ -32,6 +37,10 @@ const createSectionFilters = () => {
 			} else {
 				sectionTopLink.setAttribute('aria-expanded', 'false');
 				sectionTopLink.querySelector('span').textContent = 'Показать фильтры';
+
+				if (popupChoices) {
+					popupChoices.forEach((elem) => elem.classList.remove('choice-popup--active'));
+				}
 			}
 
 			sectionWrapper.classList.toggle('section__top-filters--open');

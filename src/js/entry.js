@@ -20,6 +20,10 @@ import { createModal } from './modules/modal.js';
 import { toggleFilters } from './modules/filter.js';
 import { toggleFavorites } from './modules/favorite.js';
 import { toggleBookmarks } from './modules/bookmark.js';
+import { createUserCart } from './modules/cart.js';
+import { toggleProduct } from './modules/product.js';
+import { addToCart } from './modules/card.js';
+import { createChoice } from './modules/choice.js';
 
 testSupportWebp();
 changeMenuHeight();
@@ -41,3 +45,7 @@ createModal();
 toggleFilters();
 toggleFavorites();
 toggleBookmarks();
+createUserCart();
+toggleProduct();
+addToCart();
+createChoice();

@@ -103,6 +103,10 @@
 		svg {
 			stroke: #131313;
 		}
+
+		&:hover {
+			background: #e5e5e5;
+		}
 	}
 
 	@media (max-width: 1599px) {
@@ -251,6 +255,7 @@
 }
 
 .bookmarks__filter {
+	position: relative;
 	display: grid;
 	margin: 0 0 24px;
 }

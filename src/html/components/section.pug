@@ -67,9 +67,9 @@ section.section
 					use(xlink:href="images/sprite.svg#filters-open")
 				span Показать фильтры
 		ul.section__top-list
-			each link in sectionLinks
+			each link, index in sectionLinks
 				li.section__top-item
-					button.section__top-link(type="button")!= link.text
+					button.section__top-link(class=index === 0 ? 'section__top-link--active' : '', type="button")!= link.text
 			li.section__top-item
 				button.favorites__top-button.cost(type="button")
 					span.cost__value.cost__value--current ₽
@@ -107,7 +107,7 @@ section.section
 				+choicePopup
 			div.section__top-filter
 				p.section__top-filter-title Стиль
-				+choiceCheck('Все стили', 'status', sectionStyleItems)
+				+choiceCheck('Все стили', 'style', sectionStyleItems)
 				+choicePopup
 	ul.section__top-result.container
 			li.section__top-result-item

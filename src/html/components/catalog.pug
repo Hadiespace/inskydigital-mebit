@@ -23,9 +23,9 @@ section.catalog
 	div.catalog__container.container
 		h1.catalog__title Каталог мебели
 		ul.catalog__top-list
-			each link in catalogLinks
+			each link, index in catalogLinks
 				li.catalog__top-item
-					a.catalog__top-link(href=link.href)!= link.text
+					a.catalog__top-link(class=index === 0 ? 'catalog__top-link--active' : '', href=link.href)!= link.text
 		ul.catalog__bottom-list
 			each item in catalogItems
 				li.catalog__bottom-item

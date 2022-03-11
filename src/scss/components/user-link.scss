@@ -26,6 +26,10 @@
 		transition: color .3s;
 	}
 
+	> span {
+		display: none;
+	}
+
 	&:hover,
 	&:focus {
 		background-color: #fff;

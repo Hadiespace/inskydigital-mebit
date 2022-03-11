@@ -41,17 +41,19 @@ section.bookmarks
 					use(xlink:href="images/sprite.svg#filters-open")
 				span Показать фильтры
 		ul.bookmarks__top-list
-			each link in bookmarksLinks
+			each link, index in bookmarksLinks
 				li.bookmarks__top-item
-					button.bookmarks__top-link(type="button")!= link.text
+					button.bookmarks__top-link(class=index === 0 ? 'bookmarks__top-link--active' : '', type="button")!= link.text
 	div.bookmarks__middle-wrapper
 		div.bookmarks__middle-container.container
 			div.bookmarks__filter
 				p.bookmarks__filter-title Фабрика
 				+choiceCheck('Все фабрики', 'factory', bookmarksFactories)
+				+choicePopup
 			div.bookmarks__filter
 				p.bookmarks__filter-title Модель
 				+choiceCheck('Все модели', 'model', bookmarksFactories)
+				+choicePopup
 	div.bookmarks__bottom-wrapper
 		section.bookmarks__factories
 			div.bookmarks__factories-container.container

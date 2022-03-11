@@ -115,8 +115,9 @@ mixin choiceCheck(title, name, array)
 		div.choice-check__list
 			each check, index in array
 				div.choice-check__item
-					input.visually-hidden(type="checkbox", id=name + index, name="factory")
+					input.visually-hidden(type="checkbox", id=name + index, name="factory", value=check)
 					label.choice-check__factory(for=name + index)!= check
+		span.choice-check__default!= title
 
 //- CHOICE RADIO
 mixin choiceRadio(title, name, array)
@@ -189,6 +190,10 @@ mixin productList(title)
 									span.stock-card__cost.stock-card__cost от #{item.costRu}
 									div.stock-card__image.stock-card__image--simple
 										img(src=item.image.src, alt=item.image.alt)
+										button.stock-card__favorite(type="button")
+											span.visually-hidden Добавить в избранное
+											svg(width="16", height="14", aria-hidden="true")
+												use(xlink:href="images/sprite.svg#favorite")
 								// Активное состояние
 								div.card__active.active-card
 									a.active-card__link(href=item.href)
@@ -198,7 +203,7 @@ mixin productList(title)
 											if item.tags
 												each tag in item.tags
 													span!= tag
-										button.card__favorite.card__favorite--active(type="button")
+										button.card__favorite(type="button")
 											span.visually-hidden Добавить в избранное
 											svg(width="16", height="14", aria-hidden="true")
 												use(xlink:href="images/sprite.svg#favorite")

@@ -123,6 +123,10 @@
 		svg {
 			stroke: #131313;
 		}
+
+		&:hover {
+			background: #e5e5e5;
+		}
 	}
 
 	@media (max-width: 1599px) {
@@ -193,6 +197,102 @@
 .section__top-filter {
 	position: relative;
 	display: grid;
+
+	@media (min-width: 1920px) {
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6) {
+			z-index: 3;
+		}
+
+		&:nth-child(7),
+		&:nth-child(8),
+		&:nth-child(9),
+		&:nth-child(10) {
+			z-index: 2;
+		}
+
+		&:nth-child(11),
+		&:nth-child(12) {
+			z-index: 1;
+		}
+	}
+
+	@media (max-width: 1919px) {
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5) {
+			z-index: 3;
+		}
+
+		&:nth-child(5),
+		&:nth-child(6),
+		&:nth-child(7),
+		&:nth-child(8),
+		&:nth-child(9) {
+			z-index: 2;
+		}
+
+		&:nth-child(10),
+		&:nth-child(11),
+		&:nth-child(12) {
+			z-index: 1;
+		}
+	}
+
+	@media (max-width: 1599px) {
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4) {
+			z-index: 3;
+		}
+
+		&:nth-child(5),
+		&:nth-child(6),
+		&:nth-child(7),
+		&:nth-child(8) {
+			z-index: 2;
+		}
+
+		&:nth-child(9),
+		&:nth-child(10),
+		&:nth-child(11),
+		&:nth-child(12) {
+			z-index: 1;
+		}
+	}
+
+	@media (max-width: 1279px) {
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3) {
+			z-index: 4;
+		}
+
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6) {
+			z-index: 3;
+		}
+
+		&:nth-child(7),
+		&:nth-child(8),
+		&:nth-child(9) {
+			z-index: 2;
+		}
+
+		&:nth-child(10),
+		&:nth-child(11),
+		&:nth-child(12) {
+			z-index: 1;
+		}
+	}
 }
 
 .section__top-filter-title {

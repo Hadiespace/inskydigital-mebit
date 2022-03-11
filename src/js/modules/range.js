@@ -2,6 +2,8 @@
 import './nouislider.js';
 
 const ranges = document.querySelectorAll('.range');
+const checkChoices = document.querySelectorAll('.choice-check');
+const popupChoices = document.querySelectorAll('.choice-popup');
 
 export const createRange = () => {
 	ranges.forEach((element) => {
@@ -43,6 +45,14 @@ export const createRange = () => {
 					max.value = `${values[1]}`;
 				});
 			}
+
+			range.on('change', () => {
+				checkChoices.forEach((elem) => elem.classList.remove('choice-check--active'));
+				popupChoices.forEach((elem) => elem.classList.remove('choice-popup--active'));
+				const popup = slider.parentElement.nextElementSibling;
+				popup.classList.add('choice-popup--active');
+				document.body.classList.add('choice-popup-open');
+			});
 		}
 	});
 };

@@ -19,6 +19,15 @@
 	background-color: transparent;
 	transition: border .3s, color .3s;
 
+	span {
+		overflow: hidden;
+		height: 20px;
+		max-width: 190px;
+		white-space: nowrap;
+		text-align: left;
+		pointer-events: none;
+	}
+
 	svg {
 		fill: none;
 		stroke: rgb(255 255 255 / 50%);
@@ -106,6 +115,10 @@
 	}
 }
 
+.choice-check__default {
+	display: none;
+}
+
 .choice-check__item input:checked ~ .choice-check__factory {
 	color: #fff;
 
@@ -123,5 +136,6 @@
 	.choice-check__list {
 		display: grid;
 		border-color: #fff;
+		border-top: 1px solid #fff;
 	}
 }
