@@ -271,6 +271,7 @@
 		text-transform: uppercase;
 		color: rgb(255 255 255 / 50%);
 		transform: translateX(-50%);
+		pointer-events: none;
 	}
 
 	&:hover,

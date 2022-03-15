@@ -563,22 +563,6 @@
 	}
 }
 
-.product__choice {
-	.choice-radio__button {
-		border: 1px solid rgba(255, 255, 255, .5);
-		color: #fff;
-
-		span {
-			width: 100%;
-		}
-
-		svg {
-			stroke: #fff;
-			opacity: .5;
-		}
-	}
-}
-
 .product__add-to-cart {
 	display: flex;
 	align-items: center;

@@ -1,0 +1,138 @@
+-
+	const filterMobile = [
+		{
+			name: 'Фабрика',
+			id: 'factory-mobile',
+			list: [
+				'Francesco Pasi',
+				'Gallo',
+				'Gamma arredamenti',
+				'Gicinque Cucine',
+				'Giorgio Collection',
+				'Francesco Pasi',
+				'Gallo',
+				'Gamma arredamenti',
+				'Gicinque Cucine',
+			],
+		},
+			{
+			name: 'Модель',
+			id: 'model-mobile',
+			list: [
+				'Francesco Pasi',
+				'Gallo',
+				'Gamma arredamenti',
+				'Gicinque Cucine',
+				'Giorgio Collection',
+				'Francesco Pasi',
+				'Gallo',
+				'Gamma arredamenti',
+				'Gicinque Cucine',
+			],
+		},
+		{
+			name: 'Цвет',
+			id: 'color-mobile',
+			list: [
+				'Белый',
+				'Серый',
+				'Черный',
+				'Зеленый',
+				'Красный',
+				'Бежевый',
+			],
+		},
+		{
+			name: 'Материал',
+			id: 'material-mobile',
+			list: [
+				'Дуб',
+				'Медь',
+			],
+		},
+		{
+			name: 'Стиль',
+			id: 'style-mobile',
+			list: [
+				'Борокко',
+				'Рококо',
+				'Ампир',
+			],
+		},
+			{
+			name: 'Статус',
+			id: 'style-mobile',
+			list: [
+			'Под заказ',
+			'В наличии на экспозиции',
+			'В наличии на складе',
+			],
+		},
+	];
+
+div.filter-mobile
+	div.filter-mobile__top-wrap
+		p.filter-mobile__title Фильтр
+		button.filter-mobile__close(type="button")
+			span.visually-hidden Закрыть фильтр
+			svg(width="24", height="24", aria-hidden="true")
+				use(xlink:href="images/sprite.svg#filter-close")
+	button.filter-mobile__cost.cost(type="button")
+		span.cost__value.cost__value--current ₽
+		span.cost__value €
+	div.filter-mobile__range-wrapper
+		form.filter-mobile__range.range.range--cost
+			p.range__title Цена
+			div.range__slider
+			div.range__values
+				span.range__val ₽
+				p.range__value.range__value--min
+					input.range__input(type="text", id="range10", min="0", value="98000")
+					label.visually-hidden(for="range10") Минимальная цена
+				p.range__value.range__value--max
+					input.range__input(type="text", id="range11", max="1000000", value="743000")
+					label.visually-hidden(for="range11") Максимальная цена
+		form.filter-mobile__range.range
+			p.range__title Ширина, см
+			div.range__slider
+			div.range__values
+				p.range__value.range__value--min
+					input.range__input(type="text", id="range10", min="0", value="120")
+					label.visually-hidden(for="range10") Минимальный размер
+				p.range__value.range__value--max
+					input.range__input(type="text", id="range11", max="260", value="400")
+					label.visually-hidden(for="range11") Максимальный размер
+		form.filter-mobile__range.range
+			p.range__title Высота, см
+			div.range__slider
+			div.range__values
+				p.range__value.range__value--min
+					input.range__input(type="text", id="range30", min="0", value="40")
+					label.visually-hidden(for="range30") Минимальный размер
+				p.range__value.range__value--max
+					input.range__input(type="text", id="range31", max="180", value="98")
+					label.visually-hidden(for="range31") Максимальный размер
+		form.filter-mobile__range.range
+			p.range__title Глубина, см
+			div.range__slider
+			div.range__values
+				p.range__value.range__value--min
+					input.range__input(type="text", id="range40", min="0", value="50")
+					label.visually-hidden(for="range40") Минимальный размер
+				p.range__value.range__value--max
+					input.range__input(type="text", id="range41", max="200", value="120")
+					label.visually-hidden(for="range41") Максимальный размер
+	div.filter-mobile__filter-wrapper
+		each filter in filterMobile
+			div.filter-mobile__filter
+				button.filter-mobile__button(type="button")
+					span!= filter.name
+					svg(width="10", height="6", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#arrow-small-bottom")
+				ul.filter-mobile__list
+					each item, index in filter.list
+						li.filter-mobile__item
+							input.visually-hidden(type="checkbox", id=filter.id + index, name=filter.id, value=item)
+							label.filter-mobile__check(for=filter.id + index)!= item
+				button.filter-mobile__more(type="button") Смотреть все
+	button.filter-mobile__get-all(type="button") Показать 320 товаров —

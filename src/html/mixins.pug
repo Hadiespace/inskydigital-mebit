@@ -130,7 +130,7 @@ mixin choiceRadio(title, name, array)
 			each radio, index in array
 				div.choice-radio__item
 					input.visually-hidden(type="radio", id=name + index, name="size")
-					label.choice-radio__factory(for=name + index)!= radio
+					label.choice-radio__factory(class=index === 0 ? 'choice-radio__factory--current': '', for=name + index)!= radio
 
 //- CHOICE POPUP
 mixin choicePopup()
@@ -229,7 +229,7 @@ mixin productList(title)
 											p.active-card__cost Цена от #{item.costRu}
 											p.active-card__status В наличии
 										div.active-card__choice-wrapper
-											+choiceRadio('160 × 200', 'size', simpleRadioItems)
+											+choiceRadio('160 × 200', 'size', simpleRadioItems).choice-radio--light.active-card__choice
 											button.active-card__button(type="button") Добавить в корзину —
 										a.active-card__preview-open Быстрый просмотр
 					+pagination.section__pagination

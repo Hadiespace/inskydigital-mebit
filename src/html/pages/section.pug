@@ -15,5 +15,9 @@ block content
 	include ../components/section
 	include ../components/section-catalog
 	include ../components/factories-brand
-
 block prepend page-bottom
+	include ../components/filter-mobile
+	button.filter-button(type="button")
+		span.visually-hidden Открыть фильтр
+		svg(width="18", height="16", aria-hidden="true")
+			use(xlink:href="images/sprite.svg#filters-open")

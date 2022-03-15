@@ -24,6 +24,7 @@ import { createUserCart } from './modules/cart.js';
 import { toggleProduct } from './modules/product.js';
 import { addToCart } from './modules/card.js';
 import { createChoice } from './modules/choice.js';
+import { createFilterMobile } from './modules/filter-mobile.js';
 
 testSupportWebp();
 changeMenuHeight();
@@ -49,3 +50,4 @@ createUserCart();
 toggleProduct();
 addToCart();
 createChoice();
+createFilterMobile();

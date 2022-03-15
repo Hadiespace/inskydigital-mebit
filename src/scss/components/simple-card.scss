@@ -86,11 +86,24 @@
 	padding: 0;
 	width: 75px;
 	height: 75px;
-	background-color: transparent;
+	background: transparent;
+	transition: background .3s, border-color;
 
 	svg {
+		fill: none;
 		stroke: #fff;
 		stroke-width: 2px;
+		transition: stroke .3s;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: #fff;
+		background: #fff;
+
+		svg {
+			stroke: #131313;
+		}
 	}
 }
 

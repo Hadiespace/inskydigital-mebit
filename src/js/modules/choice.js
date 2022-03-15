@@ -1,5 +1,6 @@
 const checkChoices = document.querySelectorAll('.choice-check');
 const popupChoices = document.querySelectorAll('.choice-popup');
+const radioChoices = document.querySelectorAll('.choice-radio');
 
 document.addEventListener('mousedown', (evt) => {
 	if (evt.target.classList.contains('choice-check__button')) {
@@ -77,6 +78,46 @@ export const createChoice = () => {
 					}
 				}, 0);
 
+			}
+		});
+	}
+
+	if (radioChoices) {
+		document.addEventListener('click', (evt) => {
+			if (evt.target.closest('.choice-radio__button')) {
+				const form = evt.target.parentElement;
+
+				if (form.classList.contains('choice-radio--active')) {
+					document.body.classList.remove('choice-radio-open');
+					form.classList.remove('choice-radio--active');
+				} else {
+					document.body.classList.add('choice-radio-open');
+					form.classList.add('choice-radio--active');
+				}
+			}
+
+			if (document.body.classList.contains('choice-radio-open')) {
+				if (!evt.target.closest('.choice-radio')) {
+					radioChoices.forEach((elem) => {
+						if (elem.classList.contains('choice-radio--active')) {
+							elem.classList.remove('choice-radio--active');
+							document.body.classList.remove('choice-radio-open');
+						}
+					});
+				}
+			}
+
+			if (evt.target.closest('.choice-radio__factory')) {
+				const form = evt.target.parentElement.parentElement.parentElement;
+				const labels = evt.target.parentElement.parentElement.querySelectorAll('.choice-radio__factory');
+				const value = evt.target.textContent;
+				const button = evt.target.parentElement.parentElement.previousElementSibling;
+
+				button.querySelector('span').textContent = value;
+				labels.forEach((label) => label.classList.remove('choice-radio__factory--current'));
+				evt.target.classList.add('choice-radio__factory--current');
+				document.body.classList.remove('choice-radio-open');
+				form.classList.remove('choice-radio--active');
 			}
 		});
 	}
