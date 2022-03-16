@@ -10,3 +10,78 @@ div.modal
 			div.cart-modal__buttons
 				button.cart-modal__button(type="button") Да
 				button.cart-modal__button(type="button") Нет
+	//- Оформление заявки
+	div.request-modal
+		div.request-modal__container.container
+			button.request-modal__close.modal__close(type="button")
+				span.visually-hidden Закрыть окно
+				svg(width="10", height="10", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#close")
+			p.request-modal__title.modal__title Оформление заявки
+			form.request-modal__form.form
+				div.request-modal__wrapper.form__wrapper
+					input.request-modal__input.form__input._req._name(type="text", id="cart-name", name="name", placeholder="Введите ваше имя")
+					label.visually-hidden(for="cart-name") Введите ваше имя
+					span.request-modal__error.form__error
+				div.request-modal__wrapper.request-modal__wrapper--left.form__wrapper
+					input.request-modal__input.form__input._req._tel(type="tel", id="cart-tel", name="phone", placeholder="Телефон")
+					label.visually-hidden(for="cart-tel") Ваш номер телефона
+					span.request-modal__error.form__error
+				div.request-modal__wrapper.request-modal__wrapper--right.form__wrapper
+					input.request-modal__input.form__input._req._email(type="email", id="cart-email", name="email", placeholder="Email")
+					label.visually-hidden(for="cart-email") Ваш email
+					span.request-modal__error.form__error
+				div.request-modal__wrapper.form__wrapper
+					textarea.request-modal__input.request-modal__input--textarea.form__input(id="cart-comment", name="comment", placeholder="Комментарий")
+					label.visually-hidden(for="cart-comment") Оставьте комментарий
+					span.request-modal__error.form__error
+				button.request-modal__submit(type="submit") Оставить заявку —
+				div.request-modal__consent
+					input.request-modal__checkbox.visually-hidden(type="checkbox", id="cart-check", name="consent", checked, required)
+					label.request-modal__label.form__label(for="cart-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
+						a(href=policy) политикой конфиденциальности
+					span.request-modal__error.form__error
+			a.request-modal__link(href=shippingAndPayment) Доставка и оплата
+	//- Дизайн интерьера
+	div.design-modal
+		div.design-modal__container.container
+			button.design-modal__close.modal__close(type="button")
+				span.visually-hidden Закрыть окно
+				svg(width="10", height="10", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#close")
+			p.design-modal__title.modal__title Дизайн интерьера
+			form.design-modal__form.form
+				div.design-modal__wrapper.form__wrapper
+					input.design-modal__input.form__input._req._name(type="text", id="design-name", name="name", placeholder="Введите ваше имя")
+					label.visually-hidden(for="design-name") Введите ваше имя
+					span.design-modal__error.form__error
+				div.design-modal__wrapper.design-modal__wrapper--left.form__wrapper
+					input.design-modal__input.form__input._req._tel(type="tel", id="design-tel", name="phone", placeholder="Телефон")
+					label.visually-hidden(for="design-tel") Ваш номер телефона
+					span.design-modal__error.form__error
+				div.design-modal__wrapper.design-modal__wrapper--right.form__wrapper
+					input.design-modal__input.form__input._req._email(type="email", id="design-email", name="email", placeholder="Email")
+					label.visually-hidden(for="design-email") Ваш email
+					span.design-modal__error.form__error
+				div.design-modal__wrapper.form__wrapper
+					textarea.design-modal__input.design-modal__input--textarea.form__input(id="design-comment", name="comment", placeholder="Комментарий")
+					label.visually-hidden(for="design-comment") Оставьте комментарий
+					span.design-modal__error.form__error
+				div.design-modal__wrapper.form__wrapper
+					input.visually-hidden(type="file", id="design-file", name="file", multiple)
+					label.design-modal__file(for="design-file") Прикрепить фото планировки
+				button.design-modal__submit(type="submit") Оставить заявку —
+				div.design-modal__consent
+					input.design-modal__checkbox.visually-hidden(type="checkbox", id="design-check", name="consent", checked, required)
+					label.design-modal__label.form__label(for="design-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
+						a(href=policy) политикой конфиденциальности
+					span.design-modal__error.form__error
+	//- Успешная отправка
+	div.success-modal
+		div.success-modal__container.container
+			button.success-modal__close.modal__close(type="button")
+				span.visually-hidden Закрыть окно
+				svg(width="10", height="10", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#close")
+			p.success-modal__title.modal__title Спасибо!
+			p.success-modal__text Наш менеджер с Вами свяжется для уточнения деталей заказа

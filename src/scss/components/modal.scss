@@ -48,3 +48,31 @@
 		}
 	}
 }
+
+.modal__title {
+	font-family: $old-standard;
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 99px;
+	color: #131313;
+
+	@media (max-width: 1599px) {
+		font-size: 60px;
+		line-height: 80px;
+	}
+
+	@media (max-width: 1399px) {
+		font-size: 48px;
+		line-height: 48px;
+	}
+
+	@media (max-width: 1023px) {
+		font-size: 36px;
+		line-height: 36px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 30px;
+		line-height: 38px;
+	}
+}

@@ -14,8 +14,7 @@ const init = () => {
 	});
 
 	map.behaviors.disable('scrollZoom');
-	map.behaviors.disable('drag');
 	map.geoObjects.add(placemark);
 };
 
-export const createMap = () => mapElement ? ymaps.ready(init) : null;
+export const createMap = () => mapElement && ymaps.ready(init);
