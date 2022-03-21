@@ -55,6 +55,15 @@
 .page-navigation__list-wrapper {
 	display: grid;
 	transition: opacity .3s;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		height: 0;
+	}
 
 	@media (min-width: 1920px) {
 		opacity: 1;

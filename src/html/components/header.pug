@@ -127,85 +127,85 @@ header.header
 						img(src="images/icon-catalog.svg", alt="")
 					a.panel-item__link(href=catalog)
 						span.panel-item__text Каталог
-		//- // Результаты поиска
-		//- div.navigation-search(id="")
-			div.navigation-search__search-wrapper
-				span Поиск по сайту
+		// Результаты поиска
+		div.navigation-search
+			//- Карточки
+				div.navigation-search__wrap
+					p.navigation-search__title Поиск по сайту
+					button.navigation-search__close(type="button")
+						span.visually-hidden Закрыть результат поиска
+						svg(width="10", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#close")
+
+					ul.navigation-search__list
+						each item in simpleItems
+							li.navigation-search__item.card.card--simple
+								div.card__tags-wrapper
+									div.card__tags
+										if item.tags
+											each tag in item.tags
+												span!= tag
+								// Стоковое состояние
+								div.card__stock.stock-card
+									p.stock-card__article Артикул: 23498549
+									h2.stock-card__title!= item.title
+									span.stock-card__cost.stock-card__cost от #{item.costRu}
+									div.stock-card__image.stock-card__image--simple
+										img(src=item.image.src, alt=item.image.alt)
+										button.stock-card__favorite(type="button")
+											span.visually-hidden Добавить в избранное
+											svg(width="16", height="14", aria-hidden="true")
+												use(xlink:href="images/sprite.svg#favorite")
+								// Активное состояние
+								div.card__active.active-card
+									a.active-card__link(href=item.href)
+										span.visually-hidden Перейти на страницу с товаром
+									div.card__all-wrapper
+										div.card__tags
+											if item.tags
+												each tag in item.tags
+													span!= tag
+										button.card__favorite(type="button")
+											span.visually-hidden Добавить в избранное
+											svg(width="16", height="14", aria-hidden="true")
+												use(xlink:href="images/sprite.svg#favorite")
+									div.active-card__swiper-wrapper
+										div.active-card__swiper.swiper
+											ul.active-card__swiper-list.swiper-wrapper
+												li.active-card__swiper-item.swiper-slide.stock-card__image--simple
+													img(src=item.image.src, alt=item.image.alt)
+												li.active-card__swiper-item.swiper-slide
+													img(src=item.image.src, alt=item.image.alt)
+										div.active-card__swiper-dots
+									div.active-card__content-wrapper
+										p.active-card__article Артикул: 23498549
+										p.active-card__title!= item.title
+										p.active-card__element
+											span Фабрика:
+											a(href=index)!= item.factory
+										p.active-card__element
+											span Модель:
+											a(href=index)!= item.collection
+										p.active-card__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
+										div.active-card__wrapper
+											p.active-card__cost Цена от #{item.costRu}
+											p.active-card__status В наличии
+										div.active-card__choice-wrapper
+											+choiceRadio('160 × 200', 'size', simpleRadioItems).choice-radio--light.active-card__choice
+											button.active-card__button(type="button") Добавить в корзину —
+
+					a.navigation-search__all-result Все результаты поиска —
+
+			// Пустой результат поиска
+			div.navigation-search__empty
 				button.navigation-search__close(type="button")
 					span.visually-hidden Закрыть результат поиска
-					svg(width="5", height="5", aria-hidden="true")
-						use(xlink:href="images/sprite.svg#")
-			// Категория товаров
-			section.navigation-search__section
-				h2.navigation-search__title Разделы
-					// Подкатегория товаров
-					div.navigation-search__subsection.search-subsection
-						div.search-subsection__top-wrapper
-							h3.search-subsection__title Спальни
-							a.search-subsection__link(href=index) Смотреть все
-						// Слайдер
-						div.search-subsection__slider
-							div.search-subsection__swiper.swiper
-								ul.search-subsection__wrapper.swiper-wrapper
-									each card in searchCards
-										// Товар
-										li.card.swiper-slide
-											// Стандартное состояние
-											div.card__default.card-default
-												h4.card-default__title: a(href=card.href)!= card.title
-												span.card-default__article!= card.article
-												span.card-default__cost!= card.cost
-												div.card-default__image
-													img(src=card.image[0].src, alt=card.image[0].alt)
-											// Активное состояние
-											div.card__preview.card-preview
-												a.card-preview__title(href=card.href)!= card.title
-												span.card-preview__article!= card.article
-												div.card-preview__swiper.swiper
-													ul.card-preview__swiper-wrapper.swiper-wrapper
-														each image in card.image
-															li.card-preview__swiper-slide.swiper-slide
-																img(src=image.src, alt=image.alt)
-													div
-												div.card-preview__cost-wrapper
-													span.card-preview__cost-value!= card.cost
-													div.card-preview__cost-stock
-														svg(width="5", height="5", aria-hidden="true")
-															use(xlink:href="images/sprite.svg#")
-														span В наличии
-													button.card-preview__send-request(type="button") Оставить заявку
-													div.card-preview__choice-wrapper
-														div.card-preview__
-															button.card-preview__(type="button", aria-expanded="false", aria-controls="") 160 × 200
-															ul.card-preview__
-																li.card-preview__
-																	button.card-preview__(type="button") 160 × 200
-																li.card-preview__
-																	button.card-preview__(type="button") 180 × 200
-																li.card-preview__
-																	button.card-preview__(type="button") 190 × 200
-														button.card-preview__add-to-cart(type="button") Добавить в корзину —
-													button.card-preview__quick-view(type="button")
-														svg(width="5", height="5", aria-hidden="true")
-															use(xlink:href="images/sprite.svg#")
-														span Быстрый просмотр
-											// Теги товара
-											div.card__tags
-												span New
-												span Sale
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
 
+				p.navigation-search__empty-title По вашему запросу ничего не найдено
+				p.navigation-search__description Попробуйте изменить запрос или проверьте правильность набора
 
-							div
-								button(type="button")
-									span.visually-hidden Предыдущий слайд
-									svg(width="5", height="5", aria-hidden="true")
-										use(xlink:href="images/sprite.svg#")
-								button(type="button")
-									span.visually-hidden Следующий слайд
-									svg(width="5", height="5", aria-hidden="true")
-										use(xlink:href="images/sprite.svg#")
-										div
-			a(href=index) Все результаты поиска
 		// Мобильная навигация
 		div.header__mobile-navigation.mobile-navigation
 			ul.mobile-navigation__list

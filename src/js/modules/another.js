@@ -1,4 +1,13 @@
 export const getAnother = () => {
+	const oldLists = document.querySelectorAll('.navigation-catalog');
+
+	if (oldLists) {
+		oldLists.forEach((list) => {
+			list.style.zIndex = '2';
+			list.style.setProperty('--padding', '288px');
+		});
+	}
+
 	const kek = (evt) => {
 		const navigationWrapper = document.querySelector('.product-navigation__catalog-wrapper');
 		const value = navigationWrapper.clientWidth;
@@ -44,7 +53,9 @@ export const getAnother = () => {
 
 	// Форма
 
+	const productNavigationForm = document.querySelector('.product-navigation__form');
 	const productNavigation = document.querySelector('.product-navigation');
+	const navigationSearch = document.querySelector('.navigation-search');
 	const navigationSubmit = document.querySelector('.product-navigation__submit');
 	const navigationInput = document.querySelector('.product-navigation__input');
 
@@ -60,6 +71,16 @@ export const getAnother = () => {
 			productNavigation.classList.add('product-navigation--visible');
 		} else {
 			productNavigation.classList.remove('product-navigation--visible');
+			navigationSearch.classList.remove('navigation-search--visible');
+		}
+	});
+
+	document.addEventListener('click', (evt) => {
+		if (evt.target.closest('.navigation-search__close')) {
+			navigationInput.value = '';
+			navigationInput.blur();
+			productNavigation.classList.remove('product-navigation--visible');
+			navigationSearch.classList.remove('navigation-search--visible');
 		}
 	});
 };

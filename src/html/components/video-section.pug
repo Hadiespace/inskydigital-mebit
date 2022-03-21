@@ -10,5 +10,8 @@ section.video-section
 			div.video-section__image.video__before
 				img(src="images/video-preview.jpg", alt="Обложка видео")
 			div.video-section__player.video__player
-				iframe(Width="560", height="315", src="https://www.youtube.com/embed/BpXz_xhW2b4", title="YouTube video player", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+				video(id="my-player", class="video-js", controls, preload="auto", poster="//vjs.zencdn.net/v/oceans.png", data-setup='{}')
+					source(src="//vjs.zencdn.net/v/oceans.mp4", type="video/mp4")
+					source(src="//vjs.zencdn.net/v/oceans.webm", type="video/webm")
+					source(src="//vjs.zencdn.net/v/oceans.ogv", type="video/ogg")
 			p.video-section__mobile.video__mobile(aria-hidden="true") Как мы привезем вашу мебель
