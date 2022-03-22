@@ -80,6 +80,12 @@
 	font-size: 50px;
 	line-height: 30px;
 	white-space: nowrap;
+	transition: color .3s;
+
+	&:hover,
+	&:focus {
+		color: #848484;
+	}
 
 	@media (max-width: 1399px) {
 		font-size: 40px;
@@ -199,6 +205,12 @@
 	font-size: 18px;
 	line-height: 15px;
 	text-transform: uppercase;
+	transition: color .3s;
+
+	&:hover,
+	&:focus {
+		color: #848484;
+	}
 
 	@media (max-width: 1399px) {
 		font-size: 16px;

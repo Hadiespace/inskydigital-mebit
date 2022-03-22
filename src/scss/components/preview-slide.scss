@@ -64,7 +64,7 @@
 	order: 1;
 	margin: -10px -10px 30px;
 
-	span {
+	a {
 		margin: 10px;
 		border-radius: 60px;
 		padding: 10px 20px;
@@ -77,11 +77,14 @@
 		background-color: rgb(255 255 255 / 20%);
 		transition: color .3s, background-color .3s;
 		cursor: default;
+	}
 
+	a[href] {
 		&:hover,
 		&:focus {
 			color: #131313;
 			background-color: #fff;
+			cursor: pointer;
 		}
 	}
 

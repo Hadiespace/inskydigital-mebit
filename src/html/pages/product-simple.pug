@@ -14,8 +14,9 @@ block content
 		a.crumbs__link(href=index) Спальни <span>→</span>
 		span.crumbs__current Кровать Alchemy
 	include ../components/product-simple
-	+productList('Другие предметы интерьера')
-	+simpleCard('Недавно просмотренные')
-	+simpleCard('Вам может понравиться').simple-card--top
+	+productList('Другие предметы интерьера').product-list--border
+	+simpleCard('Недавно просмотренные').simple-card--border
+	+simpleCard('Вам может понравиться').simple-card--border
+	include ../components/factories-brand
 
 block prepend page-bottom

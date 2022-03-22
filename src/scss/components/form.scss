@@ -46,3 +46,10 @@
 		line-height: 8px;
 	}
 }
+
+.form__label a {
+	&:hover,
+	&:focus {
+		text-decoration: none;
+	}
+}

@@ -18,8 +18,8 @@ section.preview
 							div.preview-slide__container.container
 								h3.preview-slide__title!= slide.title
 								div.preview-slide__tags
-									each tag in slide.tags
-										span!= tag
+									a Скидка 40%
+									a(href=index) Фабрика CIERRE
 								a.preview-slide__get-sale(href=slide.href) Забери свою скидку —
 							div.preview-slide__image
 									img(src=slide.image.src, alt=slide.image.alt)

@@ -2,6 +2,10 @@
 .product-list {
 	padding: 140px 0;
 
+	&--border {
+		border-bottom: 1px solid rgb(255 255 255 / 20%);
+	}
+
 	@media (max-width: 1399px) {
 		padding: 100px 0;
 	}

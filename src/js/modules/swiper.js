@@ -7,6 +7,7 @@ const aboutPhotos = document.querySelector('.about-photos');
 const cards = document.querySelectorAll('.card');
 const simpleCard = document.querySelectorAll('.simple-card');
 const products = document.querySelectorAll('.product');
+const results = document.querySelectorAll('.result__swiper-wrap');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -16,9 +17,12 @@ const createPreviewSwiper = () => {
 		const dots = preview.querySelector('.preview__swiper-dots');
 
 		new Swiper(previewSwiper, {
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Autoplay],
 			slidesPerView: 1,
 			loop: true,
+			autoplay: {
+				delay: 5000,
+			},
 			speed: 300,
 			allowTouchMove: true,
 			navigation: {
@@ -137,7 +141,7 @@ const createAboutSwiper = () => {
 		const dots = about.querySelector('.about__swiper-dots');
 
 		new Swiper(aboutSwiper, {
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Autoplay],
 			slidesPerView: 1,
 			autoplay: {
 				delay: 5000,
@@ -322,6 +326,66 @@ const createProductSwiper = () => {
 	}
 };
 
+const createResultSwiper = () => {
+	if (results) {
+		results.forEach((card) => {
+			const swiper = card.querySelector('.swiper');
+			const next = card.querySelector('.result__swiper-button--next');
+			const prev = card.querySelector('.result__swiper-button--prev');
+			const dots = card.querySelector('.result__swiper-dots');
+			setTimeout(() => {
+				const buttons = card.querySelector('.result__buttons');
+				const image = card.querySelector('.stock-card__image');
+
+				buttons.style.height = `${image.clientHeight}px`;
+
+				window.addEventListener('resize', () => {
+					card.querySelector('.result__buttons').style.height = `${card.querySelector('.stock-card__image').clientHeight}px`;
+				});
+			}, 0);
+
+
+			new Swiper(swiper, {
+				modules: [Navigation, Pagination],
+				loop: true,
+				speed: 300,
+				navigation: {
+					nextEl: next,
+					prevEl: prev,
+				},
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 10,
+					},
+					480: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					768: {
+						slidesPerView: 3,
+						spaceBetween: 30,
+					},
+					1340: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+						allowTouchMove: false,
+					},
+					1600: {
+						slidesPerView: 5,
+						spaceBetween: 40,
+					},
+				},
+				pagination: {
+					el: dots,
+					type: 'bullets',
+					clickable: true,
+				},
+			});
+		});
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
@@ -331,4 +395,5 @@ export const generateSwiper = () => {
 	createCardsSwiper();
 	createSimpleCardSwiper();
 	createProductSwiper();
+	createResultSwiper();
 };

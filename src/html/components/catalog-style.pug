@@ -1,0 +1,20 @@
+-
+	const catalogStyleItems = [
+		{title: 'Классическая', href: index, image: {src: 'images/catalog01.jpg', alt: 'Превью мебели'}},
+		{title: 'Современная', href: index, image: {src: 'images/catalog02.jpg', alt: 'Превью мебели'}},
+		{title: 'Арт-деко', href: index, image: {src: 'images/catalog03.jpg', alt: 'Превью мебели'}},
+		{title: 'Лофт', href: index, image: {src: 'images/catalog04.jpg', alt: 'Превью мебели'}},
+		{title: 'Прованс', href: index, image: {src: 'images/catalog05.jpg', alt: 'Превью мебели'}},
+		{title: 'Барокко', href: index, image: {src: 'images/catalog06.jpg', alt: 'Превью мебели'}},
+	];
+
+section.catalog.catalog--style
+	div.catalog__container.container
+		h1.catalog__title Мебель по стилям
+
+		ul.catalog__bottom-list
+			each item in catalogStyleItems
+				li.catalog__bottom-item
+					h2.catalog__bottom-title: a(href=item.href)!= item.title
+					div.catalog__bottom-image
+						img(src=item.image.src, alt=item.image.alt)

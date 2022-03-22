@@ -112,7 +112,7 @@ header.header
 												img(src=mock.image.src, alt=mock.image.alt)
 			// Дополнительные ссылки
 			ul.product-navigation__page-list
-				li.product-navigation__page-item.panel-item
+				li.product-navigation__page-item.panel-item.panel-item--design
 					span.panel-item__image
 						img(src="images/icon-design.svg", alt="")
 					button.panel-item__link
@@ -129,82 +129,82 @@ header.header
 						span.panel-item__text Каталог
 		// Результаты поиска
 		div.navigation-search
-			//- Карточки
-				div.navigation-search__wrap
-					p.navigation-search__title Поиск по сайту
-					button.navigation-search__close(type="button")
-						span.visually-hidden Закрыть результат поиска
-						svg(width="10", height="10", aria-hidden="true")
-							use(xlink:href="images/sprite.svg#close")
-
-					ul.navigation-search__list
-						each item in simpleItems
-							li.navigation-search__item.card.card--simple
-								div.card__tags-wrapper
-									div.card__tags
-										if item.tags
-											each tag in item.tags
-												span!= tag
-								// Стоковое состояние
-								div.card__stock.stock-card
-									p.stock-card__article Артикул: 23498549
-									h2.stock-card__title!= item.title
-									span.stock-card__cost.stock-card__cost от #{item.costRu}
-									div.stock-card__image.stock-card__image--simple
-										img(src=item.image.src, alt=item.image.alt)
-										button.stock-card__favorite(type="button")
-											span.visually-hidden Добавить в избранное
-											svg(width="16", height="14", aria-hidden="true")
-												use(xlink:href="images/sprite.svg#favorite")
-								// Активное состояние
-								div.card__active.active-card
-									a.active-card__link(href=item.href)
-										span.visually-hidden Перейти на страницу с товаром
-									div.card__all-wrapper
-										div.card__tags
-											if item.tags
-												each tag in item.tags
-													span!= tag
-										button.card__favorite(type="button")
-											span.visually-hidden Добавить в избранное
-											svg(width="16", height="14", aria-hidden="true")
-												use(xlink:href="images/sprite.svg#favorite")
-									div.active-card__swiper-wrapper
-										div.active-card__swiper.swiper
-											ul.active-card__swiper-list.swiper-wrapper
-												li.active-card__swiper-item.swiper-slide.stock-card__image--simple
-													img(src=item.image.src, alt=item.image.alt)
-												li.active-card__swiper-item.swiper-slide
-													img(src=item.image.src, alt=item.image.alt)
-										div.active-card__swiper-dots
-									div.active-card__content-wrapper
-										p.active-card__article Артикул: 23498549
-										p.active-card__title!= item.title
-										p.active-card__element
-											span Фабрика:
-											a(href=index)!= item.factory
-										p.active-card__element
-											span Модель:
-											a(href=index)!= item.collection
-										p.active-card__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
-										div.active-card__wrapper
-											p.active-card__cost Цена от #{item.costRu}
-											p.active-card__status В наличии
-										div.active-card__choice-wrapper
-											+choiceRadio('160 × 200', 'size', simpleRadioItems).choice-radio--light.active-card__choice
-											button.active-card__button(type="button") Добавить в корзину —
-
-					a.navigation-search__all-result Все результаты поиска —
-
-			// Пустой результат поиска
-			div.navigation-search__empty
+			// Карточки
+			div.navigation-search__wrap
+				p.navigation-search__title Поиск по сайту
 				button.navigation-search__close(type="button")
 					span.visually-hidden Закрыть результат поиска
 					svg(width="10", height="10", aria-hidden="true")
 						use(xlink:href="images/sprite.svg#close")
 
-				p.navigation-search__empty-title По вашему запросу ничего не найдено
-				p.navigation-search__description Попробуйте изменить запрос или проверьте правильность набора
+				ul.navigation-search__list
+					each item in simpleItems
+						li.navigation-search__item.card.card--simple
+							div.card__tags-wrapper
+								div.card__tags
+									if item.tags
+										each tag in item.tags
+											span!= tag
+							// Стоковое состояние
+							div.card__stock.stock-card
+								p.stock-card__article Артикул: 23498549
+								h2.stock-card__title!= item.title
+								span.stock-card__cost.stock-card__cost от #{item.costRu}
+								div.stock-card__image.stock-card__image--simple
+									img(src=item.image.src, alt=item.image.alt)
+									button.stock-card__favorite(type="button")
+										span.visually-hidden Добавить в избранное
+										svg(width="16", height="14", aria-hidden="true")
+											use(xlink:href="images/sprite.svg#favorite")
+							// Активное состояние
+							div.card__active.active-card
+								a.active-card__link(href=item.href)
+									span.visually-hidden Перейти на страницу с товаром
+								div.card__all-wrapper
+									div.card__tags
+										if item.tags
+											each tag in item.tags
+												span!= tag
+									button.card__favorite(type="button")
+										span.visually-hidden Добавить в избранное
+										svg(width="16", height="14", aria-hidden="true")
+											use(xlink:href="images/sprite.svg#favorite")
+								div.active-card__swiper-wrapper
+									div.active-card__swiper.swiper
+										ul.active-card__swiper-list.swiper-wrapper
+											li.active-card__swiper-item.swiper-slide.stock-card__image--simple
+												img(src=item.image.src, alt=item.image.alt)
+											li.active-card__swiper-item.swiper-slide
+												img(src=item.image.src, alt=item.image.alt)
+									div.active-card__swiper-dots
+								div.active-card__content-wrapper
+									p.active-card__article Артикул: 23498549
+									p.active-card__title!= item.title
+									p.active-card__element
+										span Фабрика:
+										a(href=index)!= item.factory
+									p.active-card__element
+										span Модель:
+										a(href=index)!= item.collection
+									p.active-card__size Ширина: 173 см, Высота: 110 см, Глубина: 212 см
+									div.active-card__wrapper
+										p.active-card__cost Цена от #{item.costRu}
+										p.active-card__status В наличии
+									div.active-card__choice-wrapper
+										+choiceRadio('160 × 200', 'size', simpleRadioItems).choice-radio--light.active-card__choice
+										button.active-card__button(type="button") Добавить в корзину —
+
+					a.navigation-search__all-result Все результаты поиска —
+
+			// Пустой результат поиска
+				div.navigation-search__empty
+					button.navigation-search__close(type="button")
+						span.visually-hidden Закрыть результат поиска
+						svg(width="10", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#close")
+
+					p.navigation-search__empty-title По вашему запросу ничего не найдено
+					p.navigation-search__description Попробуйте изменить запрос или проверьте правильность набора
 
 		// Мобильная навигация
 		div.header__mobile-navigation.mobile-navigation

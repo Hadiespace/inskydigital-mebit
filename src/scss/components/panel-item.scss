@@ -22,6 +22,7 @@
 	height: 100%;
 	color: #fff;
 	background-color: transparent;
+	transition: color .3s;
 	pointer-events: visible;
 }
 
@@ -76,13 +77,25 @@
 	min-height: 40px;
 	background-color: transparent;
 	opacity: 0;
-	transition: opacity .3s;
+	transition: opacity .3s, color .3s;
 	pointer-events: visible;
 
 	svg {
 		fill: none;
 		stroke: #fff;
 		stroke-width: 2px;
+	}
+}
+
+.panel-item__link:hover,
+.panel-item__link:focus {
+	color: #848484;
+}
+
+.panel-item__button:hover,
+.panel-item__button:focus {
+	svg {
+		stroke: #848484;
 	}
 }
 

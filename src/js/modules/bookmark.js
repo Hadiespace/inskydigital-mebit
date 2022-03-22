@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll('.factories-list__item');
 const userBookmark = document.querySelector('#user-bookmark');
 const bookmarkValue = userBookmark.querySelectorAll('span')[1];
+const bookmarkLinks = document.querySelectorAll('.bookmarks__top-link');
 
 if (bookmarkValue.textContent === '0') {
 	bookmarkValue.style.display = 'none';
@@ -32,6 +33,15 @@ export const toggleBookmarks = () => {
 					}
 				}
 			});
+		});
+	}
+
+	if (bookmarkLinks) {
+		document.addEventListener('click', (evt) => {
+			if (evt.target.closest('.bookmarks__top-link')) {
+				bookmarkLinks.forEach((link) => link.classList.remove('bookmarks__top-link--active'));
+				evt.target.classList.add('bookmarks__top-link--active');
+			}
 		});
 	}
 };

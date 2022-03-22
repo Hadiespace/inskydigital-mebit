@@ -69,7 +69,7 @@ section.section
 		ul.section__top-list
 			each link, index in sectionLinks
 				li.section__top-item
-					button.section__top-link(class=index === 0 ? 'section__top-link--active' : '', type="button")!= link.text
+					a.section__top-link(class=index === 0 ? 'section__top-link--active' : '', href=section)!= link.text
 			li.section__top-item
 				button.favorites__top-button.cost(type="button")
 					span.cost__value.cost__value--current ₽

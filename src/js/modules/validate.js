@@ -54,7 +54,9 @@ export const validateForm = (form) => {
 				error++;
 			}
 		} else if (input.classList.contains('_email')) {
+			const errorText = input.parentElement.querySelector('.form__error');
 			if (emailText(input)) {
+				errorText.textContent = 'Это поле обязательно к заполнению';
 				addError(input);
 				error++;
 			}

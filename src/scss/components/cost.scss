@@ -5,6 +5,11 @@
 	border-radius: 30px;
 	padding: 6px;
 	background: #363636;
+	transition: background .3s;
+
+	&:hover {
+		background: #848484;
+	}
 }
 
 .cost__value {

@@ -1,0 +1,13 @@
+extends ../layout.pug
+
+block meta
+	title Результат поиска
+	meta(name="description", content="")
+	meta(name="keywords", content="")
+block content
+	div.crumbs.container
+		a.crumbs__link(href=index) Главная <span>→</span>
+		span.crumbs__current Результат поиска
+	include ../components/result-empty
+
+block prepend page-bottom

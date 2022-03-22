@@ -72,7 +72,8 @@ const createRequestModal = (evt) => {
 };
 
 const createDesignModal = (evt) => {
-	if (evt.target.closest('.collaboration__request')) {
+	if (evt.target.closest('.collaboration__request')
+		|| evt.target.closest('.panel-item--design')) {
 		evt.preventDefault();
 		openAllProps();
 

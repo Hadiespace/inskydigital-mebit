@@ -29,16 +29,15 @@ export const createFilterMobile = () => {
 				evt.target.classList.toggle('filter-mobile__button--active');
 				evt.target.nextElementSibling.classList.toggle('filter-mobile__list--active');
 				evt.target.nextElementSibling.nextElementSibling.classList.toggle('filter-mobile__more--active');
+				enablePageInert();
+				hideScroll();
+			}
 
-				if (evt.target.classList.contains('filter-mobile__button--active')) {
-					enablePageInert();
-					hideScroll();
-				} else {
-					setTimeout(() => {
-						disablePageInert();
-						showScroll();
-					}, 100);
-				}
+			if (evt.target.classList.contains('filter-mobile__close')) {
+				setTimeout(() => {
+					disablePageInert();
+					showScroll();
+				}, 100);
 			}
 		});
 	}

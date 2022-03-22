@@ -102,6 +102,11 @@
 	&[aria-expanded="false"] {
 		color: #fff;
 		background: transparent;
+
+		&:hover,
+		&:focus {
+			background: rgb(255 255 255 / 20%);
+		}
 	}
 
 	@media (max-width: 767px) {
