@@ -9,6 +9,7 @@ import {
 const modal = document.querySelector('.modal');
 const cartModal = document.querySelector('.cart-modal');
 const requestModal = document.querySelector('.request-modal');
+const settModal = document.querySelector('.sett-modal');
 const designModal = document.querySelector('.design-modal');
 const successModal = document.querySelector('.success-modal');
 const pageNavigation = document.querySelector('.page-navigation');
@@ -71,6 +72,47 @@ const createRequestModal = (evt) => {
 	}
 };
 
+let target = null;
+
+const createSettModal = (evt) => {
+	if (evt.target.closest('.active-card__preview-open')
+		&& evt.target.offsetParent.offsetParent.offsetParent.classList.contains('card--set')) {
+		openAllProps();
+
+		settModal.classList.add('sett-modal--open');
+		document.addEventListener('keydown', onSettModuleKeyDown);
+
+		const favorite = evt.target.offsetParent.offsetParent.querySelector('.card__favorite');
+
+		if (favorite.classList.contains('card__favorite--active')) {
+			settModal.querySelector('.sett-modal__favorite').classList.add('sett-modal__favorite--active');
+		} else {
+			settModal.querySelector('.sett-modal__favorite').classList.remove('sett-modal__favorite--active');
+		}
+
+		target = favorite;
+		evt.preventDefault();
+	}
+
+	if (evt.target.classList.contains('sett-modal__favorite')) {
+		target.click();
+
+		if (!evt.target.classList.contains('sett-modal__favorite--active')) {
+			evt.target.classList.add('sett-modal__favorite--active');
+		} else {
+			evt.target.classList.remove('sett-modal__favorite--active');
+		}
+	}
+
+	if (evt.target.closest('.sett-modal__close')) {
+		evt.preventDefault();
+		closeAllProps();
+
+		settModal.classList.remove('sett-modal--open');
+		document.removeEventListener('keydown', onSettModuleKeyDown);
+	}
+};
+
 const createDesignModal = (evt) => {
 	if (evt.target.closest('.collaboration__request')
 		|| evt.target.closest('.panel-item--design')) {
@@ -116,6 +158,14 @@ function onRequestModuleKeyDown(evt) {
 	}
 }
 
+function onSettModuleKeyDown(evt) {
+	if ((isEscEvent(evt))) {
+		closeAllProps();
+		settModal.classList.remove('sett-modal--open');
+		document.removeEventListener('keydown', onSettModuleKeyDown);
+	}
+}
+
 function onDesignModuleKeyDown(evt) {
 	if ((isEscEvent(evt))) {
 		closeAllProps();
@@ -156,13 +206,16 @@ export const createModal = () => {
 			closeAllProps();
 
 			cartModal.classList.remove('cart-modal--open');
+			settModal.classList.remove('sett-modal--open');
 
 			document.removeEventListener('keydown', onCartModuleKeyDown);
+			document.removeEventListener('keydown', onSettModuleKeyDown);
 		}
 
 		createCartModal(evt);
 		createRequestModal(evt);
 		createDesignModal(evt);
 		createSuccessModal(evt);
+		createSettModal(evt);
 	});
 };

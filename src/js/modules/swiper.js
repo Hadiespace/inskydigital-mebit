@@ -8,6 +8,7 @@ const cards = document.querySelectorAll('.card');
 const simpleCard = document.querySelectorAll('.simple-card');
 const products = document.querySelectorAll('.product');
 const results = document.querySelectorAll('.result__swiper-wrap');
+const settModal = document.querySelector('.sett-modal');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -386,6 +387,32 @@ const createResultSwiper = () => {
 	}
 };
 
+const createSettModalSwiper = () => {
+	if (settModal) {
+		const swiper = settModal.querySelector('.swiper');
+		const next = settModal.querySelector('.sett-modal__button--next');
+		const prev = settModal.querySelector('.sett-modal__button--prev');
+		const dots = settModal.querySelector('.sett-modal__dots');
+
+		new Swiper(swiper, {
+			modules: [Navigation, Pagination],
+			loop: true,
+			slidesPerView: 1,
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
@@ -396,4 +423,5 @@ export const generateSwiper = () => {
 	createSimpleCardSwiper();
 	createProductSwiper();
 	createResultSwiper();
+	createSettModalSwiper();
 };

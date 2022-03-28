@@ -1,7 +1,10 @@
 // CART MODAL
 .cart-modal {
 	position: relative;
+	z-index: -1;
 	display: grid;
+	grid-column: 1/-1;
+	grid-row: 1/2;
 	margin: auto;
 	padding: 100px 50px;
 	width: 100%;
@@ -12,6 +15,7 @@
 	pointer-events: none;
 
 	&--open {
+		z-index: 2;
 		opacity: 1;
 		pointer-events: visible;
 	}

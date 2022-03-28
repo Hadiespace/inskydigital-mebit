@@ -1,5 +1,9 @@
+-
+	const settModal = ['images/preview02.jpg', 'images/preview01.jpg', 'images/preview02.jpg'];
+	const simpleModal = ['images/preview01.jpg', 'images/preview02.jpg', 'images/preview01.jpg'];
+
 div.modal
-	//- Удаление из корзины
+	// Удаление из корзины
 	div.cart-modal
 		button.cart-modal__close.modal__close(type="button")
 			span.visually-hidden Закрыть окно
@@ -10,7 +14,7 @@ div.modal
 			div.cart-modal__buttons
 				button.cart-modal__button(type="button") Да
 				button.cart-modal__button(type="button") Нет
-	//- Оформление заявки
+	// Оформление заявки
 	div.request-modal
 		div.request-modal__container.container
 			button.request-modal__close.modal__close(type="button")
@@ -42,7 +46,7 @@ div.modal
 						a(href=policy) политикой конфиденциальности
 					span.request-modal__error.form__error
 			a.request-modal__link(href=shippingAndPayment) Доставка и оплата
-	//- Дизайн интерьера
+	// Дизайн интерьера
 	div.design-modal
 		div.design-modal__container.container
 			button.design-modal__close.modal__close(type="button")
@@ -76,7 +80,7 @@ div.modal
 					label.design-modal__label.form__label(for="design-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
 						a(href=policy) политикой конфиденциальности
 					span.design-modal__error.form__error
-	//- Успешная отправка
+	// Успешная отправка
 	div.success-modal
 		div.success-modal__container.container
 			button.success-modal__close.modal__close(type="button")
@@ -85,3 +89,83 @@ div.modal
 					use(xlink:href="images/sprite.svg#close")
 			p.success-modal__title.modal__title Спасибо!
 			p.success-modal__text Наш менеджер с Вами свяжется для уточнения деталей заказа
+	// Быстрый просмотр
+	div.sett-modal
+		div.sett-modal__container.container
+			div.sett-modal__info-wrap
+				button.sett-modal__close.modal__close(type="button")
+					span.visually-hidden Закрыть окно
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
+				p.sett-modal__title Спальня Charisma
+				div.sett-modal__content-wrapper
+					p.sett-modal__element
+						span Фабрика
+						a(href="index.html") De Majo
+					p.sett-modal__element.sett-modal__element--model
+						span Модель
+						a(href="index.html") Charisma
+					p.sett-modal__element
+						span Стиль
+						a Арт-деко
+					p.sett-modal__element
+						span Материал
+						a МДФ, кожа
+				div.sett-modal__center-wrapper
+					span.sett-modal__cost Цена от 324 000 ₽
+					span.sett-modal__status В наличии
+				button.sett-modal__get(type="button") Оставить заявку —
+				div.sett-modal__links
+					a.sett-modal__link.sett-modal__link--list(href="#") Список товаров
+					a.sett-modal__link.sett-modal__link--download(href="#") Скачать каталог
+			div.sett-modal__swiper-wrap
+				div.sett-modal__all-wrap
+					div.sett-modal__tags
+						span New
+						span Sale
+					button.sett-modal__favorite(type="button")
+						span.visually-hidden Добавить в избранное
+						svg(width="16", height="14", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#favorite")
+				div.sett-modal__swiper.swiper
+					ul.sett-modal__swiper-wrapper.swiper-wrapper
+						each slide in settModal
+							li.sett-modal__swiper-slide.swiper-slide
+								img(src=slide, alt="Фото")
+				div.sett-modal__buttons
+					button.sett-modal__button.sett-modal__button--prev(type="button")
+						span.visually-hidden Предыдущий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-prev")
+					button.sett-modal__button.sett-modal__button--next(type="button")
+						span.visually-hidden Следующий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-next")
+				div.sett-modal__dots
+	//- Превью фабрики
+		div.preview-modal
+			div.preview-modal__container.container
+				button.preview-modal__close.modal__close(type="button")
+					span.visually-hidden Закрыть окно
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
+				div.preview-modal__top-wrapper
+					p.preview-modal__title Каталог «The sofa collection»
+					a.preview-modal__open(href="#") Смотреть каталог
+					a.preview-modal__download(href="#", download)
+						span.visually-hidden Скачать каталог
+				div.preview-modal__swiper-wrap
+					div.preview-modal__swiper.swiper
+						ul.preview-modal__swiper-wrapper.swiper-wrapper
+							each slide in previewModal
+								li.preview-modal__swiper-slide.swiper-slide
+									img(src=slide, alt="Страница каталога")
+					div.preview-modal__buttons
+						button.preview-modal__button.preview-modal__button--prev(type="button")
+							span.visually-hidden Предыдущий слайд
+							svg(width="7", height="10", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#product-arrow-prev")
+						button.preview-modal__button.preview-modal__button--next(type="button")
+							span.visually-hidden Следующий слайд
+							svg(width="7", height="10", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#product-arrow-next")

@@ -3,7 +3,7 @@
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 100;
+	z-index: -100;
 	display: grid;
 	overflow: auto;
 	width: 100%;
@@ -15,6 +15,7 @@
 	pointer-events: none;
 
 	&--open {
+		z-index: 100;
 		opacity: 1;
 		pointer-events: visible;
 	}
