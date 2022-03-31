@@ -147,7 +147,7 @@ section.section
 										span!= tag
 						// Стоковое состояние
 						div.card__stock.stock-card
-							h2.stock-card__title!= item.title
+							h2.stock-card__title: a(href="/")!= item.title
 							span.stock-card__cost.stock-card__cost от #{item.costRu}
 							div.stock-card__image
 								img(src=item.image.src, alt=item.image.alt)

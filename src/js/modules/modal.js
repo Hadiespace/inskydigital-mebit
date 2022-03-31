@@ -10,7 +10,9 @@ const modal = document.querySelector('.modal');
 const cartModal = document.querySelector('.cart-modal');
 const requestModal = document.querySelector('.request-modal');
 const settModal = document.querySelector('.sett-modal');
+const simpleModal = document.querySelector('.simple-modal');
 const designModal = document.querySelector('.design-modal');
+const loopModal = document.querySelector('.loop-modal');
 const successModal = document.querySelector('.success-modal');
 const pageNavigation = document.querySelector('.page-navigation');
 
@@ -73,6 +75,7 @@ const createRequestModal = (evt) => {
 };
 
 let target = null;
+let target2 = null;
 
 const createSettModal = (evt) => {
 	if (evt.target.closest('.active-card__preview-open')
@@ -113,6 +116,67 @@ const createSettModal = (evt) => {
 	}
 };
 
+const createSimpleModal = (evt) => {
+	if (evt.target.closest('.active-card__preview-open')
+		&& evt.target.offsetParent.offsetParent.offsetParent.classList.contains('card--simple')) {
+		openAllProps();
+
+		simpleModal.classList.add('simple-modal--open');
+		document.addEventListener('keydown', onSimpleModuleKeyDown);
+
+		const favorite = evt.target.offsetParent.offsetParent.querySelector('.card__favorite');
+		const cart = evt.target.offsetParent.offsetParent.querySelector('.active-card__button');
+
+		if (favorite.classList.contains('card__favorite--active')) {
+			simpleModal.querySelector('.simple-modal__favorite').classList.add('simple-modal__favorite--active');
+		} else {
+			simpleModal.querySelector('.simple-modal__favorite').classList.remove('simple-modal__favorite--active');
+		}
+
+		if (cart.classList.contains('active-card__button--add')) {
+			simpleModal.querySelector('.simple-modal__add-to-cart').classList.add('simple-modal__add-to-cart--active');
+			simpleModal.querySelector('.simple-modal__add-to-cart').textContent = 'Убрать из корзины —';
+		} else {
+			simpleModal.querySelector('.simple-modal__add-to-cart').classList.remove('simple-modal__add-to-cart--active');
+			simpleModal.querySelector('.simple-modal__add-to-cart').textContent = 'Добавить в корзину —';
+		}
+
+		target = favorite;
+		target2 = cart;
+		evt.preventDefault();
+	}
+
+	if (evt.target.classList.contains('simple-modal__favorite')) {
+		target.click();
+
+		if (!evt.target.classList.contains('simple-modal__favorite--active')) {
+			evt.target.classList.add('simple-modal__favorite--active');
+		} else {
+			evt.target.classList.remove('simple-modal__favorite--active');
+		}
+	}
+
+	if (evt.target.classList.contains('simple-modal__add-to-cart')) {
+		target2.click();
+
+		if (!evt.target.classList.contains('simple-modal__add-to-cart--active')) {
+			evt.target.classList.add('simple-modal__add-to-cart--active');
+			evt.target.textContent = 'Убрать из корзины —';
+		} else {
+			evt.target.classList.remove('simple-modal__add-to-cart--active');
+			evt.target.textContent = 'Добавить в корзину —';
+		}
+	}
+
+	if (evt.target.closest('.simple-modal__close')) {
+		evt.preventDefault();
+		closeAllProps();
+
+		simpleModal.classList.remove('simple-modal--open');
+		document.removeEventListener('keydown', onSimpleModuleKeyDown);
+	}
+};
+
 const createDesignModal = (evt) => {
 	if (evt.target.closest('.collaboration__request')
 		|| evt.target.closest('.panel-item--design')) {
@@ -142,6 +206,25 @@ const createSuccessModal = (evt) => {
 	}
 };
 
+const createLoopModal = (evt) => {
+	if (evt.target.closest('.product__swiper-top-slide')
+		|| evt.target.closest('.product__loop')) {
+		evt.preventDefault();
+		openAllProps();
+
+		loopModal.classList.add('loop-modal--open');
+		document.addEventListener('keydown', onLoopModuleKeyDown);
+	}
+
+	if (evt.target.closest('.loop-modal__close')) {
+		evt.preventDefault();
+		closeAllProps();
+
+		loopModal.classList.remove('loop-modal--open');
+		document.removeEventListener('keydown', onLoopModuleKeyDown);
+	}
+};
+
 function onCartModuleKeyDown(evt) {
 	if ((isEscEvent(evt))) {
 		closeAllProps();
@@ -166,11 +249,27 @@ function onSettModuleKeyDown(evt) {
 	}
 }
 
+function onSimpleModuleKeyDown(evt) {
+	if ((isEscEvent(evt))) {
+		closeAllProps();
+		simpleModal.classList.remove('simple-modal--open');
+		document.removeEventListener('keydown', onSimpleModuleKeyDown);
+	}
+}
+
 function onDesignModuleKeyDown(evt) {
 	if ((isEscEvent(evt))) {
 		closeAllProps();
 		designModal.classList.remove('design-modal--open');
 		document.removeEventListener('keydown', onDesignModuleKeyDown);
+	}
+}
+
+function onLoopModuleKeyDown(evt) {
+	if ((isEscEvent(evt))) {
+		closeAllProps();
+		loopModal.classList.remove('loop-modal--open');
+		document.removeEventListener('keydown', onLoopModuleKeyDown);
 	}
 }
 
@@ -217,5 +316,27 @@ export const createModal = () => {
 		createDesignModal(evt);
 		createSuccessModal(evt);
 		createSettModal(evt);
+		createSimpleModal(evt);
+		createLoopModal(evt);
+
+		if (evt.target.classList.contains('sett-modal__get')) {
+			settModal.classList.remove('sett-modal--open');
+			document.removeEventListener('keydown', onSettModuleKeyDown);
+
+			setTimeout(() => {
+				requestModal.classList.add('request-modal--open');
+				document.addEventListener('keydown', onRequestModuleKeyDown);
+			}, 300);
+		}
+
+		if (evt.target.classList.contains('simple-modal__get')) {
+			simpleModal.classList.remove('simple-modal--open');
+			document.removeEventListener('keydown', onSimpleModuleKeyDown);
+
+			setTimeout(() => {
+				requestModal.classList.add('request-modal--open');
+				document.addEventListener('keydown', onRequestModuleKeyDown);
+			}, 300);
+		}
 	});
 };

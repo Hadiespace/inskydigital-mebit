@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay, Thumbs, Controller } from 'swiper';
 const preview = document.querySelector('.preview');
 const homeNew = document.querySelector('.home-new');
 const homeSpecial = document.querySelector('.home-special');
@@ -9,6 +9,7 @@ const simpleCard = document.querySelectorAll('.simple-card');
 const products = document.querySelectorAll('.product');
 const results = document.querySelectorAll('.result__swiper-wrap');
 const settModal = document.querySelector('.sett-modal');
+const simpleModal = document.querySelector('.simple-modal');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -281,8 +282,13 @@ const createProductSwiper = () => {
 			const prev = product.querySelector('.product__swiper-button--prev');
 			const dots = product.querySelector('.product__swiper-dots');
 
+			const loopModal = document.querySelector('.loop-modal .swiper');
+			const loopNext = document.querySelector('.loop-modal__swiper-button--next');
+			const loopPrev = document.querySelector('.loop-modal__swiper-button--prev');
+			const loopDots = document.querySelector('.loop-modal__dots');
+
 			const swiper = new Swiper(productSwiper2, {
-				modules: [Navigation],
+				modules: [Navigation, Controller],
 				loop: true,
 				speed: 300,
 				spaceBetween: 20,
@@ -305,8 +311,8 @@ const createProductSwiper = () => {
 				},
 			});
 
-			new Swiper(productSwiper, {
-				modules: [Navigation, Pagination, Thumbs],
+			const swiper3 = new Swiper(productSwiper, {
+				modules: [Navigation, Pagination, Thumbs, Controller],
 				loop: true,
 				spaceBetween: 20,
 				speed: 300,
@@ -323,6 +329,27 @@ const createProductSwiper = () => {
 					swiper: swiper,
 				},
 			});
+
+			const swiper2 = new Swiper(loopModal, {
+				modules: [Navigation, Pagination, Controller],
+				loop: true,
+				slidesPerView: 1,
+				speed: 300,
+				// spaceBetween: 20,
+				watchSlidesProgress: true,
+				navigation: {
+					nextEl: loopNext,
+					prevEl: loopPrev,
+				},
+				pagination: {
+					el: loopDots,
+					type: 'bullets',
+					clickable: true,
+				},
+			});
+
+			swiper3.controller.control = swiper2;
+			swiper2.controller.control = swiper3;
 		});
 	}
 };
@@ -413,6 +440,32 @@ const createSettModalSwiper = () => {
 	}
 };
 
+const createSimpleModalSwiper = () => {
+	if (simpleModal) {
+		const swiper = simpleModal.querySelector('.swiper');
+		const next = simpleModal.querySelector('.simple-modal__button--next');
+		const prev = simpleModal.querySelector('.simple-modal__button--prev');
+		const dots = simpleModal.querySelector('.simple-modal__dots');
+
+		new Swiper(swiper, {
+			modules: [Navigation, Pagination],
+			loop: true,
+			slidesPerView: 1,
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
@@ -424,4 +477,5 @@ export const generateSwiper = () => {
 	createProductSwiper();
 	createResultSwiper();
 	createSettModalSwiper();
+	createSimpleModalSwiper();
 };

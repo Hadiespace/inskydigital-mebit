@@ -78,7 +78,7 @@
 	pointer-events: none;
 
 	svg {
-		fill: none;
+		fill: transparent;
 		stroke: #131313;
 		stroke-width: 2px;
 		transition: fill .3s;
@@ -292,12 +292,16 @@
 		width: calc(100% + 30px);
 	}
 
-	@media (max-width: 767px) {
-		left: -10px;
-		top: -10px;
-		padding: 10px;
-		width: calc(100% + 20px);
+	@media (max-width: 1023px) {
+		display: none;
 	}
+
+	// @media (max-width: 767px) {
+	// 	left: -10px;
+	// 	top: -10px;
+	// 	padding: 10px;
+	// 	width: calc(100% + 20px);
+	// }
 }
 
 .active-card__article {

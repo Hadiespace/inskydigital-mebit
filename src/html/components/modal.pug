@@ -1,6 +1,18 @@
 -
 	const settModal = ['images/preview02.jpg', 'images/preview01.jpg', 'images/preview02.jpg'];
 	const simpleModal = ['images/preview01.jpg', 'images/preview02.jpg', 'images/preview01.jpg'];
+	const simRadioItems = ['160 × 200', '180 × 220', '200 × 240'];
+
+	const modalProductImages = [
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+		'images/product-image01.jpg',
+		'images/product-image02.jpg',
+	];
 
 div.modal
 	// Удаление из корзины
@@ -89,7 +101,7 @@ div.modal
 					use(xlink:href="images/sprite.svg#close")
 			p.success-modal__title.modal__title Спасибо!
 			p.success-modal__text Наш менеджер с Вами свяжется для уточнения деталей заказа
-	// Быстрый просмотр
+	// Быстрый просмотр (набор)
 	div.sett-modal
 		div.sett-modal__container.container
 			div.sett-modal__info-wrap
@@ -142,30 +154,96 @@ div.modal
 						svg(width="7", height="10", aria-hidden="true")
 							use(xlink:href="images/sprite.svg#product-arrow-next")
 				div.sett-modal__dots
-	//- Превью фабрики
-		div.preview-modal
-			div.preview-modal__container.container
-				button.preview-modal__close.modal__close(type="button")
+	// Быстрый просмотр (простая)
+	div.simple-modal
+		div.simple-modal__container.container
+			div.simple-modal__info-wrap
+				button.simple-modal__close.modal__close(type="button")
 					span.visually-hidden Закрыть окно
 					svg(width="10", height="10", aria-hidden="true")
 						use(xlink:href="images/sprite.svg#close")
-				div.preview-modal__top-wrapper
-					p.preview-modal__title Каталог «The sofa collection»
-					a.preview-modal__open(href="#") Смотреть каталог
-					a.preview-modal__download(href="#", download)
-						span.visually-hidden Скачать каталог
-				div.preview-modal__swiper-wrap
-					div.preview-modal__swiper.swiper
-						ul.preview-modal__swiper-wrapper.swiper-wrapper
-							each slide in previewModal
-								li.preview-modal__swiper-slide.swiper-slide
-									img(src=slide, alt="Страница каталога")
-					div.preview-modal__buttons
-						button.preview-modal__button.preview-modal__button--prev(type="button")
+				p.simple-modal__article Артикул: 23498549
+				p.simple-modal__title Кровать Alchemy New Silver
+				div.simple-modal__content-wrapper
+					p.simple-modal__element
+						span Фабрика
+						a(href="index.html") De Majo
+					p.simple-modal__element.simple-modal__element--model
+						span Модель
+						a(href="index.html") Charisma
+					p.simple-modal__element
+						span Стиль
+						a Арт-деко
+					p.simple-modal__element
+						span Материал
+						a МДФ, кожа
+					p.simple-modal__element
+						span Цвет
+						a
+							img(src="images/cart-color01.svg", alt="")
+							| Серый
+				div.simple-modal__size-wrapper
+					p.simple-modal__size
+						span Ширина
+						a 173 см
+					p.simple-modal__size
+						span Высота
+						a 110 см
+					p.simple-modal__size
+						span Глубина
+						a 212 см
+				div.simple-modal__center-wrapper
+					span.simple-modal__cost Цена от 324 000 ₽
+					span.simple-modal__status В наличии
+				div.simple-modal__bottom-wrap
+					+choiceRadio('160 × 200', 'size', simRadioItems).choice-radio--light.simple-modal__choice
+					button.simple-modal__add-to-cart.simple-modal__add-to-cart--active(type="button") Добавить в корзину —
+				a.simple-modal__link(href="#") Узнать больше о товаре →
+			div.simple-modal__swiper-wrap
+				div.simple-modal__all-wrap
+					div.simple-modal__tags
+						span New
+						span Sale
+					button.simple-modal__favorite(type="button")
+						span.visually-hidden Добавить в избранное
+						svg(width="16", height="14", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#favorite")
+				div.simple-modal__swiper.swiper
+					ul.sett-modal__swiper-wrapper.swiper-wrapper
+						each slide in settModal
+							li.simple-modal__swiper-slide.swiper-slide
+								img(src=slide, alt="Фото")
+				div.simple-modal__buttons
+					button.simple-modal__button.simple-modal__button--prev(type="button")
+						span.visually-hidden Предыдущий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-prev")
+					button.simple-modal__button.simple-modal__button--next(type="button")
+						span.visually-hidden Следующий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-next")
+				div.simple-modal__dots
+	if loopModal
+		// Только на страницах карточки товара (простая или набор)
+		div.loop-modal
+			div.loop-modal__container
+				button.loop-modal__close.modal__close(type="button")
+					span.visually-hidden Закрыть окно
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
+				div.loop-modal__swiper-wrap
+					div.loop-modal__buttons
+						button.loop-modal__swiper-button.loop-modal__swiper-button--prev(type="button")
 							span.visually-hidden Предыдущий слайд
-							svg(width="7", height="10", aria-hidden="true")
-								use(xlink:href="images/sprite.svg#product-arrow-prev")
-						button.preview-modal__button.preview-modal__button--next(type="button")
+							svg(width="10", height="20", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#loop-prev")
+						button.loop-modal__swiper-button.loop-modal__swiper-button--next(type="button")
 							span.visually-hidden Следующий слайд
-							svg(width="7", height="10", aria-hidden="true")
-								use(xlink:href="images/sprite.svg#product-arrow-next")
+							svg(width="10", height="20", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#loop-next")
+					div.loop-modal__swiper.swiper
+						ul.loop-modal__swiper-wrapper.swiper-wrapper
+							each slide in modalProductImages
+								li.loop-modal__swiper-slide.swiper-slide
+									img(src=slide, alt="Фото")
+					div.loop-modal__dots
