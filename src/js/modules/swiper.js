@@ -10,6 +10,8 @@ const products = document.querySelectorAll('.product');
 const results = document.querySelectorAll('.result__swiper-wrap');
 const settModal = document.querySelector('.sett-modal');
 const simpleModal = document.querySelector('.simple-modal');
+const settFormModal = document.querySelector('.sett-form-modal');
+const texture = document.querySelector('.texture');
 
 const createPreviewSwiper = () => {
 	if (preview) {
@@ -273,6 +275,64 @@ const createSimpleCardSwiper = () => {
 	}
 };
 
+const createTextureSwiper = () => {
+	if (texture) {
+		const textureSwiper = texture.querySelector('.texture .swiper');
+		const next = texture.querySelector('.texture__swiper-button--next');
+		const prev = texture.querySelector('.texture__swiper-button--prev');
+		const dots = texture.querySelector('.texture__swiper-dots');
+
+		new Swiper(textureSwiper, {
+			modules: [Navigation, Pagination],
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 10,
+				},
+				480: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+				1340: {
+					slidesPerView: 4,
+					allowTouchMove: false,
+				},
+				1600: {
+					slidesPerView: 4,
+					spaceBetween: 40,
+				},
+			},
+			pagination: {
+				el: dots,
+				type: 'bullets',
+				clickable: true,
+			},
+		});
+
+		const slides = texture.querySelectorAll('.texture__swiper-slide');
+
+		slides[0].querySelector('.texture__check').classList.add('texture__check--active');
+		document.addEventListener('click', (evt) => {
+			if (evt.target.closest('.texture__swiper-link')) {
+				evt.preventDefault();
+				slides.forEach((slide) => slide.querySelector('.texture__check').classList.remove('texture__check--active'));
+
+				const check = evt.target.parentElement.parentElement.querySelector('.texture__check');
+				check.classList.add('texture__check--active');
+			}
+		});
+	}
+};
+
 const createProductSwiper = () => {
 	if (products) {
 		products.forEach((product) => {
@@ -466,6 +526,42 @@ const createSimpleModalSwiper = () => {
 	}
 };
 
+const createSettFormModalSwiper = () => {
+	if (settFormModal) {
+		const settFormModalSwiper = settFormModal.querySelector('.sett-form-modal__swiper');
+		const productSwiper2 = settFormModal.querySelector('.sett-form-modal__swiper2');
+		const next = settFormModal.querySelector('.sett-form-modal__button--next');
+		const prev = settFormModal.querySelector('.sett-form-modal__button--prev');
+
+		const swiper = new Swiper(productSwiper2, {
+			modules: [Navigation],
+			loop: true,
+			speed: 300,
+			spaceBetween: 20,
+			watchSlidesProgress: true,
+			slidesPerView: 4,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+		});
+
+		new Swiper(settFormModalSwiper, {
+			modules: [Navigation, Thumbs],
+			loop: true,
+			spaceBetween: 20,
+			speed: 300,
+			navigation: {
+				nextEl: next,
+				prevEl: prev,
+			},
+			thumbs: {
+				swiper: swiper,
+			},
+		});
+	}
+};
+
 export const generateSwiper = () => {
 	createPreviewSwiper();
 	createHomeNewSwiper();
@@ -478,4 +574,6 @@ export const generateSwiper = () => {
 	createResultSwiper();
 	createSettModalSwiper();
 	createSimpleModalSwiper();
+	createSettFormModalSwiper();
+	createTextureSwiper();
 };

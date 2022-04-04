@@ -14,6 +14,8 @@ export const sendForm = () => {
 					evt.preventDefault();
 					const error = validateForm(form);
 					if (error === 0) {
+						const inputs = form.querySelectorAll('.design-modal__file-input');
+						const designFiles = form.querySelector('.design-modal__files');
 						const formData = new FormData(form);
 
 						// const request = await fetch(fetchPath, {
@@ -25,6 +27,10 @@ export const sendForm = () => {
 						// if (response.success) {
 						fromModalsToSuccess();
 						form.reset();
+						if (inputs) {
+							inputs.forEach((input) => input.classList.remove('design-modal__file-input--active'));
+							designFiles.innerHTML = '';
+						}
 						// }
 					}
 				});

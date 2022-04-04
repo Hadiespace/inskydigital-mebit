@@ -1,0 +1,34 @@
+-
+	const textures = [
+		{title: '[410] Botticino', image: 'images/texture01.jpg'},
+		{title: '[401] Pietra basaltiсa', image: 'images/texture02.jpg'},
+		{title: '[149] Piacentina', image: 'images/texture03.jpg'},
+		{title: '[402] Porfido reale', image: 'images/texture04.jpg'},
+		{title: '[408] Cemenro portland', image: 'images/texture05.jpg'},
+		{title: '[413] Cemenro antibes', image: 'images/texture06.jpg'},
+		{title: '[408] Cemenro portland', image: 'images/texture05.jpg'},
+		{title: '[413] Cemenro antibes', image: 'images/texture06.jpg'},
+	];
+
+section.texture
+	div.texture__container.container
+		h2.texture__title Фактура
+		div.texture__buttons
+			button.texture__swiper-button.texture__swiper-button--prev(type="button")
+				span.visually-hidden Предыдущий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-prev")
+			button.texture__swiper-button.texture__swiper-button--next(type="button")
+				span.visually-hidden Следующий слайд
+				svg(width="10", height="16", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#preview-next")
+		div.texture__swiper.swiper
+			ul.texture__swiper-wrapper.swiper-wrapper
+				each item in textures
+					li.texture__swiper-slide.swiper-slide
+						h3.texture__swiper-title
+							a.texture__swiper-link(href="/")= item.title
+						div.texture__swiper-image
+							img(src=item.image, alt="Текстура")
+							div.texture__check
+		div.texture__swiper-dots

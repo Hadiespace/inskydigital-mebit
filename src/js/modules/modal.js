@@ -14,6 +14,7 @@ const simpleModal = document.querySelector('.simple-modal');
 const designModal = document.querySelector('.design-modal');
 const loopModal = document.querySelector('.loop-modal');
 const successModal = document.querySelector('.success-modal');
+const settFormModal = document.querySelector('.sett-form-modal');
 const pageNavigation = document.querySelector('.page-navigation');
 
 const openAllProps = () => {
@@ -55,7 +56,6 @@ const createCartModal = (evt) => {
 
 const createRequestModal = (evt) => {
 	if (evt.target.closest('.application-cart__link')
-		|| evt.target.closest('.product__get-offer')
 		|| (evt.target.closest('.active-card__button') &&
 			evt.target.offsetParent.offsetParent.offsetParent.classList.contains('card--set'))) {
 		evt.preventDefault();
@@ -196,6 +196,33 @@ const createDesignModal = (evt) => {
 	}
 };
 
+const createSettFormModal = (evt) => {
+	if (evt.target.closest('.product__get-offer')) {
+		evt.preventDefault();
+		openAllProps();
+
+		const favorite = document.querySelector('.product__favorite');
+		const formFavorite = settFormModal.querySelector('.sett-form-modal__favorite');
+
+		if (favorite.classList.contains('product__favorite--active')) {
+			formFavorite.classList.add('sett-form-modal__favorite--active');
+		} else {
+			formFavorite.classList.remove('sett-form-modal__favorite--active');
+		}
+
+		settFormModal.classList.add('sett-form-modal--open');
+		document.addEventListener('keydown', onSettFormModuleKeyDown);
+	}
+
+	if (evt.target.closest('.sett-form-modal__close')) {
+		evt.preventDefault();
+		closeAllProps();
+
+		settFormModal.classList.remove('sett-form-modal--open');
+		document.removeEventListener('keydown', onSettFormModuleKeyDown);
+	}
+};
+
 const createSuccessModal = (evt) => {
 	if (evt.target.closest('.success-modal__close')) {
 		evt.preventDefault();
@@ -265,6 +292,14 @@ function onDesignModuleKeyDown(evt) {
 	}
 }
 
+function onSettFormModuleKeyDown(evt) {
+	if ((isEscEvent(evt))) {
+		closeAllProps();
+		settFormModal.classList.remove('sett-form-modal--open');
+		document.removeEventListener('keydown', onSettFormModuleKeyDown);
+	}
+}
+
 function onLoopModuleKeyDown(evt) {
 	if ((isEscEvent(evt))) {
 		closeAllProps();
@@ -286,11 +321,20 @@ export const fromModalsToSuccess = () => {
 		openAllProps();
 	}
 
-	designModal.classList.remove('design-modal--open');
-	document.removeEventListener('keydown', onDesignModuleKeyDown);
+	if (designModal) {
+		designModal.classList.remove('design-modal--open');
+		document.removeEventListener('keydown', onDesignModuleKeyDown);
+	}
 
-	requestModal.classList.remove('request-modal--open');
-	document.removeEventListener('keydown', onRequestModuleKeyDown);
+	if (requestModal) {
+		requestModal.classList.remove('request-modal--open');
+		document.removeEventListener('keydown', onRequestModuleKeyDown);
+	}
+
+	if (settFormModal) {
+		settFormModal.classList.remove('sett-form-modal--open');
+		document.removeEventListener('keydown', onSettFormModuleKeyDown);
+	}
 
 	setTimeout(() => {
 		successModal.classList.add('success-modal--open');
@@ -318,6 +362,7 @@ export const createModal = () => {
 		createSettModal(evt);
 		createSimpleModal(evt);
 		createLoopModal(evt);
+		createSettFormModal(evt);
 
 		if (evt.target.classList.contains('sett-modal__get')) {
 			settModal.classList.remove('sett-modal--open');
@@ -339,4 +384,19 @@ export const createModal = () => {
 			}, 300);
 		}
 	});
+
+	if (settFormModal) {
+		const favorite = document.querySelector('.product__favorite');
+		const formFavorite = settFormModal.querySelector('.sett-form-modal__favorite');
+
+		formFavorite.addEventListener('click', () => {
+			if (formFavorite.classList.contains('sett-form-modal__favorite--active')) {
+				formFavorite.classList.remove('sett-form-modal__favorite--active');
+				favorite.click();
+			} else {
+				formFavorite.classList.add('sett-form-modal__favorite--active');
+				favorite.click();
+			}
+		});
+	}
 };

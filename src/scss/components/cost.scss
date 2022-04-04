@@ -34,4 +34,19 @@
 		color: #131313;
 		background: #fff;
 	}
+
+	@media (max-width: 1023px) {
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 12px;
+		line-height: 16px;
+	}
+
+	@media (max-width: 479px) {
+		font-size: 10px;
+		line-height: 12px;
+	}
 }

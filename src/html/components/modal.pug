@@ -50,13 +50,11 @@ div.modal
 				div.request-modal__wrapper.form__wrapper
 					textarea.request-modal__input.request-modal__input--textarea.form__input(id="cart-comment", name="comment", placeholder="Комментарий")
 					label.visually-hidden(for="cart-comment") Оставьте комментарий
-					span.request-modal__error.form__error
 				button.request-modal__submit(type="submit") Оставить заявку —
 				div.request-modal__consent
 					input.request-modal__checkbox.visually-hidden(type="checkbox", id="cart-check", name="consent", checked, required)
 					label.request-modal__label.form__label(for="cart-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
 						a(href=policy) политикой конфиденциальности
-					span.request-modal__error.form__error
 			a.request-modal__link(href=shippingAndPayment) Доставка и оплата
 	// Дизайн интерьера
 	div.design-modal
@@ -82,16 +80,30 @@ div.modal
 				div.design-modal__wrapper.form__wrapper
 					textarea.design-modal__input.design-modal__input--textarea.form__input(id="design-comment", name="comment", placeholder="Комментарий")
 					label.visually-hidden(for="design-comment") Оставьте комментарий
-					span.design-modal__error.form__error
 				div.design-modal__wrapper.form__wrapper
-					input.visually-hidden(type="file", id="design-file", name="file", multiple)
-					label.design-modal__file(for="design-file") Прикрепить фото планировки
+					div.design-modal__file-wrap
+						input.design-modal__file-input(type="file", id="design-file14", name="file14")
+						input.design-modal__file-input(type="file", id="design-file13", name="file13")
+						input.design-modal__file-input(type="file", id="design-file12", name="file12")
+						input.design-modal__file-input(type="file", id="design-file11", name="file11")
+						input.design-modal__file-input(type="file", id="design-file10", name="file10")
+						input.design-modal__file-input(type="file", id="design-file9", name="file9")
+						input.design-modal__file-input(type="file", id="design-file8", name="file8")
+						input.design-modal__file-input(type="file", id="design-file7", name="file7")
+						input.design-modal__file-input(type="file", id="design-file6", name="file6")
+						input.design-modal__file-input(type="file", id="design-file5", name="file5")
+						input.design-modal__file-input(type="file", id="design-file4", name="file4")
+						input.design-modal__file-input(type="file", id="design-file3", name="file3")
+						input.design-modal__file-input(type="file", id="design-file2", name="file2")
+						input.design-modal__file-input(type="file", id="design-file1", name="file1")
+						input.design-modal__file-input(type="file", id="design-file0", name="file0")
+						a.design-modal__file: span Прикрепить фото планировки
+					div.design-modal__files
 				button.design-modal__submit(type="submit") Оставить заявку —
 				div.design-modal__consent
 					input.design-modal__checkbox.visually-hidden(type="checkbox", id="design-check", name="consent", checked, required)
 					label.design-modal__label.form__label(for="design-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
 						a(href=policy) политикой конфиденциальности
-					span.design-modal__error.form__error
 	// Успешная отправка
 	div.success-modal
 		div.success-modal__container.container
@@ -247,3 +259,62 @@ div.modal
 								li.loop-modal__swiper-slide.swiper-slide
 									img(src=slide, alt="Фото")
 					div.loop-modal__dots
+	// Оформление заявки (набор)
+	if settFormModal
+		div.sett-form-modal
+			div.sett-form-modal__container
+				button.sett-form-modal__close.modal__close(type="button")
+					span.visually-hidden Закрыть окно
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
+				div.sett-form-modal__swiper-wrap
+					div.sett-form-modal__all-wrap
+						a.sett-form-modal__link(href="index.html") Фабрика De Majo
+						p.sett-form-modal__title Спальня Alchemy New Silver
+						button.sett-form-modal__favorite(type="button")
+							span.visually-hidden Добавить в избранное
+							svg(width="16", height="14", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#favorite")
+					div.sett-form-modal__swiper.swiper
+						ul.sett-form-modal__swiper-wrapper.swiper-wrapper
+							each slide in modalProductImages
+								li.sett-form-modal__swiper-slide.swiper-slide
+									img(src=slide, alt="")
+					div.sett-form-modal__buttons
+						button.sett-form-modal__button.sett-form-modal__button--prev(type="button")
+							span.visually-hidden Предыдущий слайд
+							svg(width="7", height="10", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#product-arrow-prev")
+						button.sett-form-modal__button.sett-form-modal__button--next(type="button")
+							span.visually-hidden Следующий слайд
+							svg(width="7", height="10", aria-hidden="true")
+								use(xlink:href="images/sprite.svg#product-arrow-next")
+					div.sett-form-modal__swiper2.swiper
+						ul.sett-form-modal__swiper-wrapper2.swiper-wrapper
+							each slide in modalProductImages
+								li.sett-form-modal__swiper-slide2.swiper-slide
+									img(src=slide, alt="")
+				form.sett-form-modal__form.form
+					p.sett-form-modal__form-title Оставьте заявку
+					p.sett-form-modal__form-text Оставьте заявку и мы свяжемся с вами в ближайшее время!
+					div.sett-form-modal__wrap
+						div.sett-form-modal__wrapper.form__wrapper
+							input.sett-form-modal__input.form__input._req._name(type="text", id="sett-modal-name", name="name", placeholder="Введите ваше имя")
+							label.visually-hidden(for="sett-modal-name") Введите ваше имя
+							span.sett-form-modal__error.form__error
+						div.sett-form-modal__wrapper.sett-form-modal__wrapper--left.form__wrapper
+							input.sett-form-modal__input.form__input._req._tel(type="tel", id="sett-modal-tel", name="phone", placeholder="Телефон")
+							label.visually-hidden(for="sett-modal-tel") Ваш номер телефона
+							span.sett-form-modal__error.form__error
+						div.sett-form-modal__wrapper.sett-form-modal__wrapper--right.form__wrapper
+							input.sett-form-modal__input.form__input._req._email(type="email", id="sett-modal-email", name="email", placeholder="Email")
+							label.visually-hidden(for="sett-modal-email") Ваш email
+							span.sett-form-modal__error.form__error
+						div.sett-form-modal__wrapper.form__wrapper
+							textarea.sett-form-modal__input.sett-form-modal__input--textarea.form__input(id="sett-modal-comment", name="comment", placeholder="Комментарий")
+							label.visually-hidden(for="sett-modal-comment") Оставьте комментарий
+						button.sett-form-modal__submit(type="submit") Оставить заявку —
+						div.sett-form-modal__consent
+							input.sett-form-modal__checkbox.visually-hidden(type="checkbox", id="sett-modal-check", name="consent", checked, required)
+							label.sett-form-modal__label.form__label(for="sett-modal-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
+								a(href=policy) политикой конфиденциальности

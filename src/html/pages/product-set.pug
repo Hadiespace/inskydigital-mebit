@@ -3,6 +3,7 @@ extends ../layout.pug
 block const
 	- const currentPage = productSet;
 	- const loopModal = true;
+	- const settFormModal = true;
 
 block meta
 	title Кровать Alchemy
@@ -15,6 +16,7 @@ block content
 		a.crumbs__link(href=index) Спальни <span>→</span>
 		span.crumbs__current Спальня Alchemy
 	include ../components/product-sett
+	include ../components/texture
 	+productList('Собери свою спальню').product-list--border
 	+simpleCard('Недавно просмотренные').simple-card--border
 	+simpleCard('Вам может понравиться').simple-card--border

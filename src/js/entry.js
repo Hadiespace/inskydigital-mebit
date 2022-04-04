@@ -27,6 +27,8 @@ import { createChoice } from './modules/choice.js';
 import { createFilterMobile } from './modules/filter-mobile.js';
 import { sendForm } from './modules/send.js';
 import { initPhoneMask } from './modules/inputmask.js';
+import { createDesignFiles } from './modules/design.js';
+import { closeCookie } from './modules/cookie.js';
 
 testSupportWebp();
 changeMenuHeight();
@@ -55,3 +57,5 @@ addToCart();
 createChoice();
 createFilterMobile();
 sendForm();
+createDesignFiles();
+closeCookie();
