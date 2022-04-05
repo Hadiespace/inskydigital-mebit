@@ -14,18 +14,56 @@
 		'images/product-image02.jpg',
 	];
 
+	const catalogModal = [
+		'images/catalog-slide03.jpg',
+		'images/catalog-slide04.jpg',
+		'images/catalog-slide05.jpg',
+		'images/catalog-slide06.jpg',
+		'images/catalog-slide07.jpg',
+		'images/catalog-slide08.jpg',
+		'images/catalog-slide09.jpg',
+		'images/catalog-slide10.jpg',
+		'images/catalog-slide11.jpg',
+		'images/catalog-slide12.jpg',
+		'images/catalog-slide13.jpg',
+		'images/catalog-slide14.jpg',
+		'images/catalog-slide15.jpg',
+		'images/catalog-slide16.jpg',
+		'images/catalog-slide17.jpg',
+		'images/catalog-slide18.jpg',
+		'images/catalog-slide19.jpg',
+		'images/catalog-slide20.jpg',
+		'images/catalog-slide21.jpg',
+		'images/catalog-slide22.jpg',
+		'images/catalog-slide23.jpg',
+		'images/catalog-slide24.jpg',
+		'images/catalog-slide25.jpg',
+		'images/catalog-slide26.jpg',
+		'images/catalog-slide27.jpg',
+		'images/catalog-slide28.jpg',
+		'images/catalog-slide29.jpg',
+		'images/catalog-slide30.jpg',
+		'images/catalog-slide31.jpg',
+		'images/catalog-slide32.jpg',
+		'images/catalog-slide33.jpg',
+		'images/catalog-slide34.jpg',
+		'images/catalog-slide35.jpg',
+		'images/catalog-slide36.jpg',
+	];
+
 div.modal
-	// Удаление из корзины
-	div.cart-modal
-		button.cart-modal__close.modal__close(type="button")
-			span.visually-hidden Закрыть окно
-			svg(width="10", height="10", aria-hidden="true")
-				use(xlink:href="images/sprite.svg#close")
-		div.cart-modal__wrapper
-			p.cart-modal__title Вы уверены, что хотите удалить этот товар из корзины?
-			div.cart-modal__buttons
-				button.cart-modal__button(type="button") Да
-				button.cart-modal__button(type="button") Нет
+	if cartModal
+		// Только на странице с корзиной
+		div.cart-modal
+			button.cart-modal__close.modal__close(type="button")
+				span.visually-hidden Закрыть окно
+				svg(width="10", height="10", aria-hidden="true")
+					use(xlink:href="images/sprite.svg#close")
+			div.cart-modal__wrapper
+				p.cart-modal__title Вы уверены, что хотите удалить этот товар из корзины?
+				div.cart-modal__buttons
+					button.cart-modal__button(type="button") Да
+					button.cart-modal__button(type="button") Нет
 	// Оформление заявки
 	div.request-modal
 		div.request-modal__container.container
@@ -259,8 +297,8 @@ div.modal
 								li.loop-modal__swiper-slide.swiper-slide
 									img(src=slide, alt="Фото")
 					div.loop-modal__dots
-	// Оформление заявки (набор)
 	if settFormModal
+		// Только на странице карточки с набором
 		div.sett-form-modal
 			div.sett-form-modal__container
 				button.sett-form-modal__close.modal__close(type="button")
@@ -318,3 +356,47 @@ div.modal
 							input.sett-form-modal__checkbox.visually-hidden(type="checkbox", id="sett-modal-check", name="consent", checked, required)
 							label.sett-form-modal__label.form__label(for="sett-modal-check") Соглашаюсь с обработкой персональных данных в соответствии с&nbsp;
 								a(href=policy) политикой конфиденциальности
+	// Каталог
+	div.catalog-modal
+		div.catalog-modal__container.container
+			div.catalog-modal__info-wrap
+				button.catalog-modal__close.modal__close(type="button")
+					span.visually-hidden Закрыть окно
+					svg(width="10", height="10", aria-hidden="true")
+						use(xlink:href="images/sprite.svg#close")
+				p.catalog-modal__title Каталог «The sofa collection»
+				div.catalog-modal__content-wrapper
+					p.catalog-modal__element
+						span Фабрика
+						a(href="index.html") De Majo
+					p.catalog-modal__element
+						span Стиль
+						a Арт-деко
+					p.catalog-modal__element
+						span Материал
+						a МДФ, кожа
+				div.catalog-modal__links
+					a.catalog-modal__link.catalog-modal__link--print(href="index.html", target="_blank") Распечатать
+					a.catalog-modal__link.catalog-modal__link--download(href="index.html", download) Скачать каталог
+				button.catalog-modal__get(type="button") Оставить заявку —
+			div.catalog-modal__swiper-wrap
+				div.catalog-modal__swiper.swiper
+					ul.catalog-modal__swiper-wrapper.swiper-wrapper
+						each slide in catalogModal
+							li.catalog-modal__swiper-slide.swiper-slide
+								img(src=slide, alt="Фото")
+								button.catalog-modal__favorite(type="button")
+									span.visually-hidden Добавить в избранное
+									svg(width="16", height="14", aria-hidden="true")
+										use(xlink:href="images/sprite.svg#bookmark")
+				div.catalog-modal__buttons
+					button.catalog-modal__button.catalog-modal__button--prev(type="button")
+						span.visually-hidden Предыдущий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-prev")
+					button.catalog-modal__button.catalog-modal__button--next(type="button")
+						span.visually-hidden Следующий слайд
+						svg(width="7", height="10", aria-hidden="true")
+							use(xlink:href="images/sprite.svg#product-arrow-next")
+				div.catalog-modal__dots
+				div.catalog-modal__pages(data-page="2")

@@ -1,3 +1,5 @@
+import Swiper, { Navigation, Pagination } from 'swiper';
+
 import {
 	isEscEvent,
 	enablePageInert,
@@ -16,6 +18,7 @@ const loopModal = document.querySelector('.loop-modal');
 const successModal = document.querySelector('.success-modal');
 const settFormModal = document.querySelector('.sett-form-modal');
 const pageNavigation = document.querySelector('.page-navigation');
+const catalogModal = document.querySelector('.catalog-modal');
 
 const openAllProps = () => {
 	enablePageInert();
@@ -76,12 +79,39 @@ const createRequestModal = (evt) => {
 
 let target = null;
 let target2 = null;
+let swiperSett = null;
+
+if (settModal) {
+	const swiper = settModal.querySelector('.swiper');
+	const next = settModal.querySelector('.sett-modal__button--next');
+	const prev = settModal.querySelector('.sett-modal__button--prev');
+	const dots = settModal.querySelector('.sett-modal__dots');
+
+	swiperSett = new Swiper(swiper, {
+		modules: [Navigation, Pagination],
+		loop: true,
+		slidesPerView: 1,
+		speed: 300,
+		navigation: {
+			nextEl: next,
+			prevEl: prev,
+		},
+		pagination: {
+			el: dots,
+			type: 'bullets',
+			clickable: true,
+		},
+	});
+}
 
 const createSettModal = (evt) => {
 	if (evt.target.closest('.active-card__preview-open')
 		&& evt.target.offsetParent.offsetParent.offsetParent.classList.contains('card--set')) {
 		openAllProps();
 
+		if (swiperSett) {
+			swiperSett.update();
+		}
 		settModal.classList.add('sett-modal--open');
 		document.addEventListener('keydown', onSettModuleKeyDown);
 
@@ -116,11 +146,37 @@ const createSettModal = (evt) => {
 	}
 };
 
+let swiperSimple = null;
+
+if (simpleModal) {
+	const swiper = simpleModal.querySelector('.swiper');
+	const next = simpleModal.querySelector('.simple-modal__button--next');
+	const prev = simpleModal.querySelector('.simple-modal__button--prev');
+	const dots = simpleModal.querySelector('.simple-modal__dots');
+
+	swiperSimple = new Swiper(swiper, {
+		modules: [Navigation, Pagination],
+		loop: true,
+		slidesPerView: 1,
+		speed: 300,
+		navigation: {
+			nextEl: next,
+			prevEl: prev,
+		},
+		pagination: {
+			el: dots,
+			type: 'bullets',
+			clickable: true,
+		},
+	});
+}
+
 const createSimpleModal = (evt) => {
 	if (evt.target.closest('.active-card__preview-open')
 		&& evt.target.offsetParent.offsetParent.offsetParent.classList.contains('card--simple')) {
 		openAllProps();
 
+		swiperSimple.update();
 		simpleModal.classList.add('simple-modal--open');
 		document.addEventListener('keydown', onSimpleModuleKeyDown);
 
@@ -252,6 +308,63 @@ const createLoopModal = (evt) => {
 	}
 };
 
+let swiperCatalog = null;
+
+if (catalogModal) {
+	const swiper = catalogModal.querySelector('.swiper');
+	const next = catalogModal.querySelector('.catalog-modal__button--next');
+	const prev = catalogModal.querySelector('.catalog-modal__button--prev');
+	const dots = catalogModal.querySelector('.catalog-modal__pages');
+	const dotStart = Number(dots.dataset.page);
+
+	swiperCatalog = new Swiper(swiper, {
+		modules: [Navigation, Pagination],
+		slidesPerView: 1,
+		speed: 300,
+		navigation: {
+			nextEl: next,
+			prevEl: prev,
+		},
+		pagination: {
+			el: dots,
+			clickable: true,
+			renderBullet: function (index, className) {
+				return (
+					`<p class="${className}">Стр. ${dotStart + index}-${dotStart + index + 1}</p>`
+				);
+			},
+		},
+	});
+}
+
+const createCatalogModal = (evt) => {
+	if (evt.target.closest('.factories-list__item')
+		&& !evt.target.classList.contains('factories-list__button')) {
+		evt.preventDefault();
+		openAllProps();
+
+		swiperCatalog.update();
+		catalogModal.classList.add('catalog-modal--open');
+		document.addEventListener('keydown', onCatalogModuleKeyDown);
+	}
+
+	if (evt.target.closest('.catalog-modal__close')) {
+		evt.preventDefault();
+		closeAllProps();
+
+		catalogModal.classList.remove('catalog-modal--open');
+		document.removeEventListener('keydown', onCatalogModuleKeyDown);
+	}
+};
+
+function onCatalogModuleKeyDown(evt) {
+	if ((isEscEvent(evt))) {
+		closeAllProps();
+		catalogModal.classList.remove('catalog-modal--open');
+		document.removeEventListener('keydown', onCatalogModuleKeyDown);
+	}
+}
+
 function onCartModuleKeyDown(evt) {
 	if ((isEscEvent(evt))) {
 		closeAllProps();
@@ -363,6 +476,7 @@ export const createModal = () => {
 		createSimpleModal(evt);
 		createLoopModal(evt);
 		createSettFormModal(evt);
+		createCatalogModal(evt);
 
 		if (evt.target.classList.contains('sett-modal__get')) {
 			settModal.classList.remove('sett-modal--open');
@@ -377,6 +491,16 @@ export const createModal = () => {
 		if (evt.target.classList.contains('simple-modal__get')) {
 			simpleModal.classList.remove('simple-modal--open');
 			document.removeEventListener('keydown', onSimpleModuleKeyDown);
+
+			setTimeout(() => {
+				requestModal.classList.add('request-modal--open');
+				document.addEventListener('keydown', onRequestModuleKeyDown);
+			}, 300);
+		}
+
+		if (evt.target.classList.contains('catalog-modal__get')) {
+			catalogModal.classList.remove('catalog-modal--open');
+			document.removeEventListener('keydown', onCatalogModuleKeyDown);
 
 			setTimeout(() => {
 				requestModal.classList.add('request-modal--open');

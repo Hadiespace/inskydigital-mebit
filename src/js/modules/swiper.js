@@ -8,8 +8,8 @@ const cards = document.querySelectorAll('.card');
 const simpleCard = document.querySelectorAll('.simple-card');
 const products = document.querySelectorAll('.product');
 const results = document.querySelectorAll('.result__swiper-wrap');
-const settModal = document.querySelector('.sett-modal');
-const simpleModal = document.querySelector('.simple-modal');
+// const settModal = document.querySelector('.sett-modal');
+// const simpleModal = document.querySelector('.simple-modal');
 const settFormModal = document.querySelector('.sett-form-modal');
 const texture = document.querySelector('.texture');
 
@@ -26,6 +26,7 @@ const createPreviewSwiper = () => {
 			loop: true,
 			autoplay: {
 				delay: 5000,
+				disableOnInteraction: false,
 			},
 			speed: 300,
 			allowTouchMove: true,
@@ -149,6 +150,7 @@ const createAboutSwiper = () => {
 			slidesPerView: 1,
 			autoplay: {
 				delay: 5000,
+				disableOnInteraction: false,
 			},
 			loop: true,
 			speed: 300,
@@ -474,57 +476,55 @@ const createResultSwiper = () => {
 	}
 };
 
-const createSettModalSwiper = () => {
-	if (settModal) {
-		const swiper = settModal.querySelector('.swiper');
-		const next = settModal.querySelector('.sett-modal__button--next');
-		const prev = settModal.querySelector('.sett-modal__button--prev');
-		const dots = settModal.querySelector('.sett-modal__dots');
+// const createSettModalSwiper = () => {
+// 	if (settModal) {
+// 		const swiper = settModal.querySelector('.swiper');
+// 		const next = settModal.querySelector('.sett-modal__button--next');
+// 		const prev = settModal.querySelector('.sett-modal__button--prev');
+// 		const dots = settModal.querySelector('.sett-modal__dots');
 
-		new Swiper(swiper, {
-			modules: [Navigation, Pagination],
-			loop: true,
-			slidesPerView: 1,
-			speed: 300,
-			navigation: {
-				nextEl: next,
-				prevEl: prev,
-			},
-			pagination: {
-				el: dots,
-				type: 'bullets',
-				clickable: true,
-			},
-		});
+// 		const settSwiper = new Swiper(swiper, {
+// 			modules: [Navigation, Pagination],
+// 			loop: true,
+// 			slidesPerView: 1,
+// 			speed: 300,
+// 			navigation: {
+// 				nextEl: next,
+// 				prevEl: prev,
+// 			},
+// 			pagination: {
+// 				el: dots,
+// 				type: 'bullets',
+// 				clickable: true,
+// 			},
+// 		});
+// 	}
+// };
 
-	}
-};
+// const createSimpleModalSwiper = () => {
+// 	if (simpleModal) {
+// 		const swiper = simpleModal.querySelector('.swiper');
+// 		const next = simpleModal.querySelector('.simple-modal__button--next');
+// 		const prev = simpleModal.querySelector('.simple-modal__button--prev');
+// 		const dots = simpleModal.querySelector('.simple-modal__dots');
 
-const createSimpleModalSwiper = () => {
-	if (simpleModal) {
-		const swiper = simpleModal.querySelector('.swiper');
-		const next = simpleModal.querySelector('.simple-modal__button--next');
-		const prev = simpleModal.querySelector('.simple-modal__button--prev');
-		const dots = simpleModal.querySelector('.simple-modal__dots');
-
-		new Swiper(swiper, {
-			modules: [Navigation, Pagination],
-			loop: true,
-			slidesPerView: 1,
-			speed: 300,
-			navigation: {
-				nextEl: next,
-				prevEl: prev,
-			},
-			pagination: {
-				el: dots,
-				type: 'bullets',
-				clickable: true,
-			},
-		});
-
-	}
-};
+// 		new Swiper(swiper, {
+// 			modules: [Navigation, Pagination],
+// 			loop: true,
+// 			slidesPerView: 1,
+// 			speed: 300,
+// 			navigation: {
+// 				nextEl: next,
+// 				prevEl: prev,
+// 			},
+// 			pagination: {
+// 				el: dots,
+// 				type: 'bullets',
+// 				clickable: true,
+// 			},
+// 		});
+// 	}
+// };
 
 const createSettFormModalSwiper = () => {
 	if (settFormModal) {
@@ -572,8 +572,8 @@ export const generateSwiper = () => {
 	createSimpleCardSwiper();
 	createProductSwiper();
 	createResultSwiper();
-	createSettModalSwiper();
-	createSimpleModalSwiper();
+	// createSettModalSwiper();
+	// createSimpleModalSwiper();
 	createSettFormModalSwiper();
 	createTextureSwiper();
 };

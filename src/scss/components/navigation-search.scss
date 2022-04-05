@@ -98,6 +98,10 @@
 	}
 }
 
+.navigation-search__item .active-card__choice-wrapper {
+	grid-template-columns: 1fr;
+}
+
 .navigation-search__all-result {
 	display: flex;
 	align-items: center;
