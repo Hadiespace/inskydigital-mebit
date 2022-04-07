@@ -328,6 +328,12 @@
 	height: 34px;
 	background: #fff;
 	pointer-events: visible;
+	transition: background .3s;
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
+	}
 
 	svg {
 		fill: transparent;
@@ -444,6 +450,11 @@
 		transition: background .3s;
 		cursor: pointer;
 		pointer-events: visible;
+
+		&:hover,
+		&:focus {
+			background: #fff;
+		}
 	}
 
 	.swiper-pagination-bullet-active {

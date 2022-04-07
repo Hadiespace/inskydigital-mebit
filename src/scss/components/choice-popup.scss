@@ -90,5 +90,13 @@
 		fill: none;
 		stroke: rgb(19 19 19 / 30%);
 		stroke-width: 2px;
+		transition: stroke .3s;
+	}
+
+	&:hover,
+	&:focus {
+		svg {
+			stroke: #131313;
+		}
 	}
 }

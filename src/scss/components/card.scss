@@ -72,10 +72,16 @@
 	padding: 0;
 	width: 34px;
 	height: 34px;
-	background-color: #fff;
+	background: #fff;
 	opacity: 0;
 	transition: opacity .1s;
 	pointer-events: none;
+	transition: background .3s;
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
+	}
 
 	svg {
 		fill: transparent;
@@ -138,9 +144,15 @@
 	padding: 0;
 	width: 34px;
 	height: 34px;
-	background-color: #fff;
+	background: #fff;
 	opacity: 0;
 	pointer-events: none;
+	transition: background .3s;
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
+	}
 
 	svg {
 		fill: none;
@@ -430,8 +442,14 @@
 
 	.swiper-pagination-bullet {
 		height: 3px;
-		background-color: rgb(255 255 255 / 60%);
-		transition: background-color .3s;
+		cursor: pointer;
+		background: rgb(255 255 255 / 60%);
+		transition: background .3s;
+
+		&:hover,
+		&:focus {
+			background: #fff;
+		}
 	}
 
 	.swiper-pagination-bullet-active {

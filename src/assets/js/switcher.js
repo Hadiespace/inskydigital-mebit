@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		'11. Закладки': 'bookmarks.html',
 		'12. Избранное': 'favorites.html',
 		'13. Корзина': 'cart.html',
-		'14. Политика': 'policy.html',
-		'15. 404': '404.html',
-		'16. Результат поиска': 'result.html',
-		'16. Результат поиска (пустой)': 'result-empty.html',
+		'14. Корзина (пустая)': 'cart-empty.html',
+		'15. Политика': 'policy.html',
+		'16. 404': '404.html',
+		'17. Результат поиска': 'result.html',
+		'18. Результат поиска (пустой)': 'result-empty.html',
 	};
 
 	const link = '' +

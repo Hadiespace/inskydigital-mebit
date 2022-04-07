@@ -74,13 +74,19 @@
 	border-radius: 50%;
 	width: 34px;
 	height: 34px;
-	background: transparent;
+	background: #fff;
 	pointer-events: visible;
+	transition: background .3s;
 
 	svg {
 		fill: none;
 		stroke: #131313;
 		stroke-width: 1px !important;
+	}
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
 	}
 }
 
@@ -169,6 +175,11 @@
 		transition: background .3s;
 		cursor: pointer;
 		pointer-events: visible;
+
+		&:hover,
+		&:focus {
+			background: #fff;
+		}
 	}
 
 	.swiper-pagination-bullet-active {

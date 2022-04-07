@@ -164,11 +164,6 @@ const createAboutSwiper = () => {
 				type: 'bullets',
 				clickable: true,
 			},
-			breakpoints: {
-				1024: {
-					allowTouchMove: false,
-				},
-			},
 		});
 	}
 };
@@ -192,11 +187,6 @@ const createAboutPhotosSwiper = () => {
 			navigation: {
 				nextEl: next,
 				prevEl: prev,
-			},
-			breakpoints: {
-				1280: {
-					allowTouchMove: false,
-				},
 			},
 			pagination: {
 				el: dots,

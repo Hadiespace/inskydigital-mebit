@@ -110,10 +110,16 @@
 	padding: 0;
 	width: 34px;
 	height: 34px;
-	background-color: #fff;
+	background: #fff;
 	opacity: 0;
 	transition: opacity .3s;
 	pointer-events: none;
+	transition: background .3s;
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
+	}
 
 	svg {
 		fill: transparent;

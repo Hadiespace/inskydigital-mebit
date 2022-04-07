@@ -693,8 +693,14 @@
 	padding: 0;
 	width: 34px;
 	height: 34px;
-	background-color: #fff;
+	background: #fff;
 	pointer-events: visible;
+	transition: background .3s;
+
+	&:hover,
+	&:focus {
+		background: #E5E5E5;
+	}
 
 	svg {
 		fill: none;
