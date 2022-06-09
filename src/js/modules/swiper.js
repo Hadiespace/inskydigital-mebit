@@ -297,6 +297,7 @@ const createTextureSwiper = () => {
 				1340: {
 					slidesPerView: 4,
 					allowTouchMove: false,
+					spaceBetween: 40,
 				},
 				1600: {
 					slidesPerView: 4,
@@ -310,16 +311,29 @@ const createTextureSwiper = () => {
 			},
 		});
 
+		const allIcon = texture.querySelector('.texture__all-icon');
 		const slides = texture.querySelectorAll('.texture__swiper-slide');
 
-		slides[0].querySelector('.texture__check').classList.add('texture__check--active');
 		document.addEventListener('click', (evt) => {
 			if (evt.target.closest('.texture__swiper-link')) {
 				evt.preventDefault();
+				allIcon.classList.remove('texture__all-icon--active');
 				slides.forEach((slide) => slide.querySelector('.texture__check').classList.remove('texture__check--active'));
 
 				const check = evt.target.parentElement.parentElement.querySelector('.texture__check');
 				check.classList.add('texture__check--active');
+			}
+
+			if (evt.target.closest('.texture__all-check')) {
+				evt.preventDefault();
+
+				if (allIcon.classList.contains('texture__all-icon--active')) {
+					allIcon.classList.remove('texture__all-icon--active');
+					slides[0].querySelector('.texture__check').classList.add('texture__check--active');
+				} else {
+					allIcon.classList.add('texture__all-icon--active');
+					slides.forEach((slide) => slide.querySelector('.texture__check').classList.remove('texture__check--active'));
+				}
 			}
 		});
 	}
